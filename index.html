@@ -7,7 +7,38 @@
     <meta name="author" content="Hugo Muller">
     <title>Portfolio de Hugo Muller</title>
 </head>
-<body>
-    
-</body>
+    <header>
+    <h1>Portfolio — Hugo Muller</h1>
+    <p>BTS SIO — option SISR</p>
+  </header>
+
+  <main>
+    <section id="a-propos">
+      <h2>À propos</h2>
+      <p>Bienvenue! Je suis Hugo Muller, étudiant en BTS SIO (option SISR). Ce portfolio regroupe mes travaux pratiques, mes projets personnels et mes expériences professionnelles. L'objectif est de montrer ma progression technique et ma manière de travailler.</p>
+    </section>
+
+    <nav aria-label="Menu principal">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="cv.html">Mon CV</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+    </nav>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Me joindre: <a href="mailto:hugo.muller1304@gmail.com">hugo.muller1304@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Hugo Muller</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  
 </html>
