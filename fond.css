@@ -1,0 +1,25 @@
+body {
+  background-color: #f3f0e6; /* ivoire */
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.05) 75%);
+  background-size: 200px 200px;
+  background-position: 0 0, 0 100px, 100px -100px, -100px 0px;
+}
+
+header, main, footer {
+      background: rgba(255, 255, 255, 0.8); /* pour la lisibilité */
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+
+   
