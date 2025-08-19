@@ -23,7 +23,6 @@ body {
 }
 
 header,
-main,
 footer {
   background: rgba(255, 255, 255, 0.85);
   width: 100%;
@@ -32,8 +31,7 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-header,
-main {
+header {
   margin-bottom: 1rem;
 }
 
@@ -54,6 +52,12 @@ header .headings {
 }
 
 main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   flex: 1;
 }
 
