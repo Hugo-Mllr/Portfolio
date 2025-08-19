@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Hugo Muller">
-    <meta name="author" content="Hugo Muller">
-    <title>Portfolio de Hugo Muller</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fond.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Hugo Muller">
+  <meta name="author" content="Hugo Muller">
+  <title>Portfolio de Hugo Muller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fond.css">
 </head>
-    <body>
-        <header>
-            <h1>♟️ Portfolio — Hugo Muller ♟️</h1>
-            <p>BTS SIO — option SISR</p>
-        </header>
+<body>
+  <header>
+    <h1>Hugo Muller</h1>
+    <p>BTS SIO — option SISR</p>
+    <p class="tagline">Échecs et code : la stratégie au service du développement</p>
+  </header>
 
-        <main>
-            <section id="a-propos">
-            <h2>À propos</h2>
-            <p>Bienvenue! Je suis Hugo Muller, étudiant en BTS SIO (option SISR). Ce portfolio regroupe mes travaux pratiques, mes projets personnels et mes expériences professionnelles. L'objectif est de montrer ma progression technique et ma manière de travailler.</p>
-            </section>
+  <main>
+    <nav class="menu reveal" aria-label="Menu principal">
+      <h2>Menu</h2>
+      <div class="cards">
+        <a href="cv.html" class="card">
+          <span class="icon">♔</span>
+          <h3>CV</h3>
+        </a>
+        <a href="competences.html" class="card">
+          <span class="icon">♖</span>
+          <h3>Compétences</h3>
+        </a>
+        <a href="certifications.html" class="card">
+          <span class="icon">♗</span>
+          <h3>Certifications</h3>
+        </a>
+      </div>
+    </nav>
 
-            <nav aria-label="Menu principal">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="cv.html">♔ Mon CV</a></li>
-                <li><a href="competences.html">♖ Compétences</a></li>
-                <li><a href="certifications.html">♗ Certifications</a></li>
-            </ul>
-            </nav>
+    <section id="a-propos" class="reveal">
+      <h2>À propos</h2>
+      <p>Bienvenue ! Je suis Hugo Muller, étudiant en BTS SIO (option SISR). Ce portfolio regroupe mes travaux pratiques, mes projets personnels et mes expériences professionnelles. L'objectif est de montrer ma progression technique et ma manière de travailler.</p>
+    </section>
+  </main>
 
-            <section id="contact">
-            <h2>Contact</h2>
-            <p>Me joindre: <a href="mailto:hugo.muller1304@gmail.com">hugo.muller1304@gmail.com</a></p>
-            </section>
-        </main>
+  <footer>
+    <small>© <span id="year"></span> Hugo Muller - <a href="https://github.com/Hugo-Mllr" target="_blank" rel="noopener">GitHub</a></small>
+  </footer>
 
-        <footer>
-            <small>© <span id="year"></span> Hugo Muller</small>
-        </footer>
-
-        <script>
-            document.getElementById('year').textContent = new Date().getFullYear();
-        </script>
-    </body>
+  <script src="script.js"></script>
+</body>
 </html>
