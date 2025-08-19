@@ -61,6 +61,15 @@ main {
   flex: 1;
 }
 
+main nav {
+  display: block;      /* déjà par défaut, mais on précise */
+  padding: 20px;       /* un peu d’air interne */
+  margin: 40px 0;      /* espace vertical entre chaque bloc */
+  background: rgba(255,255,255,0.05); /* optionnel : léger fond translucide */
+  border-radius: 12px; /* optionnel : coins arrondis */
+}
+
+
 .cards {
   display: flex;
   flex-wrap: wrap;
