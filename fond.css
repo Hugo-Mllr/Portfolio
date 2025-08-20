@@ -46,10 +46,16 @@ header .headings {
   text-align: center;
 }
 
-.logo-placeholder,
+.logo,
 .actions-placeholder {
   flex: 0 0 50px;
 }
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
 
 main {
   width: 90%;
