@@ -111,6 +111,36 @@ main nav {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;     /* permet de passer à la ligne sur petit écran */
+  gap: 20px;           /* espace entre les cartes */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.row .card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.row .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.row img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+
 footer {
   text-align: center;
 }
