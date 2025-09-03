@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mentions légales et politique de confidentialité du portfolio de Hugo Muller - BTS SIO SISR. Conformité RGPD.">
+  <meta name="author" content="Hugo Muller">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>Mentions légales - Hugo Muller | Portfolio BTS SIO SISR</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0B0B0B',
+            'bg-secondary': '#1C1C1C',
+            'text-primary': '#EAEAEA',
+            'text-secondary': '#B8B8B8',
+            'accent-gold': '#CDA434',
+            'accent-gold-hover': '#E6B83C',
+            'alert-red': '#D90429',
+            'border-subtle': '#2A2A2A'
+          },
+          fontFamily: {
+            'text': ['Inter', 'sans-serif'],
+            'display': ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-variant-a">
+  <!-- Header avec navigation -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo / Nom -->
+        <div class="flex items-center space-x-3">
+          <img src="img/logo.png" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
+          <div>
+            <h1 class="text-xl font-display font-semibold text-text-primary">Hugo Muller</h1>
+            <p class="text-sm text-text-secondary">BTS SIO • SISR</p>
+          </div>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <nav class="hidden md:flex nav-variant-a" aria-label="Navigation principale">
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="text-text-secondary hover:text-accent-gold transition-colors">Accueil</a></li>
+            <li><a href="profil.html" class="text-text-secondary hover:text-accent-gold transition-colors">Profil</a></li>
+            <li><a href="projets.html" class="text-text-secondary hover:text-accent-gold transition-colors">Projets</a></li>
+            <li><a href="contact.html" class="text-text-secondary hover:text-accent-gold transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Menu Toggle Mobile -->
+        <button class="md:hidden menu-toggle" 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="mobile-menu"
+                aria-label="Ouvrir le menu de navigation">
+          <span class="text-2xl">♔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <div class="menu-overlay"></div>
+      <nav class="menu-content bg-bg-secondary border-t border-border-subtle" aria-label="Navigation mobile">
+        <div class="container py-6">
+          <div class="chess-menu">
+            <a href="index.html" class="chess-menu-item">
+              <span class="chess-icon">♔</span>
+              <span class="chess-label">Accueil</span>
+            </a>
+            <a href="profil.html" class="chess-menu-item">
+              <span class="chess-icon">♕</span>
+              <span class="chess-label">Profil</span>
+            </a>
+            <a href="projets.html" class="chess-menu-item">
+              <span class="chess-icon">♖</span>
+              <span class="chess-label">Projets</span>
+            </a>
+            <a href="contact.html" class="chess-menu-item">
+              <span class="chess-icon">♗</span>
+              <span class="chess-label">Contact</span>
+            </a>
+            <a href="CV.pdf" target="_blank" class="chess-menu-item">
+              <span class="chess-icon">♘</span>
+              <span class="chess-label">CV</span>
+            </a>
+            <a href="mentions.html" class="chess-menu-item">
+              <span class="chess-icon">♙</span>
+              <span class="chess-label">Mentions</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main id="main" class="flex-1">
+    <!-- Section Titre -->
+    <section class="py-16" aria-labelledby="page-title">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 id="page-title" class="text-3xl md:text-4xl font-display font-bold mb-4 reveal">
+            Mentions Légales & RGPD
+          </h2>
+          <p class="text-lg text-text-secondary max-w-2xl mx-auto reveal">
+            Informations légales, politique de confidentialité et gestion des données personnelles
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenu légal -->
+    <section class="py-8" aria-labelledby="legal-content">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          
+          <!-- Sommaire -->
+          <nav class="card mb-8 reveal" aria-labelledby="sommaire-title">
+            <h3 id="sommaire-title" class="text-lg font-semibold mb-4">Sommaire</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#editeur" class="text-accent-gold hover:text-accent-gold-hover underline">1. Éditeur du site</a></li>
+              <li><a href="#hebergement" class="text-accent-gold hover:text-accent-gold-hover underline">2. Hébergement</a></li>
+              <li><a href="#propriete" class="text-accent-gold hover:text-accent-gold-hover underline">3. Propriété intellectuelle</a></li>
+              <li><a href="#donnees" class="text-accent-gold hover:text-accent-gold-hover underline">4. Protection des données personnelles</a></li>
+              <li><a href="#cookies" class="text-accent-gold hover:text-accent-gold-hover underline">5. Cookies et traceurs</a></li>
+              <li><a href="#droits" class="text-accent-gold hover:text-accent-gold-hover underline">6. Vos droits</a></li>
+              <li><a href="#contact-rgpd" class="text-accent-gold hover:text-accent-gold-hover underline">7. Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="space-y-8">
+            
+            <!-- 1. Éditeur du site -->
+            <section id="editeur" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">1. Éditeur du site</h3>
+              <div class="space-y-3 text-text-secondary">
+                <p><strong>Nom :</strong> Hugo Muller</p>
+                <p><strong>Statut :</strong> Étudiant en BTS SIO option SISR</p>
+                <p><strong>Email :</strong> hugo.muller@exemple.fr</p>
+                <p><strong>Établissement :</strong> [Nom de votre établissement]</p>
+                <p><strong>Adresse :</strong> [Adresse de l'établissement]</p>
+              </div>
+              <p class="text-sm text-text-secondary mt-4">
+                Ce site constitue un portfolio étudiant réalisé dans le cadre de la formation BTS SIO (Services Informatiques aux Organisations) option SISR (Solutions d'Infrastructure, Systèmes et Réseaux).
+              </p>
+            </section>
+
+            <!-- 2. Hébergement -->
+            <section id="hebergement" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">2. Hébergement</h3>
+              <div class="space-y-3 text-text-secondary">
+                <p><strong>Hébergeur :</strong> GitHub, Inc.</p>
+                <p><strong>Service :</strong> GitHub Pages</p>
+                <p><strong>Adresse :</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis</p>
+                <p><strong>Site web :</strong> <a href="https://github.com" target="_blank" rel="noopener" class="text-accent-gold hover:text-accent-gold-hover underline">github.com</a></p>
+              </div>
+              <p class="text-sm text-text-secondary mt-4">
+                Les données sont hébergées sur les serveurs de GitHub Pages, soumis à la législation américaine et aux accords de transfert de données entre l'UE et les États-Unis.
+              </p>
+            </section>
+
+            <!-- 3. Propriété intellectuelle -->
+            <section id="propriete" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">3. Propriété intellectuelle</h3>
+              <div class="space-y-4 text-text-secondary">
+                <p>
+                  L'ensemble du contenu de ce site (textes, images, code source, design) est la propriété de Hugo Muller, sauf mention contraire.
+                </p>
+                <p>
+                  <strong>Droits d'utilisation :</strong>
+                </p>
+                <ul class="list-disc list-inside space-y-1 ml-4">
+                  <li>Le contenu est protégé par le droit d'auteur</li>
+                  <li>Toute reproduction, même partielle, est interdite sans autorisation</li>
+                  <li>Les liens vers ce site sont autorisés</li>
+                  <li>Le code source peut être consulté sur GitHub à des fins éducatives</li>
+                </ul>
+                <p>
+                  <strong>Ressources externes :</strong>
+                </p>
+                <ul class="list-disc list-inside space-y-1 ml-4">
+                  <li>Polices : Google Fonts (Inter, Playfair Display) - Licences SIL OFL</li>
+                  <li>Framework CSS : Tailwind CSS - Licence MIT</li>
+                  <li>Icônes : Emojis Unicode - Domaine public</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 4. Protection des données -->
+            <section id="donnees" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">4. Protection des données personnelles (RGPD)</h3>
+              <div class="space-y-4 text-text-secondary">
+                <p>
+                  Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi "Informatique et Libertés", nous vous informons sur le traitement de vos données personnelles.
+                </p>
+                
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.1 Responsable de traitement</h4>
+                  <p>Hugo Muller, étudiant, contact : hugo.muller@exemple.fr</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.2 Données collectées</h4>
+                  <p><strong>Via le formulaire de contact :</strong></p>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Nom et prénom</li>
+                    <li>Adresse email</li>
+                    <li>Sujet du message</li>
+                    <li>Contenu du message</li>
+                  </ul>
+                  <p class="mt-2"><strong>Données de navigation (automatiques) :</strong></p>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Adresse IP (anonymisée)</li>
+                    <li>Type de navigateur et version</li>
+                    <li>Pages consultées et durée de visite</li>
+                    <li>Provenance géographique (pays/région)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.3 Finalités du traitement</h4>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Répondre à vos demandes de contact</li>
+                    <li>Améliorer le contenu et la navigation du site</li>
+                    <li>Analyser l'audience (de manière anonyme)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.4 Base légale</h4>
+                  <p>Le traitement repose sur votre consentement (article 6.1.a du RGPD) pour le formulaire de contact et sur l'intérêt légitime (article 6.1.f) pour l'analyse d'audience.</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.5 Durée de conservation</h4>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Messages de contact : 2 ans maximum</li>
+                    <li>Données de navigation : 13 mois maximum</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">4.6 Destinataires</h4>
+                  <p>Vos données ne sont pas transmises à des tiers. Seul Hugo Muller y a accès pour répondre à vos demandes.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5. Cookies -->
+            <section id="cookies" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">5. Cookies et traceurs</h3>
+              <div class="space-y-4 text-text-secondary">
+                <p>
+                  Ce site utilise des technologies de stockage local pour améliorer votre expérience de navigation.
+                </p>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">5.1 Types de cookies utilisés</h4>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li><strong>Cookies techniques :</strong> Préférences d'affichage (mode navigation), sauvegarde de session</li>
+                    <li><strong>Cookies d'analyse :</strong> GitHub Pages peut collecter des statistiques anonymes</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">5.2 Gestion des cookies</h4>
+                  <p>Vous pouvez configurer votre navigateur pour :</p>
+                  <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>Accepter ou refuser tous les cookies</li>
+                    <li>Être informé à chaque dépôt de cookie</li>
+                    <li>Supprimer les cookies existants</li>
+                  </ul>
+                  <p class="mt-2 text-sm">
+                    <strong>Note :</strong> La désactivation des cookies peut affecter le fonctionnement de certaines fonctionnalités du site.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 6. Vos droits -->
+            <section id="droits" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">6. Vos droits RGPD</h3>
+              <div class="space-y-4 text-text-secondary">
+                <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit d'accès</h4>
+                    <p class="text-sm">Connaître les données que nous détenons sur vous</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit de rectification</h4>
+                    <p class="text-sm">Corriger des données inexactes ou incomplètes</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit d'effacement</h4>
+                    <p class="text-sm">Supprimer vos données ("droit à l'oubli")</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit de portabilité</h4>
+                    <p class="text-sm">Récupérer vos données dans un format lisible</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit d'opposition</h4>
+                    <p class="text-sm">Vous opposer au traitement de vos données</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-text-primary mb-2">✓ Droit de limitation</h4>
+                    <p class="text-sm">Limiter l'utilisation de vos données</p>
+                  </div>
+                </div>
+
+                <div class="bg-accent-gold bg-opacity-10 border border-accent-gold rounded-lg p-4 mt-6">
+                  <h4 class="font-semibold text-accent-gold mb-2">Comment exercer vos droits ?</h4>
+                  <p class="text-sm">
+                    Envoyez un email à <a href="mailto:hugo.muller@exemple.fr" class="text-accent-gold underline">hugo.muller@exemple.fr</a> 
+                    en précisant votre demande et en joignant une copie de votre pièce d'identité.
+                  </p>
+                  <p class="text-sm mt-2">
+                    <strong>Délai de réponse :</strong> 1 mois maximum (prolongeable de 2 mois si nécessaire)
+                  </p>
+                </div>
+
+                <p class="text-sm">
+                  <strong>Réclamation :</strong> Vous pouvez également introduire une réclamation auprès de la 
+                  <a href="https://www.cnil.fr" target="_blank" rel="noopener" class="text-accent-gold underline">CNIL</a> 
+                  si vous estimez que vos droits ne sont pas respectés.
+                </p>
+              </div>
+            </section>
+
+            <!-- 7. Contact -->
+            <section id="contact-rgpd" class="card reveal">
+              <h3 class="text-xl font-semibold mb-4 text-accent-gold">7. Contact et informations</h3>
+              <div class="space-y-4 text-text-secondary">
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">Questions sur vos données</h4>
+                  <p>Pour toute question relative à vos données personnelles ou à ces mentions légales :</p>
+                  <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
+                    <li>Email : <a href="mailto:hugo.muller@exemple.fr" class="text-accent-gold underline">hugo.muller@exemple.fr</a></li>
+                    <li>Formulaire de contact : <a href="contact.html" class="text-accent-gold underline">Page Contact</a></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">Mise à jour</h4>
+                  <p>Ces mentions légales peuvent être modifiées à tout moment. La date de dernière mise à jour est indiquée ci-dessous.</p>
+                  <p class="text-sm text-accent-gold mt-2">
+                    <strong>Dernière mise à jour :</strong> Septembre 2024
+                  </p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-text-primary mb-2">Droit applicable</h4>
+                  <p>Ces mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- Retour en haut -->
+          <div class="text-center mt-12 reveal">
+            <a href="#header" class="btn btn-secondary">
+              Retour en haut
+              <span aria-hidden="true">↑</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-text-secondary text-sm">
+          © <span id="year">2024</span> Hugo Muller - Portfolio BTS SIO SISR
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/Hugo-Mllr" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="GitHub de Hugo Muller">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/hugo-muller-6818a332b" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="LinkedIn de Hugo Muller">
+            LinkedIn
+          </a>
+          <a href="mentions.html" class="text-accent-gold font-medium" aria-current="page">
+            Mentions légales
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

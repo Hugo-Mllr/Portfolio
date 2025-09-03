@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Profil et compétences de Hugo Muller - BTS SIO SISR. Consultez mon CV et découvrez mes compétences techniques en systèmes et réseaux.">
+  <meta name="author" content="Hugo Muller">
+  <meta name="keywords" content="Hugo Muller, CV, compétences, BTS SIO, SISR, systèmes, réseaux, portfolio">
+  
+  <!-- OpenGraph / Social Media -->
+  <meta property="og:title" content="Profil - Hugo Muller | Portfolio BTS SIO SISR">
+  <meta property="og:description" content="Consultez mon CV et découvrez mes compétences techniques en systèmes et réseaux informatiques">
+  <meta property="og:type" content="website">
+  
+  <title>Profil - Hugo Muller | Portfolio BTS SIO SISR</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0B0B0B',
+            'bg-secondary': '#1C1C1C',
+            'text-primary': '#EAEAEA',
+            'text-secondary': '#B8B8B8',
+            'accent-gold': '#CDA434',
+            'accent-gold-hover': '#E6B83C',
+            'alert-red': '#D90429',
+            'border-subtle': '#2A2A2A'
+          },
+          fontFamily: {
+            'text': ['Inter', 'sans-serif'],
+            'display': ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-variant-a">
+  <!-- Barre de progression de lecture -->
+  <div class="progress-bar" role="progressbar" aria-label="Progression de lecture"></div>
+
+  <!-- Header avec navigation -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo / Nom -->
+        <div class="flex items-center space-x-3">
+          <img src="img/logo.png" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
+          <div>
+            <h1 class="text-xl font-display font-semibold text-text-primary">Hugo Muller</h1>
+            <p class="text-sm text-text-secondary">BTS SIO • SISR</p>
+          </div>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <nav class="hidden md:flex nav-variant-a" aria-label="Navigation principale">
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="text-text-secondary hover:text-accent-gold transition-colors">Accueil</a></li>
+            <li><a href="profil.html" class="text-accent-gold font-medium" aria-current="page">Profil</a></li>
+            <li><a href="projets.html" class="text-text-secondary hover:text-accent-gold transition-colors">Projets</a></li>
+            <li><a href="contact.html" class="text-text-secondary hover:text-accent-gold transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Menu Toggle Mobile -->
+        <button class="md:hidden menu-toggle" 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="mobile-menu"
+                aria-label="Ouvrir le menu de navigation">
+          <span class="text-2xl">♔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <div class="menu-overlay"></div>
+      <nav class="menu-content bg-bg-secondary border-t border-border-subtle" aria-label="Navigation mobile">
+        <div class="container py-6">
+          <div class="chess-menu">
+            <a href="index.html" class="chess-menu-item">
+              <span class="chess-icon">♔</span>
+              <span class="chess-label">Accueil</span>
+            </a>
+            <a href="profil.html" class="chess-menu-item">
+              <span class="chess-icon">♕</span>
+              <span class="chess-label">Profil</span>
+            </a>
+            <a href="projets.html" class="chess-menu-item">
+              <span class="chess-icon">♖</span>
+              <span class="chess-label">Projets</span>
+            </a>
+            <a href="contact.html" class="chess-menu-item">
+              <span class="chess-icon">♗</span>
+              <span class="chess-label">Contact</span>
+            </a>
+            <a href="CV.pdf" target="_blank" class="chess-menu-item">
+              <span class="chess-icon">♘</span>
+              <span class="chess-label">CV</span>
+            </a>
+            <a href="mentions.html" class="chess-menu-item">
+              <span class="chess-icon">♙</span>
+              <span class="chess-label">Mentions</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main id="main" class="flex-1">
+    <!-- Section Titre -->
+    <section class="py-16" aria-labelledby="page-title">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 id="page-title" class="text-3xl md:text-4xl font-display font-bold mb-4 reveal">
+            Mon Profil
+          </h2>
+          <p class="text-lg text-text-secondary max-w-2xl mx-auto reveal">
+            Découvrez mon parcours, mes compétences et téléchargez mon CV complet
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section CV -->
+    <section class="py-8 bg-bg-secondary" aria-labelledby="cv-title">
+      <div class="container">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 items-start">
+            <!-- Aperçu CV -->
+            <div class="reveal">
+              <h3 id="cv-title" class="text-2xl font-display font-semibold mb-6">Curriculum Vitae</h3>
+              <div class="bg-bg-primary rounded-lg border border-border-subtle p-6">
+                <div class="aspect-[3/4] bg-bg-secondary rounded-lg border border-border-subtle flex items-center justify-center mb-6">
+                  <div class="text-center">
+                    <div class="text-4xl text-accent-gold mb-2">📄</div>
+                    <p class="text-text-secondary text-sm">Aperçu du CV</p>
+                    <p class="text-text-secondary text-xs mt-1">Format PDF - 2 pages</p>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <a href="CV.pdf" 
+                     target="_blank" 
+                     class="btn btn-primary w-full justify-center">
+                    <span>📄</span>
+                    Télécharger le CV complet
+                    <span aria-hidden="true">↓</span>
+                  </a>
+                  <div class="text-xs text-text-secondary text-center">
+                    Dernière mise à jour : Septembre 2024
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Informations rapides -->
+            <div class="reveal">
+              <h3 class="text-2xl font-display font-semibold mb-6">Informations</h3>
+              <div class="space-y-4">
+                <!-- Carte Formation -->
+                <div class="card">
+                  <div class="flex items-start space-x-3">
+                    <div class="text-2xl text-accent-gold">🎓</div>
+                    <div>
+                      <h4 class="font-semibold mb-1">Formation actuelle</h4>
+                      <p class="text-text-secondary text-sm">BTS SIO option SISR - 2e année</p>
+                      <p class="text-text-secondary text-xs">2023-2025</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carte Objectif -->
+                <div class="card">
+                  <div class="flex items-start space-x-3">
+                    <div class="text-2xl text-accent-gold">🎯</div>
+                    <div>
+                      <h4 class="font-semibold mb-1">Objectif professionnel</h4>
+                      <p class="text-text-secondary text-sm">
+                        Devenir administrateur systèmes et réseaux avec une spécialisation en cybersécurité
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carte Disponibilité -->
+                <div class="card">
+                  <div class="flex items-start space-x-3">
+                    <div class="text-2xl text-accent-gold">📅</div>
+                    <div>
+                      <h4 class="font-semibold mb-1">Disponibilité</h4>
+                      <p class="text-text-secondary text-sm">
+                        Recherche de stage (6 semaines) - Janvier/Février 2025
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carte Contact -->
+                <div class="card">
+                  <div class="flex items-start space-x-3">
+                    <div class="text-2xl text-accent-gold">📧</div>
+                    <div>
+                      <h4 class="font-semibold mb-1">Contact</h4>
+                      <div class="space-y-1 text-sm text-text-secondary">
+                        <p>Email : hugo.muller@exemple.fr</p>
+                        <p>GitHub : Hugo-Mllr</p>
+                        <p>LinkedIn : hugo-muller-6818a332b</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section class="py-16" aria-labelledby="competences-title">
+      <div class="container">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12 reveal">
+            <h3 id="competences-title" class="text-2xl md:text-3xl font-display font-bold mb-4">
+              Mes Compétences
+            </h3>
+            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+              Compétences techniques et théoriques acquises durant ma formation
+            </p>
+          </div>
+
+          <!-- Filtres -->
+          <div class="flex flex-wrap justify-center gap-2 mb-8 reveal">
+            <button class="tag tag-gold competence-filter active" data-filter="all">
+              Toutes
+            </button>
+            <button class="tag competence-filter" data-filter="systemes">
+              Systèmes
+            </button>
+            <button class="tag competence-filter" data-filter="reseaux">
+              Réseaux
+            </button>
+            <button class="tag competence-filter" data-filter="securite">
+              Sécurité
+            </button>
+            <button class="tag competence-filter" data-filter="virtualisation">
+              Virtualisation
+            </button>
+            <button class="tag competence-filter" data-filter="outils">
+              Outils
+            </button>
+          </div>
+
+          <!-- Tableau des compétences -->
+          <div class="reveal">
+            <div class="bg-bg-secondary rounded-lg border border-border-subtle overflow-hidden">
+              <div class="overflow-x-auto">
+                <table class="w-full" role="table" aria-label="Tableau des compétences">
+                  <thead>
+                    <tr class="bg-bg-primary border-b border-border-subtle">
+                      <th class="text-left p-4 font-semibold text-text-primary">Compétence</th>
+                      <th class="text-left p-4 font-semibold text-text-primary">Niveau</th>
+                      <th class="text-left p-4 font-semibold text-text-primary">Contexte d'acquisition</th>
+                      <th class="text-left p-4 font-semibold text-text-primary">Catégorie</th>
+                    </tr>
+                  </thead>
+                  <tbody class="competences-table">
+                    <!-- Systèmes -->
+                    <tr class="border-b border-border-subtle competence-row" data-category="systemes">
+                      <td class="p-4">
+                        <div class="font-medium">Windows Server 2019/2022</div>
+                        <div class="text-sm text-text-secondary">Active Directory, GPO, DNS, DHCP</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 75%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Bon</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        TP en laboratoire, PPE, Stage 1re année
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Systèmes</span>
+                      </td>
+                    </tr>
+
+                    <tr class="border-b border-border-subtle competence-row" data-category="systemes">
+                      <td class="p-4">
+                        <div class="font-medium">Linux (Ubuntu, Debian)</div>
+                        <div class="text-sm text-text-secondary">Administration, scripts bash, services</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 70%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Bon</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        TP, projets personnels, autoformation
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Systèmes</span>
+                      </td>
+                    </tr>
+
+                    <!-- Réseaux -->
+                    <tr class="border-b border-border-subtle competence-row" data-category="reseaux">
+                      <td class="p-4">
+                        <div class="font-medium">Configuration Cisco</div>
+                        <div class="text-sm text-text-secondary">Switch, Router, VLAN, routage</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 65%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Intermédiaire</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        TP réseaux, Packet Tracer, simulateurs
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Réseaux</span>
+                      </td>
+                    </tr>
+
+                    <tr class="border-b border-border-subtle competence-row" data-category="reseaux">
+                      <td class="p-4">
+                        <div class="font-medium">Protocoles réseau</div>
+                        <div class="text-sm text-text-secondary">TCP/IP, HTTP/HTTPS, DNS, DHCP</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 80%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Bon</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        Cours théoriques, TP pratiques, certifications
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Réseaux</span>
+                      </td>
+                    </tr>
+
+                    <!-- Sécurité -->
+                    <tr class="border-b border-border-subtle competence-row" data-category="securite">
+                      <td class="p-4">
+                        <div class="font-medium">Cybersécurité</div>
+                        <div class="text-sm text-text-secondary">Fondamentaux, audit, bonnes pratiques</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 60%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Intermédiaire</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        Certifications Cisco, cours spécialisés
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Sécurité</span>
+                      </td>
+                    </tr>
+
+                    <!-- Virtualisation -->
+                    <tr class="border-b border-border-subtle competence-row" data-category="virtualisation">
+                      <td class="p-4">
+                        <div class="font-medium">VMware vSphere</div>
+                        <div class="text-sm text-text-secondary">Création, gestion VMs, vCenter</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 70%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Bon</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        TP virtualisation, projets laboratoire
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Virtualisation</span>
+                      </td>
+                    </tr>
+
+                    <!-- Outils -->
+                    <tr class="border-b border-border-subtle competence-row" data-category="outils">
+                      <td class="p-4">
+                        <div class="font-medium">PowerShell</div>
+                        <div class="text-sm text-text-secondary">Scripts d'administration, automatisation</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 65%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Intermédiaire</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        TP Windows Server, projets d'automatisation
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Outils</span>
+                      </td>
+                    </tr>
+
+                    <tr class="border-b border-border-subtle competence-row" data-category="outils">
+                      <td class="p-4">
+                        <div class="font-medium">Git / GitHub</div>
+                        <div class="text-sm text-text-secondary">Versioning, collaboration, workflow</div>
+                      </td>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-2">
+                          <div class="w-20 bg-bg-primary rounded-full h-2">
+                            <div class="bg-accent-gold h-2 rounded-full" style="width: 75%"></div>
+                          </div>
+                          <span class="text-sm text-text-secondary">Bon</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-text-secondary">
+                        Projets personnels, portfolio, collaboration
+                      </td>
+                      <td class="p-4">
+                        <span class="tag">Outils</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Légende niveaux -->
+          <div class="mt-6 text-center reveal">
+            <div class="inline-flex items-center space-x-6 text-sm text-text-secondary">
+              <div class="flex items-center space-x-2">
+                <div class="w-4 h-2 bg-accent-gold rounded" style="opacity: 0.4"></div>
+                <span>Débutant (0-40%)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-4 h-2 bg-accent-gold rounded" style="opacity: 0.7"></div>
+                <span>Intermédiaire (40-70%)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-4 h-2 bg-accent-gold rounded"></div>
+                <span>Bon (70%+)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-text-secondary text-sm">
+          © <span id="year">2024</span> Hugo Muller - Portfolio BTS SIO SISR
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/Hugo-Mllr" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="GitHub de Hugo Muller">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/hugo-muller-6818a332b" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="LinkedIn de Hugo Muller">
+            LinkedIn
+          </a>
+          <a href="mentions.html" class="text-text-secondary hover:text-accent-gold transition-colors">
+            Mentions légales
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Système de filtrage des compétences
+    document.addEventListener('DOMContentLoaded', function() {
+      const filters = document.querySelectorAll('.competence-filter');
+      const rows = document.querySelectorAll('.competence-row');
+      
+      filters.forEach(filter => {
+        filter.addEventListener('click', function() {
+          const filterValue = this.dataset.filter;
+          
+          // Mettre à jour les boutons actifs
+          filters.forEach(f => f.classList.remove('active', 'tag-gold'));
+          this.classList.add('active', 'tag-gold');
+          
+          // Filtrer les lignes
+          rows.forEach(row => {
+            if (filterValue === 'all' || row.dataset.category === filterValue) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

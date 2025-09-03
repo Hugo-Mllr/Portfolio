@@ -3,69 +3,363 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Hugo Muller">
+  <meta name="description" content="Portfolio de Hugo Muller - Étudiant BTS SIO option SISR. Découvrez mes projets, compétences et réalisations en systèmes et réseaux informatiques.">
   <meta name="author" content="Hugo Muller">
-  <title>Portfolio de Hugo Muller</title>
+  <meta name="keywords" content="BTS SIO, SISR, Hugo Muller, portfolio, systèmes, réseaux, informatique, cybersécurité">
+  
+  <!-- OpenGraph / Social Media -->
+  <meta property="og:title" content="Portfolio Hugo Muller - BTS SIO SISR">
+  <meta property="og:description" content="Étudiant BTS SIO option SISR, passionné par les systèmes et réseaux informatiques">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hugo-muller-portfolio.com">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio Hugo Muller - BTS SIO SISR">
+  <meta name="twitter:description" content="Étudiant BTS SIO option SISR, passionné par les systèmes et réseaux informatiques">
+  
+  <title>Accueil - Hugo Muller | Portfolio BTS SIO SISR</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="fond.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0B0B0B',
+            'bg-secondary': '#1C1C1C',
+            'text-primary': '#EAEAEA',
+            'text-secondary': '#B8B8B8',
+            'accent-gold': '#CDA434',
+            'accent-gold-hover': '#E6B83C',
+            'alert-red': '#D90429',
+            'border-subtle': '#2A2A2A'
+          },
+          fontFamily: {
+            'text': ['Inter', 'sans-serif'],
+            'display': ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-  <body>
-    <header class="site-header">
-      <img src="img/logo.png" alt="Logo de Hugo Muller" class="logo">
-      <div class="headings">
-        <h1>Hugo Muller</h1>
-        <p>BTS SIO — option SISR</p>
+
+<body class="nav-variant-a">
+  <!-- Barre de progression de lecture -->
+  <div class="progress-bar" role="progressbar" aria-label="Progression de lecture"></div>
+
+  <!-- Header avec navigation -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo / Nom -->
+        <div class="flex items-center space-x-3">
+          <img src="img/logo.png" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
+          <div>
+            <h1 class="text-xl font-display font-semibold text-text-primary">Hugo Muller</h1>
+            <p class="text-sm text-text-secondary">BTS SIO • SISR</p>
+          </div>
+        </div>
+
+        <!-- Navigation Desktop - Variante A (Topbar) -->
+        <nav class="hidden md:flex nav-variant-a" aria-label="Navigation principale">
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="text-accent-gold font-medium" aria-current="page">Accueil</a></li>
+            <li><a href="profil.html" class="text-text-secondary hover:text-accent-gold transition-colors">Profil</a></li>
+            <li><a href="projets.html" class="text-text-secondary hover:text-accent-gold transition-colors">Projets</a></li>
+            <li><a href="contact.html" class="text-text-secondary hover:text-accent-gold transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Menu Toggle Mobile -->
+        <button class="md:hidden menu-toggle" 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="mobile-menu"
+                aria-label="Ouvrir le menu de navigation">
+          <span class="text-2xl">♔</span>
+        </button>
       </div>
-      <div class="actions-placeholder" aria-hidden="true"></div>
-    </header>
+    </div>
 
-    <main>
-      <nav class="reveal" aria-label="Présentation du BTS SIO">
-        <h2>BTS SIO (Services Informatiques aux Organisations)</h2>
-        <p>Le BTS SIO forme en deux ans des techniciens capables de répondre aux besoins informatiques des entreprises.
-            <br>
-            Deux options existent :
-<br><br>
-
-- SISR (Solutions d’Infrastructure, Systèmes et Réseaux) : administration des réseaux, gestion des serveurs, cybersécurité et virtualisation.
-<br><br>
-- SLAM (Solutions Logicielles et Applications Métiers) : développement d’applications, programmation et bases de données.
-<br><br>
-L’option SISR, que j’ai choisie, me prépare aux métiers liés aux systèmes et réseaux : administrateur, technicien support, ou encore spécialiste en sécurité.</p>
-      </nav>
-
-      <nav class="reveal" aria-label="Présentation personnelle">
-        <h2>Présentation personnelle</h2>
-        <p>Bienvenue ! Je suis Hugo Muller, étudiant en BTS SIO (option SISR). 
-            Ce portfolio regroupe mes travaux pratiques, mes projets personnels et mes expériences professionnelles. 
-            L'objectif est de montrer ma progression technique et ma manière de travailler.</p>
-      </nav>
-
-      <nav class="menu reveal" aria-label="Menu principal">
-        <h2>Menu</h2>
-        <div class="cards">
-          <a href="CV.pdf" class="card" target="_blank">
-            <span class="icon">♔</span>
-            <h3>CV</h3>
-          </a>
-          <a href="competences.html" class="card">
-            <span class="icon">♖</span>
-            <h3>Compétences</h3>
-          </a>
-          <a href="certifications.html" class="card">
-            <span class="icon">♗</span>
-            <h3>Certifications</h3>
-          </a>
+    <!-- Menu Mobile - Variante B (Échiquier) -->
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <div class="menu-overlay"></div>
+      <nav class="menu-content bg-bg-secondary border-t border-border-subtle" aria-label="Navigation mobile">
+        <div class="container py-6">
+          <div class="chess-menu">
+            <a href="index.html" class="chess-menu-item">
+              <span class="chess-icon">♔</span>
+              <span class="chess-label">Accueil</span>
+            </a>
+            <a href="profil.html" class="chess-menu-item">
+              <span class="chess-icon">♕</span>
+              <span class="chess-label">Profil</span>
+            </a>
+            <a href="projets.html" class="chess-menu-item">
+              <span class="chess-icon">♖</span>
+              <span class="chess-label">Projets</span>
+            </a>
+            <a href="contact.html" class="chess-menu-item">
+              <span class="chess-icon">♗</span>
+              <span class="chess-label">Contact</span>
+            </a>
+            <a href="CV.pdf" target="_blank" class="chess-menu-item">
+              <span class="chess-icon">♘</span>
+              <span class="chess-label">CV</span>
+            </a>
+            <a href="mentions.html" class="chess-menu-item">
+              <span class="chess-icon">♙</span>
+              <span class="chess-label">Mentions</span>
+            </a>
+          </div>
         </div>
       </nav>
-    </main>
+    </div>
+  </header>
 
-    <footer>
-      <small>© <span id="year"></span> Hugo Muller - <a href="https://github.com/Hugo-Mllr" target="_blank" rel="noopener">GitHub</a> | <a href="https://www.linkedin.com/in/hugo-muller-6818a332b" target="_blank" rel="noopener">LinkedIn</a></small>
-    </footer>
+  <!-- Contenu principal -->
+  <main id="main" class="flex-1">
+    <!-- Section Hero -->
+    <section class="py-16 md:py-24" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Photo/Avatar -->
+            <div class="text-center md:text-left reveal">
+              <div class="inline-block relative">
+                <img src="img/logo.png" 
+                     alt="Photo de Hugo Muller" 
+                     class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-accent-gold shadow-lg"
+                     loading="eager">
+                <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center text-2xl">
+                  ♔
+                </div>
+              </div>
+            </div>
 
-    <script src="script.js"></script>
-  </body>
+            <!-- Contenu Hero -->
+            <div class="text-center md:text-left reveal">
+              <h2 id="hero-title" class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
+                Hugo Muller
+                <span class="block text-xl md:text-2xl text-accent-gold mt-2">
+                  Étudiant BTS SIO SISR
+                </span>
+              </h2>
+              <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+                Passionné par les <strong class="text-text-primary">systèmes et réseaux informatiques</strong>, 
+                je développe mes compétences en administration système, cybersécurité et infrastructure IT. 
+                Actuellement en 2e année de BTS SIO option SISR.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a href="profil.html" class="btn btn-primary">
+                  Découvrir mon profil
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a href="CV.pdf" target="_blank" class="btn btn-secondary">
+                  Télécharger CV
+                  <span aria-hidden="true">↓</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Parcours -->
+    <section class="py-16 bg-bg-secondary" aria-labelledby="parcours-title">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <h2 id="parcours-title" class="text-2xl md:text-3xl font-display font-bold text-center mb-12 reveal">
+            Mon Parcours
+          </h2>
+
+          <!-- Timeline -->
+          <div class="timeline reveal">
+            <div class="relative">
+              <!-- Ligne verticale centrale -->
+              <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-accent-gold hidden md:block"></div>
+
+              <!-- Éléments de timeline -->
+              <div class="space-y-8 md:space-y-12">
+                <!-- 2024-2025 -->
+                <div class="timeline-item flex flex-col md:flex-row items-center gap-4">
+                  <div class="md:w-1/2 md:text-right">
+                    <div class="bg-bg-primary p-6 rounded-lg border border-border-subtle">
+                      <h3 class="text-lg font-semibold text-accent-gold mb-2">2024-2025</h3>
+                      <h4 class="font-medium mb-2">BTS SIO SISR - 2e année</h4>
+                      <p class="text-text-secondary text-sm">
+                        Approfondissement des compétences en administration système, 
+                        virtualisation et cybersécurité. Stage en entreprise.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex-shrink-0 w-4 h-4 bg-accent-gold rounded-full border-4 border-bg-secondary"></div>
+                  <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 2023-2024 -->
+                <div class="timeline-item flex flex-col md:flex-row items-center gap-4">
+                  <div class="md:w-1/2"></div>
+                  <div class="flex-shrink-0 w-4 h-4 bg-accent-gold rounded-full border-4 border-bg-secondary"></div>
+                  <div class="md:w-1/2">
+                    <div class="bg-bg-primary p-6 rounded-lg border border-border-subtle">
+                      <h3 class="text-lg font-semibold text-accent-gold mb-2">2023-2024</h3>
+                      <h4 class="font-medium mb-2">BTS SIO SISR - 1re année</h4>
+                      <p class="text-text-secondary text-sm">
+                        Découverte des fondamentaux : réseaux, systèmes d'exploitation, 
+                        bases de la sécurité informatique. Premier stage de découverte.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="timeline-item flex flex-col md:flex-row items-center gap-4">
+                  <div class="md:w-1/2 md:text-right">
+                    <div class="bg-bg-primary p-6 rounded-lg border border-border-subtle">
+                      <h3 class="text-lg font-semibold text-accent-gold mb-2">2023</h3>
+                      <h4 class="font-medium mb-2">Baccalauréat</h4>
+                      <p class="text-text-secondary text-sm">
+                        Obtention du baccalauréat. Choix d'orientation vers les métiers 
+                        de l'informatique et des réseaux.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex-shrink-0 w-4 h-4 bg-accent-gold rounded-full border-4 border-bg-secondary"></div>
+                  <div class="md:w-1/2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Projet Professionnel -->
+    <section class="py-16" aria-labelledby="projet-title">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12 reveal">
+            <h2 id="projet-title" class="text-2xl md:text-3xl font-display font-bold mb-4">
+              Mon Projet Professionnel
+            </h2>
+            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+              Mes objectifs et ambitions dans le domaine des systèmes et réseaux informatiques
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Objectif 1 -->
+            <div class="card reveal">
+              <div class="text-accent-gold text-3xl mb-4">🔧</div>
+              <h3 class="text-lg font-semibold mb-3">Administration Système</h3>
+              <p class="text-text-secondary text-sm">
+                Maîtriser l'administration des systèmes Linux et Windows Server, 
+                la virtualisation et l'automatisation des tâches.
+              </p>
+            </div>
+
+            <!-- Objectif 2 -->
+            <div class="card reveal">
+              <div class="text-accent-gold text-3xl mb-4">🛡️</div>
+              <h3 class="text-lg font-semibold mb-3">Cybersécurité</h3>
+              <p class="text-text-secondary text-sm">
+                Développer une expertise en sécurité des systèmes d'information, 
+                audit de sécurité et mise en place de solutions de protection.
+              </p>
+            </div>
+
+            <!-- Objectif 3 -->
+            <div class="card reveal">
+              <div class="text-accent-gold text-3xl mb-4">🌐</div>
+              <h3 class="text-lg font-semibold mb-3">Infrastructure Réseau</h3>
+              <p class="text-text-secondary text-sm">
+                Concevoir et maintenir des architectures réseau robustes, 
+                optimiser les performances et assurer la haute disponibilité.
+              </p>
+            </div>
+
+            <!-- Objectif 4 -->
+            <div class="card reveal">
+              <div class="text-accent-gold text-3xl mb-4">☁️</div>
+              <h3 class="text-lg font-semibold mb-3">Cloud Computing</h3>
+              <p class="text-text-secondary text-sm">
+                Me spécialiser dans les technologies cloud (AWS, Azure, GCP) 
+                et les solutions d'infrastructure as code.
+              </p>
+            </div>
+
+            <!-- Objectif 5 -->
+            <div class="card reveal">
+              <div class="text-accent-gold text-3xl mb-4">🎓</div>
+              <h3 class="text-lg font-semibold mb-3">Formation Continue</h3>
+              <p class="text-text-secondary text-sm">
+                Poursuivre en licence professionnelle ou école d'ingénieur 
+                pour approfondir mes compétences techniques et managériales.
+              </p>
+            </div>
+
+            <!-- CTA -->
+            <div class="card bg-accent-gold text-bg-primary reveal">
+              <div class="text-4xl mb-4">🚀</div>
+              <h3 class="text-lg font-semibold mb-3">Mon Ambition</h3>
+              <p class="text-sm mb-4 opacity-90">
+                Devenir un expert reconnu en infrastructure IT et contribuer 
+                à la transformation digitale des entreprises.
+              </p>
+              <a href="profil.html" class="btn bg-bg-primary text-accent-gold hover:bg-bg-secondary">
+                Voir mes compétences
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-text-secondary text-sm">
+          © <span id="year">2024</span> Hugo Muller - Portfolio BTS SIO SISR
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/Hugo-Mllr" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="GitHub de Hugo Muller">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/hugo-muller-6818a332b" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-text-secondary hover:text-accent-gold transition-colors"
+             aria-label="LinkedIn de Hugo Muller">
+            LinkedIn
+          </a>
+          <a href="mentions.html" class="text-text-secondary hover:text-accent-gold transition-colors">
+            Mentions légales
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
