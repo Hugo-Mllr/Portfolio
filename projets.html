@@ -60,7 +60,7 @@
           <img src="img/logo.png" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
           <div>
             <h1 class="text-xl font-display font-semibold text-text-primary">Hugo Muller</h1>
-            <p class="text-sm text-text-secondary">BTS SIO • SISR</p>
+            <p class="text-sm text-text-secondary">BTS SIO • SISR • 2e année 2025-2026</p>
           </div>
         </div>
 
@@ -69,8 +69,8 @@
           <ul class="flex space-x-6">
             <li><a href="index.html" class="text-text-secondary hover:text-accent-gold transition-colors">Accueil</a></li>
             <li><a href="profil.html" class="text-text-secondary hover:text-accent-gold transition-colors">Profil</a></li>
+            <li><a href="competences.html" class="text-text-secondary hover:text-accent-gold transition-colors">Compétences</a></li>
             <li><a href="projets.html" class="text-accent-gold font-medium" aria-current="page">Projets</a></li>
-            <li><a href="contact.html" class="text-text-secondary hover:text-accent-gold transition-colors">Contact</a></li>
           </ul>
         </nav>
 
@@ -99,21 +99,17 @@
               <span class="chess-icon">♕</span>
               <span class="chess-label">Profil</span>
             </a>
+            <a href="competences.html" class="chess-menu-item">
+              <span class="chess-icon">♗</span>
+              <span class="chess-label">Compétences</span>
+            </a>
             <a href="projets.html" class="chess-menu-item">
               <span class="chess-icon">♖</span>
               <span class="chess-label">Projets</span>
             </a>
-            <a href="contact.html" class="chess-menu-item">
-              <span class="chess-icon">♗</span>
-              <span class="chess-label">Contact</span>
-            </a>
             <a href="CV.pdf" target="_blank" class="chess-menu-item">
-              <span class="chess-icon">♘</span>
-              <span class="chess-label">CV</span>
-            </a>
-            <a href="mentions.html" class="chess-menu-item">
               <span class="chess-icon">♙</span>
-              <span class="chess-label">Mentions</span>
+              <span class="chess-label">CV</span>
             </a>
           </div>
         </div>
@@ -131,7 +127,7 @@
             Mes Projets & Réalisations
           </h2>
           <p class="text-lg text-text-secondary max-w-2xl mx-auto reveal">
-            Découvrez mes stages, projets personnalisés de professionnalisation et travaux pratiques
+            Découvrez mes certifications et mes réalisations portfolio
           </p>
         </div>
       </div>
@@ -146,20 +142,11 @@
             <button class="tag tag-gold project-filter active" data-filter="all">
               Tous les projets
             </button>
-            <button class="tag project-filter" data-filter="stages">
-              Stages
-            </button>
-            <button class="tag project-filter" data-filter="ppe">
-              PPE
-            </button>
-            <button class="tag project-filter" data-filter="tp">
-              Travaux Pratiques
-            </button>
-            <button class="tag project-filter" data-filter="perso">
-              Projets Personnels
-            </button>
             <button class="tag project-filter" data-filter="certifications">
               Certifications
+            </button>
+            <button class="tag project-filter" data-filter="portfolio">
+              Portfolio
             </button>
           </div>
         </div>
@@ -175,192 +162,133 @@
           <!-- Grille des projets -->
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Projet Stage 2e année -->
-            <article class="card project-card reveal" data-category="stages">
+            <!-- Certification Fortinet -->
+            <article class="card project-card reveal" data-category="certifications">
               <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🏢</div>
+                <div class="text-4xl text-accent-gold">🛡️</div>
               </div>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">Stage</span>
-                <span class="tag">2e année</span>
-                <span class="tag">En cours</span>
+                <span class="tag">Certification</span>
+                <span class="tag">Fortinet</span>
+                <span class="tag">2024</span>
               </div>
               <h4 class="text-lg font-semibold mb-2">
-                Stage de 2e année BTS SIO
+                Fortinet Cybersecurity Fundamentals
               </h4>
               <p class="text-text-secondary text-sm mb-4">
-                Stage de 6 semaines en entreprise prévu pour janvier-février 2025. 
-                Recherche active d'une entreprise spécialisée en infrastructure IT.
+                Certification validant les fondamentaux de la cybersécurité : menaces, vulnérabilités, 
+                contrôles de sécurité et bonnes pratiques de l'industrie.
               </p>
               <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Jan-Fév 2025 (6 semaines)</div>
-                <div><strong>Objectif :</strong> Administration système et réseau</div>
-                <div><strong>Statut :</strong> En recherche</div>
+                <div><strong>Obtenue :</strong> Août 2024</div>
+                <div><strong>Domaines :</strong> Threats, Vulnerabilities, Security Controls</div>
+                <div><strong>Validité :</strong> 3 ans</div>
               </div>
               <div class="mt-4 pt-4 border-t border-border-subtle">
-                <button class="btn btn-secondary w-full text-sm" disabled>
-                  Stage à venir
-                </button>
+                <a href="certifications.html" class="btn btn-primary w-full text-sm">
+                  Voir le certificat
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </article>
 
-            <!-- Projet Stage 1re année -->
-            <article class="card project-card reveal" data-category="stages">
+            <!-- Certification Cisco -->
+            <article class="card project-card reveal" data-category="certifications">
+              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
+                <div class="text-4xl text-accent-gold">🔒</div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Certification</span>
+                <span class="tag">Cisco</span>
+                <span class="tag">2024</span>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">
+                Introduction to Cybersecurity
+              </h4>
+              <p class="text-text-secondary text-sm mb-4">
+                Formation Cisco couvrant les concepts fondamentaux de la cybersécurité, 
+                les types d'attaques et les méthodes de protection.
+              </p>
+              <div class="space-y-2 text-xs text-text-secondary">
+                <div><strong>Obtenue :</strong> Juillet 2024</div>
+                <div><strong>Domaines :</strong> Security threats, Protection methods</div>
+                <div><strong>Plateforme :</strong> Cisco Networking Academy</div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border-subtle">
+                <a href="certifications.html" class="btn btn-primary w-full text-sm">
+                  Voir le certificat
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Certification Red Hat -->
+            <article class="card project-card reveal" data-category="certifications">
+              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
+                <div class="text-4xl text-accent-gold">�</div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="tag">Certification</span>
+                <span class="tag">Red Hat</span>
+                <span class="tag">2024</span>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">
+                Getting Started with Linux
+              </h4>
+              <p class="text-text-secondary text-sm mb-4">
+                Certification Red Hat sur les fondamentaux de Linux : ligne de commande, 
+                système de fichiers, permissions et administration de base.
+              </p>
+              <div class="space-y-2 text-xs text-text-secondary">
+                <div><strong>Obtenue :</strong> Septembre 2024</div>
+                <div><strong>Domaines :</strong> Command line, File system, Permissions</div>
+                <div><strong>Plateforme :</strong> Red Hat Training</div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-border-subtle">
+                <a href="certifications.html" class="btn btn-primary w-full text-sm">
+                  Voir le certificat
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Certification Junior Cybersecurity Analyst -->
+            <article class="card project-card reveal" data-category="certifications">
               <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
                 <div class="text-4xl text-accent-gold">🎯</div>
               </div>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">Stage</span>
-                <span class="tag">1re année</span>
-                <span class="tag">Terminé</span>
+                <span class="tag">Certification</span>
+                <span class="tag">Cybersecurity</span>
+                <span class="tag">2024</span>
               </div>
               <h4 class="text-lg font-semibold mb-2">
-                Stage de découverte en support IT
+                Junior Cybersecurity Analyst
               </h4>
               <p class="text-text-secondary text-sm mb-4">
-                Première expérience professionnelle en support technique utilisateur. 
-                Découverte du métier et des enjeux de l'assistance informatique.
+                Parcours complet de formation pour devenir analyste cybersécurité junior : 
+                analyse de menaces, investigation d'incidents et outils de sécurité.
               </p>
               <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Mai-Juin 2024 (4 semaines)</div>
-                <div><strong>Missions :</strong> Support utilisateur, maintenance</div>
-                <div><strong>Technologies :</strong> Windows, Office 365</div>
+                <div><strong>Obtenue :</strong> Août 2024</div>
+                <div><strong>Domaines :</strong> Threat analysis, Incident response</div>
+                <div><strong>Compétences :</strong> SIEM, Digital forensics</div>
               </div>
               <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir le rapport de stage
+                <a href="certifications.html" class="btn btn-primary w-full text-sm">
+                  Voir le certificat
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
             </article>
 
-            <!-- PPE Infrastructure réseau -->
-            <article class="card project-card reveal" data-category="ppe">
-              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🌐</div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">PPE</span>
-                <span class="tag">Réseaux</span>
-                <span class="tag">Cisco</span>
-              </div>
-              <h4 class="text-lg font-semibold mb-2">
-                Infrastructure réseau d'entreprise
-              </h4>
-              <p class="text-text-secondary text-sm mb-4">
-                Conception et mise en place d'une infrastructure réseau complète pour une PME. 
-                Configuration de switches, routeurs et mise en place de VLANs.
-              </p>
-              <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Oct-Nov 2024</div>
-                <div><strong>Technologies :</strong> Cisco IOS, VLAN, OSPF</div>
-                <div><strong>Outils :</strong> Packet Tracer, GNS3</div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir la documentation
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- PPE Windows Server -->
-            <article class="card project-card reveal" data-category="ppe">
-              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🖥️</div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">PPE</span>
-                <span class="tag">Windows Server</span>
-                <span class="tag">Active Directory</span>
-              </div>
-              <h4 class="text-lg font-semibold mb-2">
-                Administration Windows Server
-              </h4>
-              <p class="text-text-secondary text-sm mb-4">
-                Déploiement et administration d'un environnement Windows Server avec Active Directory, 
-                DNS, DHCP et gestion des stratégies de groupe.
-              </p>
-              <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Sep-Oct 2024</div>
-                <div><strong>Technologies :</strong> Windows Server 2022, AD DS</div>
-                <div><strong>Compétences :</strong> GPO, DNS, DHCP, PowerShell</div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir les scripts PowerShell
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- TP Virtualisation -->
-            <article class="card project-card reveal" data-category="tp">
-              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">☁️</div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">TP</span>
-                <span class="tag">VMware</span>
-                <span class="tag">Virtualisation</span>
-              </div>
-              <h4 class="text-lg font-semibold mb-2">
-                Laboratoire de virtualisation
-              </h4>
-              <p class="text-text-secondary text-sm mb-4">
-                Mise en place d'un environnement virtualisé avec VMware vSphere. 
-                Création et gestion de machines virtuelles, configuration du réseau virtuel.
-              </p>
-              <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Mars 2024</div>
-                <div><strong>Technologies :</strong> VMware vSphere, vCenter</div>
-                <div><strong>Résultat :</strong> Infrastructure de test fonctionnelle</div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir le guide de configuration
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- TP Linux -->
-            <article class="card project-card reveal" data-category="tp">
-              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🐧</div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">TP</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Services</span>
-              </div>
-              <h4 class="text-lg font-semibold mb-2">
-                Administration Linux avancée
-              </h4>
-              <p class="text-text-secondary text-sm mb-4">
-                Configuration de services essentiels sur Ubuntu Server : 
-                Apache, MySQL, SSH, firewall. Automatisation avec des scripts bash.
-              </p>
-              <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Février 2024</div>
-                <div><strong>Technologies :</strong> Ubuntu Server, Apache, MySQL</div>
-                <div><strong>Scripts :</strong> Bash, automatisation déploiement</div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir les scripts bash
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Projet Personnel Portfolio -->
-            <article class="card project-card reveal" data-category="perso">
+            <!-- Portfolio professionnel -->
+            <article class="card project-card reveal" data-category="portfolio">
               <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
                 <div class="text-4xl text-accent-gold">💼</div>
               </div>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">Projet Personnel</span>
+                <span class="tag">Portfolio</span>
                 <span class="tag">Web</span>
                 <span class="tag">GitHub</span>
               </div>
@@ -369,10 +297,10 @@
               </h4>
               <p class="text-text-secondary text-sm mb-4">
                 Conception et développement de ce portfolio responsive avec HTML5, CSS3 et JavaScript. 
-                Thème "échecs" en mode sombre, optimisé pour l'accessibilité.
+                Thème "échecs" moderne en mode sombre, optimisé pour l'accessibilité WCAG AA.
               </p>
               <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> Septembre 2024</div>
+                <div><strong>Développé :</strong> Septembre 2024</div>
                 <div><strong>Technologies :</strong> HTML5, TailwindCSS, JavaScript</div>
                 <div><strong>Hébergement :</strong> GitHub Pages</div>
               </div>
@@ -384,62 +312,32 @@
               </div>
             </article>
 
-            <!-- Projet Personnel Homelab -->
-            <article class="card project-card reveal" data-category="perso">
+            <!-- CV numérique -->
+            <article class="card project-card reveal" data-category="portfolio">
               <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🏠</div>
+                <div class="text-4xl text-accent-gold">📄</div>
               </div>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">Projet Personnel</span>
-                <span class="tag">Homelab</span>
-                <span class="tag">Self-hosting</span>
+                <span class="tag">Portfolio</span>
+                <span class="tag">CV</span>
+                <span class="tag">PDF</span>
               </div>
               <h4 class="text-lg font-semibold mb-2">
-                Laboratoire domestique
+                CV professionnel actualisé
               </h4>
               <p class="text-text-secondary text-sm mb-4">
-                Mise en place d'un homelab personnel avec serveur Proxmox, 
-                services auto-hébergés et monitoring. Projet d'apprentissage continu.
+                Curriculum Vitae complet et actualisé reflétant mon parcours en BTS SIO SISR, 
+                mes compétences techniques et mes certifications obtenues.
               </p>
               <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Période :</strong> En cours depuis Juin 2024</div>
-                <div><strong>Technologies :</strong> Proxmox, Docker, Pi-hole</div>
-                <div><strong>Services :</strong> Nextcloud, Grafana, Nginx</div>
+                <div><strong>Mis à jour :</strong> Septembre 2024</div>
+                <div><strong>Format :</strong> PDF optimisé</div>
+                <div><strong>Contenu :</strong> Formation, expérience, certifications</div>
               </div>
               <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="#" class="btn btn-primary w-full text-sm">
-                  Voir la documentation
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Certifications -->
-            <article class="card project-card reveal" data-category="certifications">
-              <div class="aspect-video bg-bg-primary rounded-lg border border-border-subtle mb-4 flex items-center justify-center">
-                <div class="text-4xl text-accent-gold">🏆</div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="tag">Certification</span>
-                <span class="tag">Cybersécurité</span>
-                <span class="tag">Fortinet</span>
-              </div>
-              <h4 class="text-lg font-semibold mb-2">
-                Certifications obtenues
-              </h4>
-              <p class="text-text-secondary text-sm mb-4">
-                Certifications validées en cybersécurité et réseaux pour compléter ma formation théorique 
-                par des compétences reconnues par l'industrie.
-              </p>
-              <div class="space-y-2 text-xs text-text-secondary">
-                <div><strong>Fortinet :</strong> Cybersecurity Fundamentals</div>
-                <div><strong>Cisco :</strong> Introduction to Cybersecurity</div>
-                <div><strong>Red Hat :</strong> Getting Started with Linux</div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-border-subtle">
-                <a href="certifications.html" class="btn btn-primary w-full text-sm">
-                  Voir toutes les certifications
-                  <span aria-hidden="true">→</span>
+                <a href="CV.pdf" target="_blank" class="btn btn-primary w-full text-sm">
+                  Télécharger le CV
+                  <span aria-hidden="true">↓</span>
                 </a>
               </div>
             </article>
