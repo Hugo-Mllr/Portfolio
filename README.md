@@ -205,8 +205,9 @@ Dans `profil.html`, section tableau :
 
 ### Nouvelles certifications
 1. Ajoutez les PDF dans `certifs/`
-2. Créez/mettez à jour `certifications.html` si nécessaire
-3. Ajoutez une ligne dans le tableau de compétences si pertinent
+2. Ajoutez l'image de la certification dans `certifs/`
+3. Mettez à jour la section certifications dans `projets.html`
+4. Ajoutez une ligne dans le tableau de compétences si pertinent
 
 ---
 
