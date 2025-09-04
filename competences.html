@@ -125,249 +125,189 @@
       <div class="container">
         <div class="max-w-4xl mx-auto text-center">
           <h2 id="page-title" class="text-3xl md:text-4xl font-display font-bold mb-4 reveal">
-            Mes Compétences Techniques
+            Tableau de synthèse des compétences
           </h2>
           <p class="text-lg text-text-secondary max-w-2xl mx-auto reveal">
-            Compétences techniques et théoriques acquises durant ma formation BTS SIO SISR
+            Clique sur le nom du TP pour ouvrir le PDF correspondant. Les cases sont à remplir uniquement si le TP couvre la compétence.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Section Compétences -->
-    <section class="py-16" aria-labelledby="competences-title">
+    <!-- Section Tableau des compétences -->
+    <section class="py-8" aria-labelledby="competences-title">
       <div class="container">
         <div class="max-w-6xl mx-auto">
-          <!-- Filtres -->
-          <div class="flex flex-wrap justify-center gap-2 mb-8 reveal">
-            <button class="tag tag-gold competence-filter active" data-filter="all">
-              Toutes
-            </button>
-            <button class="tag competence-filter" data-filter="systemes">
-              Systèmes
-            </button>
-            <button class="tag competence-filter" data-filter="reseaux">
-              Réseaux
-            </button>
-            <button class="tag competence-filter" data-filter="securite">
-              Sécurité
-            </button>
-            <button class="tag competence-filter" data-filter="virtualisation">
-              Virtualisation
-            </button>
-            <button class="tag competence-filter" data-filter="outils">
-              Outils
-            </button>
-          </div>
-
-          <!-- Tableau des compétences -->
           <div class="reveal">
-            <div class="bg-bg-secondary rounded-lg border border-border-subtle overflow-hidden">
-              <div class="overflow-x-auto">
-                <table class="w-full" role="table" aria-label="Tableau des compétences">
-                  <thead>
-                    <tr class="bg-bg-primary border-b border-border-subtle">
-                      <th class="text-left p-4 font-semibold text-text-primary">Compétence</th>
-                      <th class="text-left p-4 font-semibold text-text-primary">Niveau</th>
-                      <th class="text-left p-4 font-semibold text-text-primary">Contexte d'acquisition</th>
-                      <th class="text-left p-4 font-semibold text-text-primary">Catégorie</th>
-                    </tr>
-                  </thead>
-                  <tbody class="competences-table">
-                    <!-- Systèmes -->
-                    <tr class="border-b border-border-subtle competence-row" data-category="systemes">
-                      <td class="p-4">
-                        <div class="font-medium">Windows Server 2019/2022</div>
-                        <div class="text-sm text-text-secondary">Active Directory, GPO, DNS, DHCP</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 75%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Bon</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        TP en laboratoire, PPE, Stage 1re année
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Systèmes</span>
-                      </td>
-                    </tr>
+            <div class="overflow-x-auto rounded-lg border border-border-subtle bg-bg-secondary">
+              <table class="min-w-[980px] w-full border-collapse text-sm" role="table" aria-label="Synthèse des compétences par TP">
+                <caption class="sr-only">
+                  Synthèse des compétences par TP (Réalisation en cours de formation, Stage 1re année, Stage 2e année)
+                </caption>
 
-                    <tr class="border-b border-border-subtle competence-row" data-category="systemes">
-                      <td class="p-4">
-                        <div class="font-medium">Linux (Ubuntu, Debian)</div>
-                        <div class="text-sm text-text-secondary">Administration, scripts bash, services</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 70%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Bon</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        TP, projets personnels, autoformation
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Systèmes</span>
-                      </td>
-                    </tr>
+                <!-- En-têtes -->
+                <thead>
+                  <tr class="bg-bg-primary">
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Réalisation (TP)
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Gérer le patrimoine informatique
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Répondre aux incidents et aux demandes
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Développer la présence en ligne de l'organisation
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Travailler en mode projet
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Mettre à disposition un service informatique
+                    </th>
+                    <th scope="col" class="px-4 py-3 text-left font-medium border-b border-border-subtle text-text-primary">
+                      Organiser son développement professionnel
+                    </th>
+                  </tr>
+                </thead>
 
-                    <!-- Réseaux -->
-                    <tr class="border-b border-border-subtle competence-row" data-category="reseaux">
-                      <td class="p-4">
-                        <div class="font-medium">Configuration Cisco</div>
-                        <div class="text-sm text-text-secondary">Switch, Router, VLAN, routage</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 65%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Intermédiaire</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        TP réseaux, Packet Tracer, simulateurs
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Réseaux</span>
-                      </td>
-                    </tr>
+                <!-- Groupe 1 : Réalisations en cours de formation -->
+                <tbody>
+                  <tr>
+                    <th scope="colgroup" colspan="7"
+                        class="px-4 py-2 text-left text-xs uppercase tracking-wider text-accent-gold bg-accent-gold/10 border-y border-border-subtle">
+                      Réalisations en cours de formation
+                    </th>
+                  </tr>
 
-                    <tr class="border-b border-border-subtle competence-row" data-category="reseaux">
-                      <td class="p-4">
-                        <div class="font-medium">Protocoles réseau</div>
-                        <div class="text-sm text-text-secondary">TCP/IP, HTTP/HTTPS, DNS, DHCP</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 80%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Bon</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        Cours théoriques, TP pratiques, certifications
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Réseaux</span>
-                      </td>
-                    </tr>
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/TP-Infrastructure-Reseau.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        TP Infrastructure Réseau
+                      </a>
+                    </th>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                  </tr>
 
-                    <!-- Sécurité -->
-                    <tr class="border-b border-border-subtle competence-row" data-category="securite">
-                      <td class="p-4">
-                        <div class="font-medium">Cybersécurité</div>
-                        <div class="text-sm text-text-secondary">Fondamentaux, audit, bonnes pratiques</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 60%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Intermédiaire</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        Certifications Cisco, cours spécialisés
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Sécurité</span>
-                      </td>
-                    </tr>
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/TP-Windows-Server.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        TP Windows Server
+                      </a>
+                    </th>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                  </tr>
 
-                    <!-- Virtualisation -->
-                    <tr class="border-b border-border-subtle competence-row" data-category="virtualisation">
-                      <td class="p-4">
-                        <div class="font-medium">VMware vSphere</div>
-                        <div class="text-sm text-text-secondary">Création, gestion VMs, vCenter</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 70%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Bon</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        TP virtualisation, projets laboratoire
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Virtualisation</span>
-                      </td>
-                    </tr>
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/TP-Virtualisation.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        TP Virtualisation VMware
+                      </a>
+                    </th>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                  </tr>
+                </tbody>
 
-                    <!-- Outils -->
-                    <tr class="border-b border-border-subtle competence-row" data-category="outils">
-                      <td class="p-4">
-                        <div class="font-medium">PowerShell</div>
-                        <div class="text-sm text-text-secondary">Scripts d'administration, automatisation</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 65%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Intermédiaire</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        TP Windows Server, projets d'automatisation
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Outils</span>
-                      </td>
-                    </tr>
+                <!-- Groupe 2 : Réalisations en milieu pro (1re année) -->
+                <tbody>
+                  <tr>
+                    <th scope="colgroup" colspan="7"
+                        class="px-4 py-2 text-left text-xs uppercase tracking-wider text-accent-gold bg-accent-gold/10 border-y border-border-subtle">
+                      Réalisations en milieu professionnel en cours de première année
+                    </th>
+                  </tr>
 
-                    <tr class="border-b border-border-subtle competence-row" data-category="outils">
-                      <td class="p-4">
-                        <div class="font-medium">Git / GitHub</div>
-                        <div class="text-sm text-text-secondary">Versioning, collaboration, workflow</div>
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center space-x-2">
-                          <div class="w-20 bg-bg-primary rounded-full h-2">
-                            <div class="bg-accent-gold h-2 rounded-full" style="width: 75%"></div>
-                          </div>
-                          <span class="text-sm text-text-secondary">Bon</span>
-                        </div>
-                      </td>
-                      <td class="p-4 text-sm text-text-secondary">
-                        Projets personnels, portfolio, collaboration
-                      </td>
-                      <td class="p-4">
-                        <span class="tag">Outils</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/Support-Utilisateur.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        Support Utilisateur
+                      </a>
+                    </th>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                  </tr>
+
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/Maintenance-Materiel.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        Maintenance Matériel
+                      </a>
+                    </th>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                  </tr>
+                </tbody>
+
+                <!-- Groupe 3 : Réalisations en milieu pro (2e année) -->
+                <tbody>
+                  <tr>
+                    <th scope="colgroup" colspan="7"
+                        class="px-4 py-2 text-left text-xs uppercase tracking-wider text-accent-gold bg-accent-gold/10 border-y border-border-subtle">
+                      Réalisations en milieu professionnel en cours de seconde année
+                    </th>
+                  </tr>
+
+                  <tr class="border-b border-border-subtle hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/Projet-Infrastructure.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        Projet Infrastructure
+                      </a>
+                    </th>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3"></td>
+                  </tr>
+
+                  <tr class="hover:bg-bg-primary/50 transition-colors">
+                    <th scope="row" class="px-4 py-3 font-medium text-text-primary">
+                      <a href="./docs/Securite-Reseau.pdf" class="text-accent-gold hover:text-accent-gold-hover underline decoration-accent-gold">
+                        Sécurité Réseau
+                      </a>
+                    </th>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                    <td class="px-2 py-3 bg-green-600/80"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <!-- Légende niveaux -->
+          <!-- Note explicative -->
           <div class="mt-6 text-center reveal">
-            <div class="inline-flex items-center space-x-6 text-sm text-text-secondary">
-              <div class="flex items-center space-x-2">
-                <div class="w-4 h-2 bg-accent-gold rounded" style="opacity: 0.4"></div>
-                <span>Débutant (0-40%)</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <div class="w-4 h-2 bg-accent-gold rounded" style="opacity: 0.7"></div>
-                <span>Intermédiaire (40-70%)</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <div class="w-4 h-2 bg-accent-gold rounded"></div>
-                <span>Bon (70%+)</span>
-              </div>
-            </div>
+            <p class="text-sm text-text-secondary">
+              Les cases colorées en <span class="inline-block w-4 h-3 bg-green-600/80 rounded mx-1"></span> indiquent les compétences couvertes par chaque TP ou réalisation.
+            </p>
           </div>
         </div>
       </div>
