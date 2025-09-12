@@ -350,7 +350,7 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = animationStyles;
 document.head.appendChild(styleSheet);
 
-// Animation de la pièce d'échecs au scroll
+// Animation de la pièce d'échecs au scroll vertical
 class ChessScrollAnimation {
   constructor() {
     this.chessPiece = document.getElementById('chess-piece');
@@ -366,7 +366,7 @@ class ChessScrollAnimation {
   init() {
     // Initialisation avec le pion
     this.chessPiece.textContent = this.pieces[0];
-    this.chessPiece.title = `Progression: ${this.pieceNames[0]}`;
+    this.chessPiece.title = `Progression: ${this.pieceNames[0]} (0%)`;
     
     // Écouter le scroll avec throttling
     window.addEventListener('scroll', () => {
@@ -385,6 +385,16 @@ class ChessScrollAnimation {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = Math.max(0, Math.min(1, scrollTop / docHeight));
     
+    // Calculer la position verticale (de 10% à 90% de la hauteur de l'écran)
+    const viewportHeight = window.innerHeight;
+    const minPosition = viewportHeight * 0.1; // 10% du haut
+    const maxPosition = viewportHeight * 0.9; // 90% du haut
+    const currentPosition = minPosition + (scrollPercent * (maxPosition - minPosition));
+    
+    // Mettre à jour la position verticale
+    this.chessPiece.style.top = `${currentPosition}px`;
+    this.chessPiece.style.transform = 'translateY(-50%)';
+    
     // Calculer l'index de la pièce (0-5)
     const index = Math.min(this.pieces.length - 1, Math.floor(scrollPercent * this.pieces.length));
     
@@ -394,11 +404,20 @@ class ChessScrollAnimation {
       this.chessPiece.title = `Progression: ${this.pieceNames[index]} (${Math.round(scrollPercent * 100)}%)`;
       
       // Animation de pulsation lors du changement
-      this.chessPiece.style.transform = 'scale(1.2)';
+      this.chessPiece.style.transform = 'translateY(-50%) scale(1.2)';
       setTimeout(() => {
-        this.chessPiece.style.transform = 'scale(1)';
+        this.chessPiece.style.transform = 'translateY(-50%) scale(1)';
       }, 200);
     }
+    
+    // Mettre à jour le hover transform pour garder la cohérence
+    this.chessPiece.addEventListener('mouseenter', () => {
+      this.chessPiece.style.transform = 'translateY(-50%) scale(1.1)';
+    });
+    
+    this.chessPiece.addEventListener('mouseleave', () => {
+      this.chessPiece.style.transform = 'translateY(-50%) scale(1)';
+    });
   }
 }
 

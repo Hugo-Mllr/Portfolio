@@ -478,12 +478,11 @@ a:hover, a:focus {
 }
 
 /* =============================================
-   ANIMATION PIÈCE D'ÉCHECS AU SCROLL
+   ANIMATION PIÈCE D'ÉCHECS AU SCROLL VERTICAL
    ============================================= */
 
 .chess-scroll-indicator {
   position: fixed;
-  top: 20px;
   right: 20px;
   width: 50px;
   height: 50px;
@@ -499,10 +498,13 @@ a:hover, a:focus {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(205, 164, 52, 0.3);
   cursor: pointer;
+  /* Position calculée dynamiquement par JavaScript */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .chess-scroll-indicator:hover {
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
   box-shadow: 0 6px 20px rgba(205, 164, 52, 0.5);
   background: rgba(205, 164, 52, 0.2);
 }
@@ -522,13 +524,46 @@ a:hover, a:focus {
   opacity: 0.2;
 }
 
+/* Trail effect - ligne de progression */
+.chess-scroll-indicator::after {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(205, 164, 52, 0.2) 20%,
+    rgba(205, 164, 52, 0.4) 50%,
+    rgba(205, 164, 52, 0.2) 80%,
+    transparent 100%
+  );
+  transform: translate(50%, -50%);
+  z-index: -2;
+  opacity: 0.3;
+}
+
 /* Responsive */
+@media (max-width: 1024px) {
+  .chess-scroll-indicator {
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
 @media (max-width: 768px) {
   .chess-scroll-indicator {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    top: 15px;
-    right: 15px;
+    right: 10px;
+  }
+  
+  .chess-scroll-indicator::after {
+    width: 1px;
   }
 }
