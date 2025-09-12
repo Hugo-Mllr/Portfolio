@@ -58,7 +58,7 @@
       <div class="flex items-center justify-between py-4">
         <!-- Logo / Nom -->
         <div class="flex items-center space-x-3">
-          <img src="img/logo.png" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
+          <img src="img/43808491-echecs-pion-logo-vectoriel.jpg" alt="Logo Hugo Muller" class="w-10 h-10 rounded-full object-cover" loading="eager">
           <div>
             <h1 class="text-xl font-display font-semibold text-text-primary">Hugo Muller</h1>
             <p class="text-sm text-text-secondary">BTS SIO • SISR • 2e année 2025-2026</p>
@@ -127,9 +127,6 @@
           <h2 id="page-title" class="text-3xl md:text-4xl font-display font-bold mb-4 reveal">
             Tableau de synthèse des compétences
           </h2>
-          <p class="text-lg text-text-secondary max-w-2xl mx-auto reveal">
-            Clique sur le nom du TP pour ouvrir le PDF correspondant. Les cases sont à remplir uniquement si le TP couvre la compétence.
-          </p>
         </div>
       </div>
     </section>
@@ -314,14 +311,18 @@
       <div class="container">
         <div class="max-w-6xl mx-auto text-center">
           <div class="reveal">
-            <button class="inline-flex items-center px-6 py-3 bg-accent-gold hover:bg-accent-gold-hover text-bg-primary font-medium rounded-lg transition-colors cursor-not-allowed opacity-60" 
-                    disabled
-                    aria-describedby="tableau-e5-description">
+            <a href="assets/presentations/E5 - Tableau de synthèse.pdf" 
+               target="_blank"
+               class="inline-flex items-center px-6 py-3 bg-accent-gold hover:bg-accent-gold-hover text-bg-primary font-medium rounded-lg transition-colors"
+               aria-describedby="tableau-e5-description">
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
               Télécharger le Tableau E5 complet
-            </button>
+            </a>
+            <p id="tableau-e5-description" class="mt-2 text-sm text-text-secondary">
+              Tableau de synthèse complet des compétences BTS SIO SISR
+            </p>
           </div>
         </div>
       </div>
