@@ -476,3 +476,59 @@ a:hover, a:focus {
 .tooltip:hover::before {
   opacity: 1;
 }
+
+/* =============================================
+   ANIMATION PIÈCE D'ÉCHECS AU SCROLL
+   ============================================= */
+
+.chess-scroll-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(205, 164, 52, 0.1);
+  border: 2px solid var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: var(--z-fixed);
+  transition: all 0.4s ease-in-out;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(205, 164, 52, 0.3);
+  cursor: pointer;
+}
+
+.chess-scroll-indicator:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(205, 164, 52, 0.5);
+  background: rgba(205, 164, 52, 0.2);
+}
+
+.chess-scroll-indicator::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--accent-gold), #B8941F, var(--accent-gold));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chess-scroll-indicator:hover::before {
+  opacity: 0.2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chess-scroll-indicator {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+}

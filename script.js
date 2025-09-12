@@ -107,5 +107,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Animation de la pièce d'échecs au scroll
+  const chessPiece = document.getElementById('chess-piece');
+  
+  if (chessPiece) {
+    // Pièces d'échecs dans l'ordre hiérarchique (Unicode)
+    const pieces = ['♙', '♘', '♗', '♖', '♕', '♔'];
+    const pieceNames = ['Pion', 'Cavalier', 'Fou', 'Tour', 'Dame', 'Roi'];
+    
+    // Initialisation avec le pion
+    chessPiece.textContent = pieces[0];
+    chessPiece.title = `Progression: ${pieceNames[0]}`;
+    
+    // Fonction de mise à jour de la pièce selon le scroll
+    function updateChessPiece() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.max(0, Math.min(1, scrollTop / docHeight));
+      
+      // Calculer l'index de la pièce (0-5)
+      const index = Math.min(pieces.length - 1, Math.floor(scrollPercent * pieces.length));
+      
+      // Mettre à jour la pièce si elle a changé
+      if (chessPiece.textContent !== pieces[index]) {
+        chessPiece.textContent = pieces[index];
+        chessPiece.title = `Progression: ${pieceNames[index]} (${Math.round(scrollPercent * 100)}%)`;
+        
+        // Animation de pulsation lors du changement
+        chessPiece.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          chessPiece.style.transform = 'scale(1)';
+        }, 200);
+      }
+    }
+    
+    // Écouter le scroll avec throttling pour les performances
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(updateChessPiece, 10);
+    });
+    
+    // Initialiser la pièce
+    updateChessPiece();
+  }
 });
 

@@ -350,9 +350,62 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = animationStyles;
 document.head.appendChild(styleSheet);
 
+// Animation de la pièce d'échecs au scroll
+class ChessScrollAnimation {
+  constructor() {
+    this.chessPiece = document.getElementById('chess-piece');
+    this.pieces = ['♙', '♘', '♗', '♖', '♕', '♔'];
+    this.pieceNames = ['Pion', 'Cavalier', 'Fou', 'Tour', 'Dame', 'Roi'];
+    this.scrollTimeout = null;
+    
+    if (this.chessPiece) {
+      this.init();
+    }
+  }
+  
+  init() {
+    // Initialisation avec le pion
+    this.chessPiece.textContent = this.pieces[0];
+    this.chessPiece.title = `Progression: ${this.pieceNames[0]}`;
+    
+    // Écouter le scroll avec throttling
+    window.addEventListener('scroll', () => {
+      if (this.scrollTimeout) {
+        clearTimeout(this.scrollTimeout);
+      }
+      this.scrollTimeout = setTimeout(() => this.updateChessPiece(), 10);
+    });
+    
+    // Initialiser la pièce
+    this.updateChessPiece();
+  }
+  
+  updateChessPiece() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = Math.max(0, Math.min(1, scrollTop / docHeight));
+    
+    // Calculer l'index de la pièce (0-5)
+    const index = Math.min(this.pieces.length - 1, Math.floor(scrollPercent * this.pieces.length));
+    
+    // Mettre à jour la pièce si elle a changé
+    if (this.chessPiece.textContent !== this.pieces[index]) {
+      this.chessPiece.textContent = this.pieces[index];
+      this.chessPiece.title = `Progression: ${this.pieceNames[index]} (${Math.round(scrollPercent * 100)}%)`;
+      
+      // Animation de pulsation lors du changement
+      this.chessPiece.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        this.chessPiece.style.transform = 'scale(1)';
+      }, 200);
+    }
+  }
+}
+
 // Initialiser l'application quand le DOM est prêt
 document.addEventListener('DOMContentLoaded', () => {
   new PortfolioApp();
+  new ChessScrollAnimation();
 });
 
 // Utilitaire pour l'année du footer

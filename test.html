@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Hugo Muller - Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0B0B0B',
+            'bg-secondary': '#1C1C1C',
+            'text-primary': '#EAEAEA',
+            'text-secondary': '#B8B8B8',
+            'accent-gold': '#CDA434',
+            'accent-gold-hover': '#E6B83C',
+            'border-subtle': '#2A2A2A'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-bg-primary text-text-primary">
+  <div class="min-h-screen p-8">
+    <h1 class="text-4xl font-bold text-accent-gold mb-4">Test Portfolio Hugo Muller</h1>
+    <p class="text-text-secondary">Si vous voyez ce texte, le problème vient du fichier principal.</p>
+    <div class="mt-8">
+      <h2 class="text-2xl mb-4">Navigation Test</h2>
+      <nav class="space-x-4">
+        <a href="#accueil" class="text-accent-gold hover:text-accent-gold-hover">Accueil</a>
+        <a href="#profil" class="text-accent-gold hover:text-accent-gold-hover">Profil</a>
+        <a href="#competences" class="text-accent-gold hover:text-accent-gold-hover">Compétences</a>
+        <a href="#projets" class="text-accent-gold hover:text-accent-gold-hover">Projets</a>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>
