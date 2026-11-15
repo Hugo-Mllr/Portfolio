@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette 3 — Manga</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Noto+Sans+JP:wght@700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f0e6; --ink:#0a0a0a; --red:#e8112d; --gray:#d9d4c5;
+  --big:'Anton','Impact','Arial Narrow',sans-serif;
+  --bang:'Bangers','Comic Sans MS',cursive;
+  --jp:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;
+  --tx:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--tx);line-height:1.55;overflow-x:hidden;
+ background-image:radial-gradient(rgba(0,0,0,.07) 1px,transparent 1.2px);background-size:6px 6px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:30;background:var(--ink);color:var(--paper);border-bottom:4px solid var(--red)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:1.6rem var(--big);letter-spacing:.06em}
+.logo span{color:var(--red)}
+.links{display:flex;gap:26px;font:700 .8rem var(--tx);letter-spacing:.14em;text-transform:uppercase}
+.links a:hover{color:var(--red)}
+.lang{display:flex;border:2px solid var(--paper)}
+.lang button{font:700 .78rem var(--tx);background:none;color:var(--paper);border:0;padding:6px 12px;cursor:pointer;letter-spacing:.1em}
+.lang button.on{background:var(--red);color:#fff}
+
+/* PANELS */
+.panel{background:#fff;border:5px solid var(--ink);position:relative;box-shadow:9px 9px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.panel:hover{transform:translate(-3px,-3px) rotate(-.4deg);box-shadow:13px 13px 0 var(--ink)}
+
+/* HERO PAGE */
+.page{padding:60px 0 40px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:26px}
+.p-title{grid-column:span 7;min-height:430px;overflow:hidden;padding:34px;background:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.speed{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 62% 40%,#000 0 .7deg,transparent .7deg 5deg);opacity:.9;
+ -webkit-mask:radial-gradient(circle at 62% 40%,transparent 14%,#000 62%);mask:radial-gradient(circle at 62% 40%,transparent 14%,#000 62%);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg) scale(1.4)}}
+.kanji{position:absolute;right:6%;top:6%;font:900 clamp(9rem,20vw,15rem)/1 var(--jp);color:var(--red);text-shadow:-3px -3px 0 var(--ink),3px -3px 0 var(--ink),-3px 3px 0 var(--ink),3px 3px 0 var(--ink),9px 9px 0 var(--ink);z-index:1}
+.title-box{position:relative;z-index:2;background:var(--paper);border:4px solid var(--ink);padding:16px 20px;transform:rotate(-1.5deg);align-self:flex-start;box-shadow:6px 6px 0 var(--red)}
+.title-box small{font:700 .75rem var(--tx);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+h1{font:clamp(3rem,9vw,6.4rem)/.95 var(--big);text-transform:uppercase;letter-spacing:.01em}
+h1 em{font-style:normal;color:var(--red);-webkit-text-stroke:0}
+.p-side{grid-column:span 5;display:grid;gap:26px;grid-template-rows:auto 1fr}
+.p-bubble{padding:26px;background:#fff}
+.bubble{position:relative;background:#fff;border:4px solid var(--ink);border-radius:50% / 40%;padding:28px 30px;font:700 1.15rem var(--tx);text-align:center}
+.bubble::after{content:"";position:absolute;bottom:-26px;left:22%;width:34px;height:34px;background:#fff;border-right:4px solid var(--ink);border-bottom:4px solid var(--ink);transform:rotate(45deg)}
+.p-cta{background:var(--red);color:#fff;padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.p-cta h3{font:2rem/1 var(--bang);letter-spacing:.05em}
+.btn{display:inline-block;font:700 .88rem var(--tx);letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;border:4px solid var(--ink);background:#fff;color:var(--ink);box-shadow:5px 5px 0 var(--ink);transition:.15s;cursor:pointer}
+.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink);background:var(--ink);color:#fff}
+.btn.k{background:var(--ink);color:#fff;box-shadow:5px 5px 0 var(--red)}
+.btn.k:hover{background:var(--red);box-shadow:2px 2px 0 var(--ink)}
+.sfx{position:absolute;font:2.6rem var(--bang);color:var(--red);-webkit-text-stroke:2px var(--ink);transform:rotate(-8deg);z-index:3;letter-spacing:.04em;text-shadow:3px 3px 0 var(--ink)}
+
+/* SECTIONS */
+section{padding:70px 0}
+.sec-h{display:flex;align-items:center;gap:18px;margin-bottom:38px;flex-wrap:wrap}
+.sec-h h2{font:clamp(2.2rem,5vw,3.6rem) var(--big);text-transform:uppercase;background:var(--ink);color:var(--paper);padding:4px 22px;transform:skew(-8deg)}
+.sec-h h2 span{display:inline-block;transform:skew(8deg)}
+.sec-h .jp{font:900 1.6rem var(--jp);color:var(--red)}
+
+/* CHAPTERS */
+.chap{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.chapter{padding:0;display:flex;flex-direction:column;background:#fff}
+.chapter:nth-child(2){transform:translateY(24px)}
+.chapter:nth-child(2):hover{transform:translate(-3px,21px) rotate(.4deg)}
+.cover{height:170px;border-bottom:5px solid var(--ink);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:14px 18px;background:
+  radial-gradient(var(--ink) 28%,transparent 30%) 0 0/12px 12px,var(--gray)}
+.cover.r{background:radial-gradient(#c40e25 28%,transparent 30%) 0 0/12px 12px,#f6b9bf}
+.cover.d{background:repeating-linear-gradient(135deg,var(--ink) 0 4px,#222 4px 8px)}
+.cover .no{font:5.5rem/.8 var(--big);color:#fff;-webkit-text-stroke:3px var(--ink);text-shadow:5px 5px 0 var(--ink)}
+.cover .jp{position:absolute;top:10px;right:14px;writing-mode:vertical-rl;font:900 1.3rem var(--jp);background:var(--paper);border:3px solid var(--ink);padding:6px 4px}
+.cbody{padding:22px;flex:1;display:flex;flex-direction:column}
+.cbody small{font:700 .72rem var(--tx);letter-spacing:.2em;color:var(--red);text-transform:uppercase}
+.cbody h3{font:2rem/1.05 var(--big);text-transform:uppercase;margin:6px 0 10px}
+.cbody p{font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:16px}
+.tag{font:700 .72rem var(--tx);letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);padding:2px 8px;background:var(--paper)}
+.stamp{position:absolute;top:12px;left:-10px;font:1.1rem var(--bang);letter-spacing:.08em;color:#fff;background:var(--red);padding:3px 16px;transform:rotate(-5deg);border:3px solid var(--ink);z-index:2}
+.stamp.live{background:#fff;color:var(--red);animation:wob 1.6s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-2deg) scale(1.08)}}
+
+/* CHARACTER PROFILE */
+.profile{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px}
+.id{padding:28px;background:var(--ink);color:var(--paper);position:relative}
+.id .av{width:100%;aspect-ratio:1;background:var(--red);border:5px solid var(--paper);display:grid;place-items:center;font:900 7rem var(--jp);color:var(--ink);margin-bottom:18px;background-image:repeating-conic-gradient(from 0deg,#c40e25 0 8deg,var(--red) 8deg 16deg)}
+.id h3{font:2.2rem var(--big);text-transform:uppercase}
+.id p{opacity:.8;font-size:.95rem}
+.skills{padding:28px;background:#fff}
+.sk{margin-bottom:18px}
+.sk div{display:flex;justify-content:space-between;font:700 .85rem var(--tx);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.sk .bar{height:22px;border:4px solid var(--ink);background:var(--paper);position:relative;overflow:hidden}
+.sk .bar i{position:absolute;inset:0 auto 0 0;width:0;background:repeating-linear-gradient(135deg,var(--red) 0 8px,#b80d25 8px 16px);transition:width 1.3s cubic-bezier(.2,.9,.2,1)}
+.sk:last-child{margin-bottom:0}
+
+/* END */
+.end{background:var(--ink);color:var(--paper);padding:90px 0;text-align:center;position:relative;overflow:hidden;border-top:6px solid var(--red)}
+.end::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,#1a1a1a 0 2deg,transparent 2deg 7deg)}
+.end .wrap{position:relative}
+.end h2{font:clamp(3rem,10vw,7rem)/.95 var(--big);text-transform:uppercase}
+.end h2 em{font-style:normal;color:var(--red)}
+.end p{max-width:520px;margin:20px auto 32px;font-size:1.1rem;opacity:.85}
+.end .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.end .btn{border-color:var(--paper);box-shadow:5px 5px 0 var(--red)}
+.end .btn.k{background:var(--red);border-color:var(--paper)}
+footer{background:#000;color:var(--paper);text-align:center;padding:18px;font:700 .75rem var(--tx);letter-spacing:.2em;text-transform:uppercase}
+
+.rv{opacity:0;transform:translateY(34px) rotate(1.2deg);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+.chapter.rv.in:nth-child(2){transform:translateY(24px)}
+
+@media(max-width:900px){
+  .p-title,.p-side{grid-column:span 12}
+  .chap{grid-template-columns:1fr}.chapter:nth-child(2),.chapter.rv.in:nth-child(2){transform:none}
+  .profile{grid-template-columns:1fr}
+  .links{display:none}
+  .id .av{max-width:240px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">HUGO<span>.</span>MULLER</a>
+  <div class="links"><a href="#chap" data-i="n1"></a><a href="#prof" data-i="n2"></a><a href="#fin" data-i="n3"></a></div>
+  <div class="lang"><button data-l="fr" class="on">FR</button><button data-l="en">EN</button></div>
+</div></nav>
+
+<header class="page" id="top"><div class="wrap">
+  <div class="grid">
+    <div class="panel p-title">
+      <div class="speed"></div>
+      <div class="kanji">守</div>
+      <span class="sfx" style="left:22px;top:18px">ドン!</span>
+      <div class="title-box">
+        <small data-i="tag"></small>
+        <h1 data-i="h1"></h1>
+      </div>
+    </div>
+    <div class="p-side">
+      <div class="panel p-bubble">
+        <div class="bubble" data-i="bubble"></div>
+        <p style="margin-top:44px" data-i="lead"></p>
+      </div>
+      <div class="panel p-cta">
+        <h3 data-i="ctaT"></h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#chap" data-i="b1"></a>
+          <a class="btn k" href="#" data-i="b2"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section id="chap"><div class="wrap">
+  <div class="sec-h rv"><h2><span data-i="h2a"></span></h2><span class="jp">章</span></div>
+  <div class="chap">
+    <article class="panel chapter rv">
+      <span class="stamp" data-i="done"></span>
+      <div class="cover"><div class="no">01</div><div class="jp">守る</div></div>
+      <div class="cbody"><small data-i="c1k"></small><h3 data-i="p1t"></h3><p data-i="p1d"></p>
+        <div class="tags"><span class="tag">Wazuh</span><span class="tag">SIEM</span><span class="tag">Linux</span><span class="tag">PPE · BTS SIO</span></div></div>
+    </article>
+    <article class="panel chapter rv">
+      <span class="stamp" data-i="done"></span>
+      <div class="cover r"><div class="no">02</div><div class="jp">群れ</div></div>
+      <div class="cbody"><small data-i="c2k"></small><h3 data-i="p2t"></h3><p data-i="p2d"></p>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">Swarm</span><span class="tag">Haute dispo</span><span class="tag">PPE · BTS SIO</span></div></div>
+    </article>
+    <article class="panel chapter rv">
+      <span class="stamp live" data-i="live"></span>
+      <div class="cover d"><div class="no">03</div><div class="jp">続く</div></div>
+      <div class="cbody"><small data-i="c3k"></small><h3 data-i="p3t"></h3><p data-i="p3d"></p>
+        <div class="tags"><span class="tag">Virtualisation</span><span class="tag">Réseau</span><span class="tag">Supervision</span></div></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="prof"><div class="wrap">
+  <div class="sec-h rv"><h2><span data-i="h2b"></span></h2><span class="jp">能力</span></div>
+  <div class="profile">
+    <div class="panel id rv">
+      <div class="av">守</div>
+      <h3>Hugo Muller</h3>
+      <p data-i="idp"></p>
+    </div>
+    <div class="panel skills rv">
+      <div class="sk"><div><span data-i="k1"></span><b>70</b></div><div class="bar"><i data-w="70"></i></div></div>
+      <div class="sk"><div><span data-i="k2"></span><b>65</b></div><div class="bar"><i data-w="65"></i></div></div>
+      <div class="sk"><div><span data-i="k3"></span><b>60</b></div><div class="bar"><i data-w="60"></i></div></div>
+      <div class="sk"><div><span data-i="k4"></span><b>55</b></div><div class="bar"><i data-w="55"></i></div></div>
+      <div class="sk"><div><span data-i="k5"></span><b>40</b></div><div class="bar"><i data-w="40"></i></div></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="end" id="fin"><div class="wrap rv">
+  <h2 data-i="endT"></h2>
+  <p data-i="endP"></p>
+  <div class="btns"><a class="btn k" href="#" data-i="c1"></a><a class="btn" href="#">GitHub</a><a class="btn" href="#">LinkedIn</a></div>
+</div></div>
+<footer>© 2026 Hugo Muller · CPE Lyon · ICS</footer>
+
+<script>
+const T={
+fr:{n1:"Chapitres",n2:"Profil",n3:"Contact",
+ tag:"Étudiant · Cybersécurité · CPE Lyon",h1:"Défenseur<br>du <em>réseau</em>",
+ bubble:"Je cherche un stage et une alternance !",
+ lead:"Étudiant en cursus ICS, je construis des défenses comme un héros de shōnen s'entraîne : projet après projet, en repoussant mes limites.",
+ ctaT:"Nouveau chapitre !",b1:"Lire",b2:"CV ↓",
+ h2a:"Chapitres",
+ c1k:"Chapitre 1",c2k:"Chapitre 2",c3k:"Arc en cours",
+ p1t:"Lab Wazuh",p1d:"Déploiement d'un SIEM/XDR : agents, règles de détection, alertes et tableau de bord. Voir l'attaque venir avant qu'elle ne frappe.",
+ p2t:"Cluster Swarm",p2d:"Cluster d'orchestration Docker : services répliqués, réseau overlay, tolérance aux pannes et haute disponibilité.",
+ p3t:"Home Lab",p3d:"Mon dojo personnel, en évolution permanente : virtualisation, segmentation réseau, supervision. À suivre…",
+ done:"TERMINÉ !",live:"À SUIVRE…",
+ h2b:"Fiche perso",idp:"Classe : Défenseur cybersécurité. Spécialité : détection et infrastructure. Passions : échecs, jeux vidéo, anime & manga.",
+ k1:"Réseaux",k2:"Systèmes Linux",k3:"Supervision / SIEM",k4:"Conteneurs",k5:"Sécurité offensive",
+ endT:"À suivre…<br><em>avec vous ?</em>",endP:"Le prochain chapitre s'écrit en entreprise : stage d'abord, puis alternance. Parlons-en !",c1:"Me contacter"},
+en:{n1:"Chapters",n2:"Profile",n3:"Contact",
+ tag:"Student · Cybersecurity · CPE Lyon",h1:"Network<br><em>defender</em>",
+ bubble:"I'm looking for an internship and a work-study role!",
+ lead:"ICS student, I build defenses the way a shōnen hero trains: project after project, pushing past my limits.",
+ ctaT:"New chapter!",b1:"Read",b2:"CV ↓",
+ h2a:"Chapters",
+ c1k:"Chapter 1",c2k:"Chapter 2",c3k:"Ongoing arc",
+ p1t:"Wazuh Lab",p1d:"SIEM/XDR deployment: agents, detection rules, alerts and dashboard. See the attack coming before it strikes.",
+ p2t:"Swarm Cluster",p2d:"Docker orchestration cluster: replicated services, overlay network, fault tolerance and high availability.",
+ p3t:"Home Lab",p3d:"My personal dojo, constantly evolving: virtualization, network segmentation, monitoring. To be continued…",
+ done:"COMPLETE!",live:"TO BE CONTINUED…",
+ h2b:"Character sheet",idp:"Class: Cybersecurity defender. Specialty: detection and infrastructure. Passions: chess, video games, anime & manga.",
+ k1:"Networking",k2:"Linux systems",k3:"Monitoring / SIEM",k4:"Containers",k5:"Offensive security",
+ endT:"To be continued…<br><em>with you?</em>",endP:"The next chapter is written in a company: internship first, then work-study. Let's talk!",c1:"Get in touch"}
+};
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(e=>{const v=T[l][e.dataset.i];if(v!==undefined)e.innerHTML=v});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+let saved='fr';try{saved=localStorage.getItem('lang')||'fr'}catch(e){}
+setLang(saved);
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');
+  io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

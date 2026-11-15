@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette 1 — Échiquier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d10; --ink2:#15151a; --line:#2a2a31;
+  --ivory:#f2ebd9; --mute:#9a968b; --gold:#d4a84b; --gold2:#f0cf86;
+  --sq-d:#1b1b21; --sq-l:#26262e;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:20;background:rgba(13,13,16,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+.links{display:flex;gap:28px;font-size:.9rem;color:var(--mute)}
+.links a:hover{color:var(--gold2)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--mute);font:600 .75rem var(--mono);padding:6px 12px;cursor:pointer}
+.lang button.on{background:var(--gold);color:var(--ink)}
+
+/* HERO */
+.hero{padding:72px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.eyebrow{font:500 .8rem var(--mono);color:var(--gold);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,4.8rem);line-height:1.02;margin:20px 0 22px;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--gold2)}
+.lead{color:var(--mute);max-width:520px;font-size:1.05rem}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:4px;font-weight:600;font-size:.92rem;border:1px solid var(--gold);transition:.25s}
+.btn.pri{background:var(--gold);color:var(--ink)}
+.btn.pri:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn.sec{color:var(--gold2)}
+.btn.sec:hover{background:rgba(212,168,75,.1);transform:translateY(-2px)}
+.status{margin-top:28px;display:inline-flex;align-items:center;gap:10px;font:500 .8rem var(--mono);color:var(--mute);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:#5fd38d;box-shadow:0 0 0 0 rgba(95,211,141,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(95,211,141,0)}100%{box-shadow:0 0 0 0 rgba(95,211,141,0)}}
+
+/* BOARD */
+.board-wrap{position:relative}
+.board{position:relative;aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr);border:1px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 8px var(--ink2),0 0 0 9px var(--line)}
+.sq{position:relative;display:flex;align-items:center;justify-content:center;font-size:clamp(1.2rem,3.4vw,2.4rem);transition:background .6s}
+.sq.l{background:var(--sq-l)}.sq.d{background:var(--sq-d)}
+.sq.trail{background:rgba(212,168,75,.28);transition:background .1s}
+.sq .p{color:var(--ivory);opacity:.85;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+.sq .p.b{color:#6f6a5e}
+.coord{position:absolute;font:500 .55rem var(--mono);color:var(--mute);opacity:.6}
+.coord.r{top:3px;left:4px}.coord.f{bottom:2px;right:4px}
+.knight{position:absolute;top:0;left:0;width:12.5%;height:12.5%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.6rem,4.4vw,3.2rem);color:var(--gold2);text-shadow:0 0 18px rgba(212,168,75,.8);transition:transform .7s cubic-bezier(.5,-0.4,.3,1.3);pointer-events:none}
+.move-log{margin-top:18px;font:500 .78rem var(--mono);color:var(--mute);display:flex;justify-content:space-between}
+.move-log b{color:var(--gold2);font-weight:500}
+
+/* SECTIONS */
+section{padding:88px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.8rem);letter-spacing:-.01em}
+.sec-head h2 em{color:var(--gold2)}
+.sec-head .sub{font:500 .78rem var(--mono);color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+
+/* MOVES (projets) */
+.moves{border-top:1px solid var(--line)}
+.move{display:grid;grid-template-columns:90px 1fr 190px;gap:28px;padding:34px 12px;border-bottom:1px solid var(--line);align-items:start;transition:.35s;position:relative}
+.move::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:.35s}
+.move:hover{background:var(--ink2);padding-left:28px}
+.move:hover::before{transform:scaleY(1)}
+.no{font:500 .85rem var(--mono);color:var(--mute)}
+.no b{display:block;font-family:var(--serif);font-size:2rem;color:var(--gold);font-weight:400;line-height:1}
+.move h3{font-family:var(--serif);font-weight:700;font-size:1.55rem;margin-bottom:8px}
+.move p{color:var(--mute);max-width:560px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{font:500 .72rem var(--mono);padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--ivory)}
+.meta{text-align:right;font:500 .78rem var(--mono);color:var(--mute)}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--gold);color:var(--gold2);margin-bottom:10px}
+.badge.live{border-color:#5fd38d;color:#5fd38d}
+
+/* PIECES (compétences) */
+.pieces{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.piece{background:var(--ink2);border:1px solid var(--line);padding:26px;display:flex;gap:20px;transition:.3s}
+.piece:hover{border-color:var(--gold);transform:translateY(-4px)}
+.glyph{font-size:3rem;line-height:1;color:var(--gold2);flex:none}
+.piece h4{font-family:var(--serif);font-size:1.2rem;font-weight:700}
+.piece small{display:block;font:500 .72rem var(--mono);color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.piece p{color:var(--mute);font-size:.92rem}
+
+/* MATE */
+.mate{text-align:center;padding:110px 0;background:radial-gradient(ellipse at center,rgba(212,168,75,.12),transparent 65%)}
+.mate .big{font-family:var(--serif);font-size:clamp(2.4rem,7vw,5.6rem);line-height:1;letter-spacing:-.02em}
+.mate .big em{color:var(--gold2)}
+.mate p{color:var(--mute);margin:22px auto 34px;max-width:520px}
+.mate .cta{justify-content:center}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--mute);font:500 .78rem var(--mono);text-align:center}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .links{display:none}
+  .move{grid-template-columns:60px 1fr;gap:16px}
+  .meta{grid-column:2;text-align:left}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">♞ Hugo<span>.</span>Muller</a>
+    <div class="links">
+      <a href="#coups" data-i="n1"></a><a href="#pieces" data-i="n2"></a><a href="#mat" data-i="n3"></a>
+    </div>
+    <div class="lang"><button data-l="fr" class="on">FR</button><button data-l="en">EN</button></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" data-i="eyebrow"></div>
+      <h1 data-i="h1"></h1>
+      <p class="lead" data-i="lead"></p>
+      <div class="cta">
+        <a class="btn pri" href="#coups" data-i="cta1"></a>
+        <a class="btn sec" href="#" data-i="cta2"></a>
+      </div>
+      <div class="status"><span class="dot"></span><span data-i="status"></span></div>
+    </div>
+    <div class="board-wrap">
+      <div class="board" id="board"><div class="knight" id="knight">♞</div></div>
+      <div class="move-log"><span data-i="lastmove"></span><b id="mv">1. Cf3</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="coups">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 data-i="h2a"></h2><span class="sub" data-i="sub1"></span></div>
+    <div class="moves">
+      <article class="move rv">
+        <div class="no"><b>1.</b>e4</div>
+        <div>
+          <h3 data-i="p1t"></h3><p data-i="p1d"></p>
+          <div class="tags"><span class="tag">Wazuh</span><span class="tag">SIEM / XDR</span><span class="tag">Linux</span><span class="tag">Détection</span></div>
+        </div>
+        <div class="meta"><span class="badge" data-i="done"></span><br>PPE · BTS SIO 2</div>
+      </article>
+      <article class="move rv">
+        <div class="no"><b>2.</b>Cf3</div>
+        <div>
+          <h3 data-i="p2t"></h3><p data-i="p2d"></p>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Swarm</span><span class="tag">Haute dispo</span><span class="tag">Réseau overlay</span></div>
+        </div>
+        <div class="meta"><span class="badge" data-i="done"></span><br>PPE · BTS SIO 2</div>
+      </article>
+      <article class="move rv">
+        <div class="no"><b>3.</b>Fc4</div>
+        <div>
+          <h3 data-i="p3t"></h3><p data-i="p3d"></p>
+          <div class="tags"><span class="tag">Virtualisation</span><span class="tag">Réseau</span><span class="tag">Supervision</span><span class="tag">Auto-hébergement</span></div>
+        </div>
+        <div class="meta"><span class="badge live" data-i="live"></span><br data-i="perso"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pieces">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 data-i="h2b"></h2><span class="sub" data-i="sub2"></span></div>
+    <div class="pieces">
+      <div class="piece rv"><div class="glyph">♙</div><div><small data-i="lv1"></small><h4 data-i="s1t"></h4><p data-i="s1d"></p></div></div>
+      <div class="piece rv"><div class="glyph">♘</div><div><small data-i="lv2"></small><h4 data-i="s2t"></h4><p data-i="s2d"></p></div></div>
+      <div class="piece rv"><div class="glyph">♗</div><div><small data-i="lv2"></small><h4 data-i="s3t"></h4><p data-i="s3d"></p></div></div>
+      <div class="piece rv"><div class="glyph">♖</div><div><small data-i="lv3"></small><h4 data-i="s4t"></h4><p data-i="s4d"></p></div></div>
+      <div class="piece rv"><div class="glyph">♕</div><div><small data-i="lv4"></small><h4 data-i="s5t"></h4><p data-i="s5d"></p></div></div>
+      <div class="piece rv"><div class="glyph">♔</div><div><small data-i="lv4"></small><h4 data-i="s6t"></h4><p data-i="s6d"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mate" id="mat">
+  <div class="wrap rv">
+    <div class="big" data-i="mate"></div>
+    <p data-i="mateP"></p>
+    <div class="cta">
+      <a class="btn pri" href="#" data-i="c1"></a>
+      <a class="btn sec" href="#">GitHub</a>
+      <a class="btn sec" href="#">LinkedIn</a>
+    </div>
+  </div>
+</section>
+<footer>© 2026 Hugo Muller — CPE Lyon · ICS</footer>
+
+<script>
+const T={
+fr:{n1:"Coups",n2:"Pièces",n3:"Contact",
+ eyebrow:"Étudiant en cybersécurité · CPE Lyon",
+ h1:"Je pense <em>trois coups</em><br>d'avance.",
+ lead:"Étudiant en cursus ICS à CPE Lyon, je défends des systèmes comme on joue une partie : en anticipant l'adversaire, en structurant ma position et en gardant le sang-froid.",
+ cta1:"Voir mes coups",cta2:"Télécharger mon CV",status:"Disponible · stage & alternance",lastmove:"Dernier coup",
+ h2a:"Mes <em>coups</em>",sub1:"Projets · Partie en cours",
+ p1t:"Lab Wazuh",p1d:"Déploiement d'une plateforme SIEM/XDR : agents, règles de détection, alertes et tableau de bord. Un projet pour voir l'attaque avant qu'elle ne frappe.",
+ p2t:"Cluster Docker Swarm",p2d:"Mise en place d'un cluster d'orchestration : services répliqués, réseau overlay, tolérance aux pannes et haute disponibilité.",
+ p3t:"Home lab",p3d:"Mon terrain d'entraînement personnel. Il grandit au fil de mes envies et de mes apprentissages : virtualisation, segmentation réseau, supervision.",
+ done:"Terminé",live:"En évolution",perso:"Projet personnel",
+ h2b:"Mes <em>pièces</em>",sub2:"Compétences",
+ lv1:"Solide",lv2:"En progression",lv3:"Pratique",lv4:"En apprentissage",
+ s1t:"Réseaux",s1d:"Adressage, VLAN, routage, pare-feu : les fondations de toute bonne position.",
+ s2t:"Systèmes Linux",s2d:"Administration, durcissement, services et automatisation en ligne de commande.",
+ s3t:"Supervision & SIEM",s3d:"Collecte de logs, détection d'incidents, corrélation d'événements avec Wazuh.",
+ s4t:"Conteneurs",s4d:"Docker, orchestration Swarm, déploiement reproductible et résilient.",
+ s5t:"Sécurité offensive",s5d:"Compréhension des attaques pour mieux défendre : labs, CTF, méthodologie.",
+ s6t:"Architecture sécurisée",s6d:"Penser la défense en profondeur dès la conception d'une infrastructure.",
+ mate:"Échec <em>et mat</em> ?",mateP:"Je recherche un stage puis une alternance en cybersécurité. Parlons-en.",c1:"Me contacter"},
+en:{n1:"Moves",n2:"Pieces",n3:"Contact",
+ eyebrow:"Cybersecurity student · CPE Lyon",
+ h1:"I think <em>three moves</em><br>ahead.",
+ lead:"ICS student at CPE Lyon, I defend systems the way I play chess: anticipating the opponent, building a solid position and keeping a cool head.",
+ cta1:"See my moves",cta2:"Download my CV",status:"Available · internship & work-study",lastmove:"Last move",
+ h2a:"My <em>moves</em>",sub1:"Projects · Game in progress",
+ p1t:"Wazuh Lab",p1d:"Deployment of a SIEM/XDR platform: agents, detection rules, alerts and dashboard. A project to spot the attack before it lands.",
+ p2t:"Docker Swarm Cluster",p2d:"Orchestration cluster setup: replicated services, overlay network, fault tolerance and high availability.",
+ p3t:"Home lab",p3d:"My personal training ground. It grows with my curiosity and learning: virtualization, network segmentation, monitoring.",
+ done:"Completed",live:"Evolving",perso:"Personal project",
+ h2b:"My <em>pieces</em>",sub2:"Skills",
+ lv1:"Solid",lv2:"Growing",lv3:"Hands-on",lv4:"Learning",
+ s1t:"Networking",s1d:"Addressing, VLANs, routing, firewalls: the foundation of any good position.",
+ s2t:"Linux systems",s2d:"Administration, hardening, services and command-line automation.",
+ s3t:"Monitoring & SIEM",s3d:"Log collection, incident detection, event correlation with Wazuh.",
+ s4t:"Containers",s4d:"Docker, Swarm orchestration, reproducible and resilient deployment.",
+ s5t:"Offensive security",s5d:"Understanding attacks to defend better: labs, CTFs, methodology.",
+ s6t:"Secure architecture",s6d:"Thinking defense in depth from the very design of an infrastructure.",
+ mate:"Check<em>mate</em>?",mateP:"I'm looking for an internship, then a work-study position in cybersecurity. Let's talk.",c1:"Get in touch"}
+};
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(e=>e.innerHTML=T[l][e.dataset.i]);
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+let saved='fr';try{saved=localStorage.getItem('lang')||'fr'}catch(e){}
+setLang(saved);
+
+/* échiquier */
+const board=document.getElementById('board'),knight=document.getElementById('knight');
+const layout={ // pièces décoratives
+ '0,0':'♜b','0,1':'♞b','0,2':'♝b','0,3':'♛b','0,4':'♚b','0,5':'♝b','0,7':'♜b',
+ '1,0':'♟b','1,1':'♟b','1,2':'♟b','1,3':'♟b','1,5':'♟b','1,6':'♟b','1,7':'♟b','3,4':'♟b',
+ '4,4':'♙','6,0':'♙','6,1':'♙','6,2':'♙','6,3':'♙','6,5':'♙','6,6':'♙','6,7':'♙',
+ '7,0':'♖','7,2':'♗','7,3':'♕','7,4':'♔','7,5':'♗','7,7':'♖'};
+const cells=[];
+for(let r=0;r<8;r++)for(let c=0;c<8;c++){
+  const s=document.createElement('div');s.className='sq '+((r+c)%2?'d':'l');
+  const k=layout[r+','+c];
+  if(k){const p=document.createElement('span');p.className='p'+(k.endsWith('b')?' b':'');p.textContent=k[0];s.appendChild(p)}
+  if(c===0){const x=document.createElement('i');x.className='coord r';x.textContent=8-r;s.appendChild(x)}
+  if(r===7){const x=document.createElement('i');x.className='coord f';x.textContent='abcdefgh'[c];s.appendChild(x)}
+  board.insertBefore(s,knight);cells.push(s);
+}
+let pos={r:5,c:5};
+const place=()=>knight.style.transform=`translate(${pos.c*100}%,${pos.r*100}%)`;
+place();
+const jumps=[[1,2],[2,1],[-1,2],[-2,1],[1,-2],[2,-1],[-1,-2],[-2,-1]];
+function hop(){
+  const opts=jumps.map(([a,b])=>({r:pos.r+a,c:pos.c+b})).filter(p=>p.r>=0&&p.r<8&&p.c>=0&&p.c<8&&!layout[p.r+','+p.c]);
+  if(!opts.length)return;
+  const n=opts[Math.floor(Math.random()*opts.length)];
+  const old=cells[pos.r*8+pos.c];old.classList.add('trail');setTimeout(()=>old.classList.remove('trail'),1600);
+  pos=n;place();
+  document.getElementById('mv').textContent=Math.ceil(Math.random()*40)+'. C'+'abcdefgh'[n.c]+(8-n.r);
+}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(hop,2200);
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
