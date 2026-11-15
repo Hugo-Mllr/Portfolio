@@ -1,0 +1,57 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { langs, localePath, t, type Lang } from '../../../i18n/ui';
+import { getProjects, notation } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const projects = await getProjects(lang);
+---
+<Base lang={lang} current="projects" title={t(lang, 'nav.projects')} description={t(lang, 'projects.intro')}>
+  <PageHead eyebrow={t(lang, 'projects.sub')} title={t(lang, 'projects.title')} intro={t(lang, 'projects.intro')} />
+  <section class="wrap list">
+    {projects.length === 0 && <p class="empty">{t(lang, 'projects.empty')}</p>}
+    <ol class="moves" data-stagger>
+      {projects.map((p, i) => (
+        <li>
+          <a class="move" href={localePath(lang, `projects/${p.slug}/`)}>
+            <div class="no"><b>{i + 1}.</b>{notation(i, lang)}</div>
+            <div class="body">
+              <h2>{p.entry.data.title}</h2>
+              {p.entry.data.summary && <p>{p.entry.data.summary}</p>}
+              <ul class="tags">{p.entry.data.tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
+            </div>
+            <div class="meta">
+              <span class:list={['badge', { live: p.entry.data.status === 'live', planned: p.entry.data.status === 'planned' }]}>{t(lang, `status.${p.entry.data.status}`)}</span>
+              {p.entry.data.context && <span>{p.entry.data.context}</span>}
+              {p.chapters.length > 0 && <span>{p.chapters.length + 1} {lang === 'fr' ? 'parties' : 'parts'}</span>}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Base>
+<style>
+  .list { padding-bottom: 96px; }
+  .empty { color: var(--mute); padding: 40px 0; }
+  .moves { list-style: none; border-top: 1px solid var(--line); }
+  .move { display: grid; grid-template-columns: 90px 1fr 200px; gap: 28px; padding: 34px 12px; border-bottom: 1px solid var(--line); align-items: start; transition: background .35s, padding .35s var(--ease); position: relative; }
+  .move::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .35s var(--ease); }
+  .move:hover, .move:focus-visible { background: var(--ink-2); padding-left: 28px; }
+  .move:hover::before, .move:focus-visible::before { transform: scaleY(1); }
+  .no { font: 500 .85rem var(--font-mono); color: var(--mute); }
+  .no b { display: block; font: 400 2rem/1 var(--font-serif); color: var(--accent); }
+  h2 { font: 700 1.55rem var(--font-serif); margin-bottom: 8px; }
+  .body p { color: var(--mute); max-width: 560px; }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag { font: 500 .72rem var(--font-mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 3px; }
+  .meta { font: 500 .78rem var(--font-mono); color: var(--mute); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; text-align: right; }
+  .badge { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-2); }
+  .badge.live { border-color: var(--ok); color: var(--ok); }
+  .badge.planned { border-color: var(--line); color: var(--mute); }
+  @media (max-width: 860px) { .move { grid-template-columns: 60px 1fr; gap: 16px; } .meta { grid-column: 2; align-items: flex-start; text-align: left; } }
+</style>

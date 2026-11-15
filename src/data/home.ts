@@ -1,56 +1,5 @@
 import type { Lang } from '../i18n/ui';
 
-type Status = 'done' | 'live';
-export interface MoveItem {
-  slug: string;
-  notation: Record<Lang, string>;
-  title: Record<Lang, string>;
-  summary: Record<Lang, string>;
-  tags: string[];
-  status: Status;
-  context: Record<Lang, string>;
-}
-
-// Placeholders : descriptions génériques à remplacer par les vrais comptes rendus (PR « content »).
-export const moves: MoveItem[] = [
-  {
-    slug: 'lab-wazuh',
-    notation: { fr: 'e4', en: 'e4' },
-    title: { fr: 'Lab Wazuh', en: 'Wazuh Lab' },
-    summary: {
-      fr: "Déploiement d'une plateforme SIEM/XDR : agents, règles de détection, alertes et tableau de bord. Un projet pour voir l'attaque avant qu'elle ne frappe.",
-      en: 'Deployment of a SIEM/XDR platform: agents, detection rules, alerts and dashboard. A project to spot the attack before it lands.',
-    },
-    tags: ['Wazuh', 'SIEM / XDR', 'Linux', 'Détection'],
-    status: 'done',
-    context: { fr: 'PPE · BTS SIO 2', en: 'PPE · BTS SIO 2' },
-  },
-  {
-    slug: 'cluster-swarm',
-    notation: { fr: 'Cf3', en: 'Nf3' },
-    title: { fr: 'Cluster Docker Swarm', en: 'Docker Swarm Cluster' },
-    summary: {
-      fr: "Mise en place d'un cluster d'orchestration : services répliqués, réseau overlay, tolérance aux pannes et haute disponibilité.",
-      en: 'Orchestration cluster setup: replicated services, overlay network, fault tolerance and high availability.',
-    },
-    tags: ['Docker', 'Swarm', 'Haute dispo', 'Réseau overlay'],
-    status: 'done',
-    context: { fr: 'PPE · BTS SIO 2', en: 'PPE · BTS SIO 2' },
-  },
-  {
-    slug: 'home-lab',
-    notation: { fr: 'Fc4', en: 'Bc4' },
-    title: { fr: 'Home lab', en: 'Home lab' },
-    summary: {
-      fr: "Mon terrain d'entraînement personnel. Il grandit au fil de mes envies et de mes apprentissages : virtualisation, segmentation réseau, supervision.",
-      en: 'My personal training ground. It grows with my curiosity and learning: virtualization, network segmentation, monitoring.',
-    },
-    tags: ['Virtualisation', 'Réseau', 'Supervision', 'Auto-hébergement'],
-    status: 'live',
-    context: { fr: 'Projet personnel', en: 'Personal project' },
-  },
-];
-
 export const pieces: { glyph: string; level: 1 | 2 | 3 | 4; title: Record<Lang, string>; text: Record<Lang, string> }[] = [
   { glyph: '♙', level: 1, title: { fr: 'Réseaux', en: 'Networking' }, text: { fr: "Adressage, VLAN, routage, pare-feu : les fondations de toute bonne position.", en: 'Addressing, VLANs, routing, firewalls: the foundation of any good position.' } },
   { glyph: '♘', level: 2, title: { fr: 'Systèmes Linux', en: 'Linux systems' }, text: { fr: "Administration, durcissement, services et automatisation en ligne de commande.", en: 'Administration, hardening, services and command-line automation.' } },
@@ -80,8 +29,6 @@ export const copy = {
     boardHint: 'Cliquez sur une case dorée pour jouer le cavalier.',
     movesTitle: 'Mes <em>coups</em>',
     movesSub: 'Projets · Partie en cours',
-    done: 'Terminé',
-    live: 'En évolution',
     readMore: 'Lire le compte rendu',
     allProjects: 'Tous les projets',
     piecesTitle: 'Mes <em>pièces</em>',
@@ -104,8 +51,6 @@ export const copy = {
     boardHint: 'Click a golden square to move the knight.',
     movesTitle: 'My <em>moves</em>',
     movesSub: 'Projects · Game in progress',
-    done: 'Completed',
-    live: 'Evolving',
     readMore: 'Read the report',
     allProjects: 'All projects',
     piecesTitle: 'My <em>pieces</em>',
