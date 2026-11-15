@@ -1,0 +1,51 @@
+---
+import Board from './Board.astro';
+import { copy } from '../data/home';
+import { site } from '../data/site';
+import { localePath, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = copy[lang];
+---
+<header class="hero">
+  <div class="wrap grid">
+    <div class="text">
+      <p class="eyebrow">{c.eyebrow}</p>
+      <h1>
+        {c.h1.map((l) => <span class="line"><span set:html={l} /></span>)}
+      </h1>
+      <p class="lead" data-hero-in>{c.lead}</p>
+      <div class="cta" data-hero-in>
+        <a class="btn pri" href="#moves" data-magnetic>{c.cta1}</a>
+        {site.cv
+          ? <a class="btn sec" href={site.cv} download data-magnetic>{c.ctaCv}</a>
+          : <a class="btn sec" href={localePath(lang, 'writeups/')} data-magnetic>{c.ctaWriteups}</a>}
+      </div>
+      <p class="status" data-hero-in><span class="dot" aria-hidden="true"></span>{c.status}</p>
+    </div>
+    <Board lang={lang} lastMove={c.lastMove} hint={c.boardHint} />
+  </div>
+</header>
+<style>
+  .hero { padding: 72px 0 96px; position: relative; overflow: clip; }
+  .hero::before { content: ''; position: absolute; width: 620px; height: 620px; right: -160px; top: -180px; background: radial-gradient(circle, rgb(var(--accent-rgb) / .14), transparent 65%); pointer-events: none; }
+  .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; position: relative; }
+  .eyebrow { font: 500 .8rem var(--font-mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font: 400 clamp(2.6rem, 6vw, 4.8rem)/1.04 var(--font-serif); margin: 20px 0 22px; letter-spacing: -.02em; }
+  .line { display: block; overflow: hidden; padding-bottom: .08em; }
+  .line > span { display: inline-block; }
+  h1 :global(em) { font-style: italic; color: var(--accent-2); }
+  .lead { color: var(--mute); max-width: 520px; font-size: 1.05rem; }
+  .cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: var(--radius); font-weight: 600; font-size: .92rem; border: 1px solid var(--accent); transition: background .25s, color .25s; }
+  .btn.pri { background: var(--accent); color: var(--on-accent); }
+  .btn.pri:hover { background: var(--accent-2); }
+  .btn.sec { color: var(--accent-2); }
+  .btn.sec:hover { background: rgb(var(--accent-rgb) / .1); }
+  .status { margin-top: 28px; display: inline-flex; align-items: center; gap: 10px; font: 500 .8rem var(--font-mono); color: var(--mute); border: 1px solid var(--line); padding: 8px 14px; border-radius: 999px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgb(95 211 141 / .6); } 70%, 100% { box-shadow: 0 0 0 10px rgb(95 211 141 / 0); } }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding: 48px 0 72px; } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+</style>

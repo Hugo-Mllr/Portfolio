@@ -1,0 +1,54 @@
+---
+import SectionHead from './SectionHead.astro';
+import { copy, moves } from '../data/home';
+import { localePath, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = copy[lang];
+---
+<section id="moves" class="sec" aria-labelledby="moves-h">
+  <div class="wrap">
+    <SectionHead id="moves-h" title={c.movesTitle} sub={c.movesSub} />
+    <ol class="moves" data-stagger>
+      {moves.map((m, i) => (
+        <li>
+          <a class="move" href={localePath(lang, `projects/${m.slug}/`)}>
+            <div class="no"><b>{i + 1}.</b>{m.notation[lang]}</div>
+            <div class="body">
+              <h3>{m.title[lang]}</h3>
+              <p>{m.summary[lang]}</p>
+              <ul class="tags">{m.tags.map((t) => <li class="tag">{t}</li>)}</ul>
+            </div>
+            <div class="meta">
+              <span class:list={['badge', { live: m.status === 'live' }]}>{c[m.status]}</span>
+              <span>{m.context[lang]}</span>
+              <span class="more">{c.readMore} →</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <a class="all" href={localePath(lang, 'projects/')} data-reveal>{c.allProjects} →</a>
+  </div>
+</section>
+<style>
+  .sec { padding: 88px 0; border-top: 1px solid var(--line); }
+  .moves { list-style: none; border-top: 1px solid var(--line); }
+  .move { display: grid; grid-template-columns: 90px 1fr 200px; gap: 28px; padding: 34px 12px; border-bottom: 1px solid var(--line); align-items: start; transition: background .35s, padding .35s var(--ease); position: relative; }
+  .move::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .35s var(--ease); }
+  .move:hover, .move:focus-visible { background: var(--ink-2); padding-left: 28px; }
+  .move:hover::before, .move:focus-visible::before { transform: scaleY(1); }
+  .no { font: 500 .85rem var(--font-mono); color: var(--mute); }
+  .no b { display: block; font: 400 2rem/1 var(--font-serif); color: var(--accent); }
+  h3 { font: 700 1.55rem var(--font-serif); margin-bottom: 8px; }
+  .body p { color: var(--mute); max-width: 560px; }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag { font: 500 .72rem var(--font-mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 3px; }
+  .meta { text-align: right; font: 500 .78rem var(--font-mono); color: var(--mute); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .badge { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-2); }
+  .badge.live { border-color: var(--ok); color: var(--ok); }
+  .more { color: var(--accent-2); opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .3s var(--ease); }
+  .move:hover .more, .move:focus-visible .more { opacity: 1; transform: none; }
+  .all { display: inline-block; margin-top: 32px; font: 500 .85rem var(--font-mono); color: var(--accent-2); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  @media (max-width: 860px) { .move { grid-template-columns: 60px 1fr; gap: 16px; } .meta { grid-column: 2; align-items: flex-start; text-align: left; } .more { opacity: 1; transform: none; } }
+</style>

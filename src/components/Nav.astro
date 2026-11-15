@@ -31,6 +31,9 @@ const links = [
 
 <style>
   .nav { position: sticky; top: 0; z-index: 40; background: rgb(13 13 16 / .8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav { transition: transform .5s var(--ease), background .3s, box-shadow .3s; }
+  .nav.hide { transform: translateY(-100%); }
+  .nav.scrolled { box-shadow: 0 8px 30px rgb(0 0 0 / .35); }
   .bar { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 16px; }
   .logo { font: 700 1.25rem var(--font-serif); letter-spacing: .02em; white-space: nowrap; }
   .logo .dot { color: var(--accent); }

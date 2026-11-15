@@ -7,6 +7,7 @@
 - [x] Direction choisie : échiquier
 - [x] Contexte, README, docs et agents pour passer la main à un autre modèle
 - [x] PR 1 : scaffold Astro, tokens thémables, i18n FR/EN par routes (`/fr/`, `/en/`), Dockerfile + compose (image non testée : pas de daemon Docker dans l'environnement de dev)
+- [x] PR 2 : accueil (hero + échiquier interactif, projets, compétences, contact), Lenis + GSAP v1
 
 ## Plan de PR (empilées, en brouillon)
 Base : `claude/nice-ramanujan-7k6lth`. Chaque PR part de la précédente.

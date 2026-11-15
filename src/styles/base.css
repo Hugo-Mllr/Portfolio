@@ -48,6 +48,13 @@ button { font: inherit; color: inherit; }
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
+/* Révélations : masquées uniquement quand les animations sont actives */
+.anim [data-reveal], .anim [data-stagger] > * { opacity: 0; }
+.anim .hero h1 .line > span, .anim .hero [data-hero-in], .anim .hero .eyebrow, .anim .board-wrap { visibility: hidden; }
+.anim.motion-ready .hero h1 .line > span, .anim.motion-ready .hero [data-hero-in], .anim.motion-ready .hero .eyebrow, .anim.motion-ready .board-wrap { visibility: visible; }
+
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+
 /* Transition de page native (navigateurs compatibles) */
 @view-transition { navigation: auto; }
 ::view-transition-old(root) { animation: 0.25s var(--ease) both vt-out; }
