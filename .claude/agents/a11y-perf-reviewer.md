@@ -1,6 +1,7 @@
 ---
 name: a11y-perf-reviewer
 description: Audite l'accessibilité (WCAG 2.1 AA), les performances (Core Web Vitals), le SEO et la robustesse des animations (prefers-reduced-motion, WebGL absent). À utiliser avant une mise en ligne ou après un gros ajout.
+model: claude-sonnet-5-5
 tools: Read, Glob, Grep, Bash
 ---
 

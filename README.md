@@ -32,7 +32,7 @@ Chaque maquette est un fichier HTML autonome avec un bouton FR/EN fonctionnel.
 3. **Home lab** — projet personnel en évolution
 
 ## Stack visée
-Astro · React · TypeScript · Tailwind · GSAP + ScrollTrigger · Lenis · Motion · (React Three Fiber en option) · Cloudflare Pages. À confirmer, voir [`CLAUDE.md`](CLAUDE.md).
+Astro (statique) · TypeScript · CSS à variables · GSAP + ScrollTrigger · Lenis · Three.js · Docker (nginx) + Portainer + Cloudflare. Détails et décisions : [`CLAUDE.md`](CLAUDE.md).
 
 ## Structure
 ```

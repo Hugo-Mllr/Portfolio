@@ -40,3 +40,20 @@ Niveaux actuels **purement indicatifs** ⚠️ : Réseaux, Systèmes Linux, Supe
 - Phrases courtes, verbes d'action, résultats concrets.
 - Tutoiement exclu sur le site ; vouvoiement ou neutre.
 - Chaque texte FR a son équivalent EN, de même longueur à peu près.
+
+## Ajouter du contenu (une fois la PR « content » fusionnée)
+### Un projet avec compte rendu (plusieurs fichiers)
+```
+src/content/projects/lab-wazuh/
+├── index.fr.md        # présentation (frontmatter + intro)
+├── 01-architecture.fr.md
+├── 02-deploiement.fr.md
+└── 03-resultats.fr.md
+public/files/lab-wazuh/rapport.pdf   # pièces jointes
+```
+Les chapitres `NN-*.md` apparaissent dans l'ordre sur la page du projet, avec sommaire et navigation précédent/suivant. Version anglaise optionnelle : mêmes noms en `.en.md`.
+
+### Un writeup CTF
+`src/content/writeups/<evenement>-<defi>.md` avec frontmatter : `title`, `ctf`, `category`, `difficulty`, `points`, `date`, `tags`, `draft`. Les writeups sont filtrables par catégorie sur la page liste.
+
+Demander à l'agent `writeup-publisher` de mettre en forme des notes brutes.

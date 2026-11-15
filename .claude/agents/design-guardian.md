@@ -1,6 +1,7 @@
 ---
 name: design-guardian
 description: Vérifie qu'une implémentation respecte la maquette échiquier et les tokens de design (couleurs, typo, espacements, animations). À utiliser après une étape d'implémentation pour détecter les écarts visuels, avec captures d'écran.
+model: claude-sonnet-5-5
 tools: Read, Glob, Grep, Bash
 ---
 

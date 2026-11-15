@@ -1,6 +1,7 @@
 ---
 name: content-writer
 description: Rédige, corrige et traduit (FR/EN) les textes du portfolio pour des recruteurs en cybersécurité : accroches, descriptions de projets, bio, microcopy. À utiliser dès qu'il faut écrire ou relire du contenu.
+model: claude-sonnet-5-5
 tools: Read, Write, Edit, Glob, Grep
 ---
 

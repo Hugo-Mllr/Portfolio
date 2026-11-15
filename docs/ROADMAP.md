@@ -7,39 +7,25 @@
 - [x] Direction choisie : échiquier
 - [x] Contexte, README, docs et agents pour passer la main à un autre modèle
 
-## À faire
-### 1. Finaliser la maquette (avec Hugo)
-- [ ] Retours de Hugo sur `mockups/1-echiquier.html` (couleurs, textes, sections, animations)
-- [ ] Décider : hero 3D ou non ; pages détail par projet ; section parcours
-- [ ] Valider le nom, les liens et les vrais textes de projets (`docs/CONTENT.md`)
+## Plan de PR (empilées, en brouillon)
+Base : `claude/nice-ramanujan-7k6lth`. Chaque PR part de la précédente.
 
-### 2. Mise en place technique
-- [ ] Confirmer la stack (Astro + React + TS + Tailwind proposé)
-- [ ] Initialiser le projet, structure de composants, tokens CSS
-- [ ] i18n FR/EN avec persistance
+| # | Branche | Contenu |
+|---|---|---|
+| 1 | `claude/feat-scaffold` | Astro + TS, tokens thémables, layout, i18n FR/EN par routes, Dockerfile + compose |
+| 2 | `claude/feat-home` | Nav, hero avec échiquier animé, sections accueil, Lenis + GSAP (animations v1) |
+| 3 | `claude/feat-content` | Collections projets (multi-fichiers) et writeups CTF, pages liste/détail, contenu d'exemple |
+| 4 | `claude/feat-animations` | Animations avancées (scroll narratif, curseur, transitions de page, marquee) |
+| 5 | `claude/feat-hero-3d` | Hero 3D Three.js (cavalier), chargé à la demande |
+| 6 | `claude/feat-ci-qa` | Image Docker via GitHub Actions (GHCR), audit a11y/perf, corrections |
 
-### 3. Implémentation
-- [ ] Nav, hero, échiquier animé
-- [ ] Section projets + pages détail
-- [ ] Section compétences
-- [ ] Contact, CV téléchargeable
-- [ ] Animations GSAP / Lenis / Motion, avec `prefers-reduced-motion`
-
-### 4. Qualité
-- [ ] Audit accessibilité (WCAG AA), performance (Lighthouse), SEO, Open Graph
-- [ ] Tests responsive mobile / tablette / desktop
-- [ ] Polices auto-hébergées
-
-### 5. Mise en ligne
-- [ ] Reconnecter Cloudflare, déployer sur Pages, domaine éventuel
-- [ ] Analytics respectueux de la vie privée (optionnel)
-
-### 6. Recherche de stage / alternance
-- [ ] CV aligné avec le site
-- [ ] Liste d'entreprises cibles, modèles de candidature, suivi
-- [ ] Profil LinkedIn cohérent
+## Plus tard
+- [ ] Sélecteur de thème de couleur (accent au choix du visiteur)
+- [ ] Contenu réel : projets, CV téléchargeable, liens (voir `docs/CONTENT.md`)
+- [ ] Déploiement : stack Docker + Portainer + tunnel Cloudflare (par Hugo)
+- [ ] Nom de domaine et analytics éventuels
 
 ## Questions ouvertes
-- Nom exact, zone géographique, dates de stage et rythme d'alternance
-- Hero 3D : oui ou non ?
-- Nom de domaine souhaité ?
+- Liens GitHub / LinkedIn exacts, CV PDF
+- Vrais détails des 3 projets (machines, versions, résultats, captures)
+- Premiers writeups CTF à publier
