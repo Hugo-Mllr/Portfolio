@@ -140,6 +140,8 @@ export function localePath(lang: Lang, path = ''): string {
 
 /** Même page dans une autre langue : /fr/projects/x/ -> /en/projects/x/ */
 export function switchLangPath(pathname: string, to: Lang): string {
+  // Pages sans préfixe de langue (404…) : on renvoie vers l'accueil de la langue cible.
+  if (!/^\/(fr|en)(\/|$)/.test(pathname)) return `/${to}/`;
   const rest = pathname.replace(/^\/(fr|en)(?=\/|$)/, '');
   return `/${to}${rest || '/'}`;
 }

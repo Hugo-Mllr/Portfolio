@@ -44,10 +44,9 @@ function curtain(): gsap.core.Timeline | null {
   const squares = wrap.querySelectorAll('i');
   return gsap
     .timeline({ onComplete: () => { wrap.remove(); mark.remove(); } })
-    .fromTo(mark, { opacity: 0, scale: 0.6, rotate: -20 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.7, ease: 'back.out(2)' })
-    .to(mark, { y: -14, duration: 0.25, yoyo: true, repeat: 1, ease: 'power2.inOut' }, '+=0.05')
-    .to(mark, { opacity: 0, scale: 1.6, duration: 0.45, ease: 'power2.in' })
-    .to(squares, { scale: 0, rotate: 12, duration: 0.55, ease: 'power3.in', stagger: { grid: [rows, cols], from: 'center', amount: 0.85 } }, '-=0.25');
+    .fromTo(mark, { opacity: 0, scale: 0.6, rotate: -20 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(2)' })
+    .to(mark, { opacity: 0, scale: 1.5, duration: 0.3, ease: 'power2.in' }, '+=0.1')
+    .to(squares, { scale: 0, rotate: 12, duration: 0.45, ease: 'power3.in', stagger: { grid: [rows, cols], from: 'center', amount: 0.6 } }, '-=0.2');
 }
 
 function start() {
@@ -78,7 +77,7 @@ function start() {
     .from('.hero h1 .line > span', { yPercent: 115, duration: 1.1, stagger: 0.12 }, '-=0.5')
     .from('.hero [data-hero-in]', { opacity: 0, y: 24, duration: 0.8, stagger: 0.1 }, '-=0.7')
     .from('.board-wrap', { opacity: 0, scale: 0.94, rotate: -2, duration: 1.2 }, 0.2);
-  if (intro) intro.add(() => hero.play(), '-=0.7');
+  if (intro) intro.add(() => hero.play(), '-=0.6');
 
   // --- Révélations au scroll ---
   gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
@@ -158,7 +157,7 @@ function start() {
   // Scène 3D : après le rideau / l'intro, hors du chemin critique
   const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
   const launch3d = () => initHero3D().catch((e) => console.warn('[hero3d]', e));
-  setTimeout(() => (idle ? idle(launch3d, { timeout: 3000 }) : launch3d()), intro ? 2200 : 900);
+  setTimeout(() => (idle ? idle(launch3d, { timeout: 3000 }) : launch3d()), intro ? 1800 : 900);
 
   (window as unknown as { __motion?: boolean }).__motion = true;
   root.classList.add('motion-ready');
