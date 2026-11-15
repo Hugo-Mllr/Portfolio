@@ -29,7 +29,7 @@ const catLabel = (c: string) => t(lang, `cat.${c}` as UiKey);
         <ul class="grid" data-stagger>
           {writeups.map((w) => (
             <li data-card data-cat={w.data.category} data-text={`${w.data.title} ${w.data.ctf} ${w.data.tags.join(' ')}`.toLowerCase()}>
-              <a class="card" href={localePath(lang, `writeups/${w.id}/`)}>
+              <a class="card" data-spot href={localePath(lang, `writeups/${w.id}/`)}>
                 <div class="top">
                   <span class="cat">{catLabel(w.data.category)}</span>
                   {w.data.difficulty && <span class={`diff ${w.data.difficulty}`}>{t(lang, `diff.${w.data.difficulty}` as UiKey)}</span>}

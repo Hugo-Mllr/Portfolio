@@ -46,7 +46,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         d.classList.add('js');
         if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
           d.classList.add('anim');
-          setTimeout(function () { if (!window.__motion) d.classList.remove('anim'); }, 4000);
+          // Rideau d'intro : accueil uniquement, une fois par session
+          try {
+            if (/^\/(fr|en)\/?$/.test(location.pathname) && !sessionStorage.getItem('introSeen')) d.classList.add('intro');
+          } catch (e) {}
+          setTimeout(function () { if (!window.__motion) d.classList.remove('anim', 'intro'); }, 4000);
         }
       })();
     </script>

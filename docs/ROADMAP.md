@@ -9,6 +9,7 @@
 - [x] PR 1 : scaffold Astro, tokens thémables, i18n FR/EN par routes (`/fr/`, `/en/`), Dockerfile + compose (image non testée : pas de daemon Docker dans l'environnement de dev)
 - [x] PR 2 : accueil (hero + échiquier interactif, projets, compétences, contact), Lenis + GSAP v1
 - [x] PR 3 : collections projets (multi-fichiers) et writeups CTF, pages liste/détail, filtres, brouillons
+- [x] PR 4 : rideau d'intro en damier, curseur halo, bandeau défilant (vitesse liée au scroll), rail de navigation, spotlight, titres lettre par lettre, inclinaison 3D de l'échiquier, chute du roi
 
 ## Plan de PR (empilées, en brouillon)
 Base : `claude/nice-ramanujan-7k6lth`. Chaque PR part de la précédente.
