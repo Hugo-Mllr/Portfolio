@@ -1,0 +1,33 @@
+---
+import { langs, languages, switchLangPath, t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+<div class="lang" role="group" aria-label={t(lang, 'nav.language')}>
+  {langs.map((l) => (
+    <a
+      href={switchLangPath(pathname, l)}
+      hreflang={l}
+      lang={l}
+      class:list={{ on: l === lang }}
+      aria-current={l === lang ? 'true' : undefined}
+      aria-label={languages[l]}
+      data-lang-link={l}
+    >{l.toUpperCase()}</a>
+  ))}
+</div>
+<style>
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .lang a { font: 600 0.75rem var(--font-mono); padding: 7px 13px; color: var(--mute); transition: color .2s, background .2s; }
+  .lang a:hover { color: var(--accent-2); }
+  .lang a.on { background: var(--accent); color: var(--on-accent); }
+</style>
+<script>
+  // Mémorise la langue choisie (utilisée par la redirection de la racine)
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((a) =>
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('lang', a.dataset.langLink ?? 'fr'); } catch {}
+    })
+  );
+</script>

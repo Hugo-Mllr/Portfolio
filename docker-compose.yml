@@ -1,0 +1,32 @@
+# Stack compatible Portainer (Stacks > Add stack > Repository, ou Web editor).
+# Variables à renseigner dans Portainer (jamais dans le dépôt) : voir .env.example
+services:
+  web:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-https://example.com}
+    image: ${IMAGE:-portfolio:latest}
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    ports:
+      - "${WEB_PORT:-8080}:8080"   # à retirer si le trafic passe uniquement par le tunnel
+    networks: [web]
+
+  # Tunnel Cloudflare (profil optionnel) : docker compose --profile tunnel up -d
+  cloudflared:
+    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-latest}   # épingler une version en prod
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?définir TUNNEL_TOKEN}
+    depends_on: [web]
+    networks: [web]
+    profiles: [tunnel]
+
+networks:
+  web:
