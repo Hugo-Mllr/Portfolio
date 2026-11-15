@@ -39,12 +39,27 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
     <meta name="twitter:card" content="summary" />
+    <script is:inline>
+      // Animations activées seulement si JS dispo et mouvement autorisé ; repli si le bundle échoue.
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          d.classList.add('anim');
+          setTimeout(function () { if (!window.__motion) d.classList.remove('anim'); }, 4000);
+        }
+      })();
+    </script>
     <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">{t(lang, 'a11y.skip')}</a>
+    <div class="progress" data-progress aria-hidden="true"></div>
     <Nav lang={lang} current={current} />
     <main id="main"><slot /></main>
     <Footer lang={lang} />
+    <script>
+      import '../scripts/motion';
+    </script>
   </body>
 </html>

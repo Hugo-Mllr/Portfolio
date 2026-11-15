@@ -1,0 +1,16 @@
+---
+interface Props { title: string; sub?: string; id?: string }
+const { title, sub, id } = Astro.props;
+---
+<div class="sec-head" data-reveal>
+  <h2 id={id} set:html={title} />
+  {sub && <span class="sub">{sub}</span>}
+  <span class="rule" aria-hidden="true"></span>
+</div>
+<style>
+  .sec-head { display: flex; align-items: baseline; gap: 14px 18px; margin-bottom: 44px; flex-wrap: wrap; position: relative; padding-bottom: 18px; }
+  h2 { font: 400 clamp(1.9rem, 3.6vw, 2.8rem) var(--font-serif); letter-spacing: -.01em; }
+  h2 :global(em) { color: var(--accent-2); }
+  .sub { font: 500 .78rem var(--font-mono); color: var(--mute); letter-spacing: .1em; text-transform: uppercase; }
+  .rule { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, var(--accent), var(--line) 40%); transform-origin: left; }
+</style>

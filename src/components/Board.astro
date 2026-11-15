@@ -1,0 +1,35 @@
+---
+interface Props { lastMove: string; hint: string; lang: 'fr' | 'en' }
+const { lastMove, hint, lang } = Astro.props;
+---
+<div class="board-wrap">
+  <div class="board" id="board" aria-hidden="true">
+    <div class="knight" id="knight"><span>♞</span></div>
+  </div>
+  <div class="move-log"><span>{lastMove}</span><b id="move-log">1. {lang === 'en' ? 'Nf3' : 'Cf3'}</b></div>
+  <p class="hint">{hint}</p>
+</div>
+<style is:global>
+  .board-wrap { position: relative; will-change: transform; }
+  .board { position: relative; aspect-ratio: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(8, minmax(0, 1fr)); border: 1px solid var(--accent); box-shadow: 0 30px 80px rgb(0 0 0 / .6), 0 0 0 8px var(--ink-2), 0 0 0 9px var(--line); user-select: none; }
+  .sq { min-width: 0; min-height: 0; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; font-size: clamp(1.2rem, 3.4vw, 2.4rem); transition: background .6s; }
+  .sq.l { background: var(--sq-l); } .sq.d { background: var(--sq-d); }
+  .sq.trail { background: rgb(var(--accent-rgb) / .28); transition: background .1s; }
+  .sq.hint { cursor: pointer; }
+  .sq.hint::after { content: ''; width: 24%; height: 24%; border-radius: 50%; background: rgb(var(--accent-rgb) / .55); box-shadow: 0 0 14px rgb(var(--accent-rgb) / .7); animation: pulse-dot 1.8s ease-in-out infinite; position: absolute; }
+  .sq.hint:hover { background: rgb(var(--accent-rgb) / .22); }
+  @keyframes pulse-dot { 50% { transform: scale(1.35); opacity: .7; } }
+  .sq .p { color: var(--ivory); opacity: .88; filter: drop-shadow(0 2px 3px rgb(0 0 0 / .6)); pointer-events: none; }
+  .sq .p.b { color: #77726a; }
+  .coord { position: absolute; font: 500 .55rem var(--font-mono); color: var(--mute); opacity: .6; font-style: normal; pointer-events: none; }
+  .coord.r { top: 3px; left: 4px; } .coord.f { bottom: 2px; right: 4px; }
+  .knight { position: absolute; top: 0; left: 0; width: 12.5%; height: 12.5%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.6rem, 4.4vw, 3.2rem); color: var(--accent-2); text-shadow: 0 0 18px rgb(var(--accent-rgb) / .8); pointer-events: none; z-index: 2; }
+  .knight span { display: block; line-height: 1; }
+  .move-log { margin-top: 18px; font: 500 .78rem var(--font-mono); color: var(--mute); display: flex; justify-content: space-between; }
+  .move-log b { color: var(--accent-2); font-weight: 500; }
+  .board-wrap .hint { margin-top: 8px; font-size: .8rem; color: var(--mute); opacity: .8; }
+  @media (prefers-reduced-motion: reduce) { .sq.hint::after { animation: none; } }
+</style>
+<script>
+  import '../scripts/board';
+</script>
