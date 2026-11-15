@@ -6,6 +6,7 @@ import { initCursor } from './fx/cursor';
 import { initSpotlight } from './fx/spotlight';
 import { initMarquee } from './fx/marquee';
 import { initRail } from './fx/rail';
+import { initHero3D } from './fx/hero3d';
 
 /**
  * Animations globales : scroll fluide Lenis branché sur GSAP, rideau d'intro en échiquier (1re visite
@@ -153,6 +154,11 @@ function start() {
   initSpotlight();
   initMarquee((cb) => lenis.on('scroll', ({ velocity }: { velocity: number }) => cb(velocity)));
   initRail((el) => lenis.scrollTo(el, { offset: -60 }));
+
+  // Scène 3D : après le rideau / l'intro, hors du chemin critique
+  const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+  const launch3d = () => initHero3D().catch((e) => console.warn('[hero3d]', e));
+  setTimeout(() => (idle ? idle(launch3d, { timeout: 3000 }) : launch3d()), intro ? 2200 : 900);
 
   (window as unknown as { __motion?: boolean }).__motion = true;
   root.classList.add('motion-ready');
