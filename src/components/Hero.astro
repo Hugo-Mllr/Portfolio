@@ -8,6 +8,7 @@ const { lang } = Astro.props;
 const c = copy[lang];
 ---
 <header class="hero" data-rail={t(lang, 'nav.home')}>
+  <div class="hero-3d" data-hero3d aria-hidden="true"></div>
   <div class="wrap grid">
     <div class="text">
       <p class="eyebrow">{c.eyebrow}</p>
@@ -29,6 +30,11 @@ const c = copy[lang];
 <style>
   .hero { padding: 72px 0 96px; position: relative; overflow: clip; }
   .hero::before { content: ''; position: absolute; width: 620px; height: 620px; right: -160px; top: -180px; background: radial-gradient(circle, rgb(var(--accent-rgb) / .14), transparent 65%); pointer-events: none; }
+  .hero-3d { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1.8s var(--ease); }
+  .hero-3d.on { opacity: .8; }
+  /* Atténue la zone du texte pour garder la lecture confortable */
+  .hero-3d { -webkit-mask-image: linear-gradient(90deg, rgb(0 0 0 / .18) 0%, rgb(0 0 0 / .3) 42%, #000 68%); mask-image: linear-gradient(90deg, rgb(0 0 0 / .18) 0%, rgb(0 0 0 / .3) 42%, #000 68%); }
+  .hero-3d :global(canvas) { width: 100%; height: 100%; display: block; }
   .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; position: relative; }
   .eyebrow { font: 500 .8rem var(--font-mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
   .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
