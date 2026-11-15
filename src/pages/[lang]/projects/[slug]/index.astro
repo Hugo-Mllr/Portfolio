@@ -1,0 +1,109 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import Prose from '../../../../components/Prose.astro';
+import { langs, localePath, t, type Lang } from '../../../../i18n/ui';
+import { getProject, getProjects, fmtDate } from '../../../../lib/content';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of langs) {
+    for (const p of await getProjects(lang)) paths.push({ params: { lang, slug: p.slug } });
+  }
+  return paths;
+}
+const lang = Astro.params.lang as Lang;
+const project = (await getProject(lang, Astro.params.slug!))!;
+const { entry, chapters } = project;
+const d = entry.data;
+const main = await render(entry);
+const parts = await Promise.all(chapters.map(async (c) => ({ ...c, rendered: await render(c.entry) })));
+const toc = [{ id: 'intro', title: d.title }, ...parts.map((c) => ({ id: `part-${c.name}`, title: c.entry.data.title }))];
+const anyFallback = project.fallback || chapters.some((c) => c.fallback);
+---
+<Base lang={lang} current="projects" title={d.title} description={d.summary} type="article">
+  <div class="wrap layout">
+    <aside class="side" aria-label={t(lang, 'project.toc')}>
+      <a class="back" href={localePath(lang, 'projects/')}>← {t(lang, 'project.back')}</a>
+      {toc.length > 1 && (
+        <nav class="toc">
+          <p class="toc-h">{t(lang, 'project.toc')}</p>
+          <ol>{toc.map((i) => <li><a href={`#${i.id}`} data-toc={i.id}>{i.title}</a></li>)}</ol>
+        </nav>
+      )}
+    </aside>
+
+    <article class="article">
+      <header class="head" id="intro">
+        <p class="eyebrow">{d.context ?? t(lang, 'nav.projects')}</p>
+        <h1>{d.title}</h1>
+        {d.summary && <p class="lead">{d.summary}</p>}
+        <div class="meta">
+          <span class:list={['badge', { live: d.status === 'live', planned: d.status === 'planned' }]}>{t(lang, `status.${d.status}`)}</span>
+          {d.date && <span>{fmtDate(d.date, lang)}</span>}
+          {d.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+        {d.draft && <p class="notice">{t(lang, 'project.draft')}</p>}
+        {anyFallback && <p class="notice">{t(lang, 'project.fallback')}</p>}
+        {(d.links.length > 0 || d.files.length > 0) && (
+          <div class="attach">
+            {d.files.length > 0 && <div><p class="a-h">{t(lang, 'project.files')}</p><ul>{d.files.map((f) => <li><a href={f.path} download>⬇ {f.label}</a></li>)}</ul></div>}
+            {d.links.length > 0 && <div><p class="a-h">{t(lang, 'project.links')}</p><ul>{d.links.map((l) => <li><a href={l.url} rel="noopener">↗ {l.label}</a></li>)}</ul></div>}
+          </div>
+        )}
+      </header>
+
+      <Prose><main.Content /></Prose>
+
+      {parts.map((c) => (
+        <section class="part" id={`part-${c.name}`}>
+          <Prose>
+            <h2 class="part-title">{c.entry.data.title}</h2>
+            <c.rendered.Content />
+          </Prose>
+        </section>
+      ))}
+    </article>
+  </div>
+</Base>
+<style>
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 56px; padding-bottom: 110px; align-items: start; }
+  .side { position: sticky; top: calc(var(--nav-h) + 28px); }
+  .back { font: 500 .8rem var(--font-mono); color: var(--accent-2); }
+  .toc { margin-top: 28px; border-left: 1px solid var(--line); padding-left: 16px; }
+  .toc-h { font: 500 .72rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-bottom: 10px; }
+  .toc ol { list-style: none; display: grid; gap: 4px; }
+  .toc a { display: block; padding: 5px 0; font-size: .9rem; color: var(--mute); transition: color .2s, transform .2s var(--ease); }
+  .toc a:hover, .toc a.on { color: var(--accent-2); transform: translateX(4px); }
+  .eyebrow { font: 500 .8rem var(--font-mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; }
+  h1 { font: 400 clamp(2.2rem, 5vw, 3.6rem)/1.05 var(--font-serif); margin: 14px 0 16px; letter-spacing: -.02em; }
+  .lead { color: var(--mute); font-size: 1.1rem; max-width: 62ch; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 22px; font: 500 .78rem var(--font-mono); color: var(--mute); }
+  .badge { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-2); }
+  .badge.live { border-color: var(--ok); color: var(--ok); } .badge.planned { border-color: var(--line); color: var(--mute); }
+  .tag { padding: 4px 10px; border: 1px solid var(--line); border-radius: 3px; color: var(--ivory); }
+  .notice { margin-top: 18px; font-size: .9rem; border: 1px dashed var(--accent); color: var(--accent-2); padding: 10px 14px; border-radius: var(--radius); max-width: 62ch; }
+  .attach { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 26px; padding: 18px 20px; background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius); }
+  .a-h { font: 500 .72rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; }
+  .attach ul { list-style: none; display: grid; gap: 6px; } .attach a { color: var(--accent-2); }
+  .head { margin-bottom: 44px; }
+  .part { margin-top: 64px; padding-top: 8px; border-top: 1px solid var(--line); }
+  .part-title { margin-top: 1em; }
+  @media (max-width: 960px) { .layout { grid-template-columns: 1fr; gap: 28px; } .side { position: static; } .toc { display: none; } }
+</style>
+<script>
+  // Surbrillance du sommaire selon la partie visible
+  const links = new Map<string, HTMLElement>();
+  document.querySelectorAll<HTMLElement>('[data-toc]').forEach((a) => links.set(a.dataset.toc!, a));
+  if (links.size) {
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          links.forEach((a) => a.classList.remove('on'));
+          links.get(e.target.id)?.classList.add('on');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    links.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+</script>

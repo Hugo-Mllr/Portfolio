@@ -1,0 +1,21 @@
+---
+interface Props { eyebrow?: string; title: string; intro?: string }
+const { eyebrow, title, intro } = Astro.props;
+---
+<header class="page-head">
+  <div class="wrap">
+    {eyebrow && <p class="eyebrow" data-reveal>{eyebrow}</p>}
+    <h1 set:html={title} data-reveal data-reveal-delay="0.05" />
+    {intro && <p class="intro" data-reveal data-reveal-delay="0.12">{intro}</p>}
+  </div>
+</header>
+<style>
+  .page-head { padding: 72px 0 40px; position: relative; overflow: clip; }
+  .page-head::before { content: ''; position: absolute; width: 520px; height: 520px; right: -120px; top: -200px; background: radial-gradient(circle, rgb(var(--accent-rgb) / .12), transparent 65%); pointer-events: none; }
+  .eyebrow { font: 500 .8rem var(--font-mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font: 400 clamp(2.2rem, 5.5vw, 4rem)/1.05 var(--font-serif); margin: 18px 0 16px; letter-spacing: -.02em; }
+  h1 :global(em) { font-style: italic; color: var(--accent-2); }
+  .intro { color: var(--mute); max-width: 620px; font-size: 1.05rem; }
+  @media (max-width: 860px) { .page-head { padding: 48px 0 28px; } }
+</style>
