@@ -17,7 +17,7 @@
    - **Projets** : un dossier par projet, plusieurs fichiers (présentation + chapitres), pièces jointes (PDF, images).
    - **Writeups CTF** : un fichier par writeup, avec événement, catégorie, difficulté, date, tags.
 6. **Hébergement** : Hugo a un nom de domaine. Il déploiera une **stack Docker avec Portainer** reliée à **Cloudflare** (probablement un tunnel `cloudflared`). → Le projet fournit un `Dockerfile` (build Astro puis nginx), un `docker-compose.yml` compatible Portainer et, plus tard, une image publiée sur GHCR. Aucun secret dans le dépôt.
-7. **Workflow Git** : **plusieurs petites PR** empilées, en brouillon. Base = `claude/nice-ramanujan-7k6lth` (il n'y a pas de `main` pour l'instant). Ne jamais fusionner sans Hugo.
+7. **Workflow Git** : plusieurs petites PR (une par objectif), en brouillon puis « prêtes ». Hugo a explicitement donné l'**autonomie** de fusionner les PR de ce projet (« tu es autonome ») : fusionner après CI verte et état « clean », en vérifiant `expectedHeadSha`. Branche de base actuelle : `claude/nice-ramanujan-7k6lth` (pas encore de `main`). Les PR 1 à 6 (scaffold, accueil, contenu, animations, hero 3D, CI/QA) sont **fusionnées**.
 
 ## Docs à lire selon la tâche
 | Fichier | Contenu |
