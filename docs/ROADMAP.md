@@ -11,6 +11,7 @@
 - [x] PR 3 : collections projets (multi-fichiers) et writeups CTF, pages liste/détail, filtres, brouillons
 - [x] PR 4 : rideau d'intro en damier, curseur halo, bandeau défilant (vitesse liée au scroll), rail de navigation, spotlight, titres lettre par lettre, inclinaison 3D de l'échiquier, chute du roi
 - [x] PR 5 : hero 3D Three.js (pièces dorées en révolution, chargé à la demande, garde-fous perf)
+- [x] PR 6 : CI + workflow image GHCR, audit qualité (voir ci-dessous), rideau d'intro raccourci
 
 ## Plan de PR (empilées, en brouillon)
 Base : `claude/nice-ramanujan-7k6lth`. Chaque PR part de la précédente.
@@ -34,3 +35,9 @@ Base : `claude/nice-ramanujan-7k6lth`. Chaque PR part de la précédente.
 - Liens GitHub / LinkedIn exacts, CV PDF
 - Vrais détails des 3 projets (machines, versions, résultats, captures)
 - Premiers writeups CTF à publier
+
+## Audit qualité (PR 6)
+Mesuré en local (Chromium headless, build de production) :
+- **axe-core** (WCAG 2.1 A/AA + bonnes pratiques) : 0 violation sur 7 pages après correction du `aria-label` des liens de langue et du lien de langue de la 404.
+- **Lighthouse mobile** (/fr/) : Performance 91, Accessibilité 100, Bonnes pratiques 100, SEO 100 ; FCP 0,9 s, CLS 0,002, 237 Ko transférés.
+- À surveiller : TBT ~320 ms et LCP ~2,4 s (hero masqué pendant l'intro ; rideau raccourci depuis). À re-mesurer sur le site déployé et sur un vrai appareil mobile.

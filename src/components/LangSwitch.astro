@@ -12,7 +12,7 @@ const pathname = Astro.url.pathname;
       lang={l}
       class:list={{ on: l === lang }}
       aria-current={l === lang ? 'true' : undefined}
-      aria-label={languages[l]}
+      aria-label={`${l.toUpperCase()} — ${languages[l]}`}
       data-lang-link={l}
     >{l.toUpperCase()}</a>
   ))}

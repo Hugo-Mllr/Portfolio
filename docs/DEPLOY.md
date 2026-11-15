@@ -22,5 +22,12 @@ Deux options :
 
 Dans les deux cas : SSL/TLS en mode **Full (strict)**, et `SITE_URL` doit correspondre au domaine public (canonical, sitemap, Open Graph).
 
-## Image prébuild (plus tard)
-Une action GitHub construira l'image et la publiera sur GHCR ; Portainer pourra alors la tirer via `IMAGE=ghcr.io/hugo-mllr/portfolio:latest` au lieu de builder sur le serveur.
+## Image prébuild (GitHub Actions → GHCR)
+`.github/workflows/docker.yml` construit l'image (amd64 + arm64) et la publie sur `ghcr.io/hugo-mllr/portfolio` à chaque push sur `main`, sur les tags `v*` ou à la demande (*Actions → Image Docker → Run workflow*).
+
+Avant le premier build :
+1. *Settings → Secrets and variables → Actions → Variables* : créer `SITE_URL` (ex. `https://ton-domaine.fr`).
+2. Après la première publication, passer le paquet en **public** (*Packages → portfolio → Package settings*) ou donner à Portainer un jeton de lecture.
+3. Dans Portainer, utiliser `IMAGE=ghcr.io/hugo-mllr/portfolio:latest`, puis *Pull and redeploy*.
+
+`.github/workflows/ci.yml` vérifie que le site se construit à chaque PR.
