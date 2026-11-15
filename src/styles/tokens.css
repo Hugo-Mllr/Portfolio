@@ -1,0 +1,46 @@
+/* ============================================================
+   Tokens de design — thème « Échiquier ».
+   Toutes les couleurs passent par ces variables : un thème =
+   un bloc [data-theme="…"] qui redéfinit --accent / --accent-2.
+   ============================================================ */
+:root {
+  /* Surfaces */
+  --ink: #0d0d10;
+  --ink-2: #15151a;
+  --line: #2a2a31;
+  --sq-d: #1b1b21;
+  --sq-l: #26262e;
+
+  /* Texte */
+  --ivory: #f2ebd9;
+  --mute: #a39f94; /* AA sur --ink (≥ 4.5:1) */
+
+  /* Accent (thémable) */
+  --accent: #d4a84b;
+  --accent-2: #f0cf86;
+  --accent-rgb: 212 168 75;
+  --on-accent: #0d0d10;
+
+  /* États */
+  --ok: #5fd38d;
+
+  /* Typographie */
+  --font-serif: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Échelle */
+  --gutter: clamp(16px, 4vw, 24px);
+  --maxw: 1120px;
+  --radius: 4px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-h: 64px;
+
+  color-scheme: dark;
+}
+
+/* Thèmes d'accent (sélecteur prévu plus tard ; <html data-theme="…">) */
+[data-theme='crimson'] { --accent: #e0566b; --accent-2: #f5a3af; --accent-rgb: 224 86 107; }
+[data-theme='emerald'] { --accent: #3fc48f; --accent-2: #9ae6c4; --accent-rgb: 63 196 143; }
+[data-theme='azure']   { --accent: #4aa3ff; --accent-2: #a6d1ff; --accent-rgb: 74 163 255; }
+[data-theme='violet']  { --accent: #a98bff; --accent-2: #d2c4ff; --accent-rgb: 169 139 255; }

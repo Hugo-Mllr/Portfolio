@@ -1,0 +1,21 @@
+---
+// Racine : redirige vers la langue préférée (mémorisée ou du navigateur), FR par défaut.
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hugo Muller</title>
+    <meta http-equiv="refresh" content="0; url=/fr/" />
+    <link rel="canonical" href="/fr/" />
+    <meta name="robots" content="noindex" />
+    <script is:inline>
+      (function () {
+        var l = 'fr';
+        try { l = localStorage.getItem('lang') || (navigator.language || 'fr').slice(0, 2); } catch (e) {}
+        location.replace(l === 'en' ? '/en/' : '/fr/');
+      })();
+    </script>
+  </head>
+  <body><a href="/fr/">Hugo Muller</a></body>
+</html>

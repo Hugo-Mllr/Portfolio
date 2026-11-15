@@ -1,0 +1,69 @@
+---
+import LangSwitch from './LangSwitch.astro';
+import { localePath, t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; current?: 'home' | 'projects' | 'writeups' }
+const { lang, current } = Astro.props;
+const links = [
+  { key: 'projects', href: localePath(lang, 'projects/'), label: t(lang, 'nav.projects') },
+  { key: 'writeups', href: localePath(lang, 'writeups/'), label: t(lang, 'nav.writeups') },
+  { key: 'contact', href: localePath(lang, '#contact'), label: t(lang, 'nav.contact') },
+] as const;
+---
+<header class="nav" data-nav>
+  <div class="wrap bar">
+    <a class="logo" href={localePath(lang)} aria-label={`${t(lang, 'site.name')} — ${t(lang, 'nav.home')}`}>
+      <span aria-hidden="true">♞</span> Hugo<span class="dot">.</span>Muller
+    </a>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      {links.map((l) => (
+        <a href={l.href} aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+    <div class="right">
+      <LangSwitch lang={lang} />
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-links" data-burger>
+        <span class="sr-only">{t(lang, 'nav.menu')}</span>
+        <i aria-hidden="true"></i><i aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav { position: sticky; top: 0; z-index: 40; background: rgb(13 13 16 / .8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 16px; }
+  .logo { font: 700 1.25rem var(--font-serif); letter-spacing: .02em; white-space: nowrap; }
+  .logo .dot { color: var(--accent); }
+  .links { display: flex; gap: 28px; font-size: .9rem; color: var(--mute); }
+  .links a { position: relative; padding: 6px 0; transition: color .2s; }
+  .links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+  .links a:hover, .links a[aria-current='page'] { color: var(--accent-2); }
+  .links a:hover::after, .links a[aria-current='page']::after { transform: scaleX(1); }
+  .right { display: flex; align-items: center; gap: 12px; }
+  .burger { display: none; width: 44px; height: 44px; background: none; border: 1px solid var(--line); border-radius: 50%; cursor: pointer; position: relative; }
+  .burger i { position: absolute; left: 13px; right: 13px; height: 1.5px; background: var(--ivory); transition: transform .3s var(--ease), top .3s var(--ease); }
+  .burger i:first-of-type { top: 18px; } .burger i:last-of-type { top: 25px; }
+  .burger[aria-expanded='true'] i:first-of-type { top: 21px; transform: rotate(45deg); }
+  .burger[aria-expanded='true'] i:last-of-type { top: 21px; transform: rotate(-45deg); }
+  @media (max-width: 860px) {
+    .burger { display: block; }
+    .links { position: absolute; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ink); border-bottom: 1px solid var(--line); padding: 8px var(--gutter) 16px; display: none; font-size: 1.05rem; }
+    .links[data-open='true'] { display: flex; }
+    .links a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  }
+</style>
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+  const links = document.getElementById('nav-links');
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') !== 'true';
+    burger.setAttribute('aria-expanded', String(open));
+    links?.setAttribute('data-open', String(open));
+  });
+  links?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      links.setAttribute('data-open', 'false');
+    })
+  );
+</script>

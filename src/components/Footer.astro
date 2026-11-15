@@ -1,0 +1,16 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="wrap">
+    <span>© {year} Hugo Muller — {t(lang, 'footer.rights')}</span>
+    <span>{t(lang, 'footer.built')}</span>
+  </div>
+</footer>
+<style>
+  .foot { border-top: 1px solid var(--line); padding: 28px 0; color: var(--mute); font: 500 .78rem var(--font-mono); }
+  .foot .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>

@@ -34,6 +34,14 @@ Chaque maquette est un fichier HTML autonome avec un bouton FR/EN fonctionnel.
 ## Stack visée
 Astro (statique) · TypeScript · CSS à variables · GSAP + ScrollTrigger · Lenis · Three.js · Docker (nginx) + Portainer + Cloudflare. Détails et décisions : [`CLAUDE.md`](CLAUDE.md).
 
+## Démarrer
+```bash
+npm ci
+npm run dev      # http://localhost:4321
+npm run build    # génère dist/
+```
+Déploiement Docker / Portainer / Cloudflare : [`docs/DEPLOY.md`](docs/DEPLOY.md).
+
 ## Structure
 ```
 .
