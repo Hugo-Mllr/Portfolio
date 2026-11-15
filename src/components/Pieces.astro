@@ -6,12 +6,12 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = copy[lang];
 ---
-<section id="pieces" class="sec" aria-labelledby="pieces-h">
+<section id="pieces" class="sec" aria-labelledby="pieces-h" data-rail={c.piecesSub}>
   <div class="wrap">
     <SectionHead id="pieces-h" title={c.piecesTitle} sub={c.piecesSub} />
     <ul class="pieces" data-stagger>
       {pieces.map((p) => (
-        <li class="piece">
+        <li class="piece" data-spot>
           <span class="glyph" aria-hidden="true">{p.glyph}</span>
           <div>
             <small>{levels[p.level][lang]}</small>
@@ -28,8 +28,10 @@ const c = copy[lang];
   .pieces { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .piece { background: var(--ink-2); border: 1px solid var(--line); padding: 26px; display: flex; gap: 20px; transition: border-color .3s, transform .4s var(--ease); }
   .piece:hover { border-color: var(--accent); transform: translateY(-4px); }
-  .glyph { font-size: 3rem; line-height: 1; color: var(--accent-2); flex: none; transition: transform .5s var(--ease); }
+  .glyph { animation: bob 6s ease-in-out infinite; font-size: 3rem; line-height: 1; color: var(--accent-2); flex: none; transition: transform .5s var(--ease); }
   .piece:hover .glyph { transform: rotate(-8deg) scale(1.12); }
+  .piece:nth-child(2n) .glyph { animation-delay: -1.6s; } .piece:nth-child(3n) .glyph { animation-delay: -3.2s; }
+  @keyframes bob { 50% { translate: 0 -5px; } }
   small { display: block; font: 500 .72rem var(--font-mono); color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
   h3 { font: 700 1.2rem var(--font-serif); }
   p { color: var(--mute); font-size: .92rem; }

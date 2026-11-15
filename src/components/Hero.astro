@@ -2,12 +2,12 @@
 import Board from './Board.astro';
 import { copy } from '../data/home';
 import { site } from '../data/site';
-import { localePath, type Lang } from '../i18n/ui';
+import { localePath, t, type Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = copy[lang];
 ---
-<header class="hero">
+<header class="hero" data-rail={t(lang, 'nav.home')}>
   <div class="wrap grid">
     <div class="text">
       <p class="eyebrow">{c.eyebrow}</p>

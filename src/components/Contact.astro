@@ -1,13 +1,14 @@
 ---
 import { copy } from '../data/home';
 import { site } from '../data/site';
-import type { Lang } from '../i18n/ui';
+import { t, type Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = copy[lang];
 const primary = site.email ? { href: `mailto:${site.email}`, label: c.contactCta } : null;
 ---
-<section id="contact" class="mate" aria-labelledby="contact-h">
+<section id="contact" class="mate" aria-labelledby="contact-h" data-rail={t(lang, 'nav.contact')}>
+  <span class="king" aria-hidden="true">♚</span>
   <div class="wrap" data-reveal>
     <h2 id="contact-h" class="big" set:html={c.mate} />
     <p>{c.mateText}</p>
@@ -20,6 +21,8 @@ const primary = site.email ? { href: `mailto:${site.email}`, label: c.contactCta
 </section>
 <style>
   .mate { text-align: center; padding: 110px 0; border-top: 1px solid var(--line); background: radial-gradient(ellipse at center, rgb(var(--accent-rgb) / .12), transparent 65%); }
+  .mate { position: relative; overflow: clip; }
+  .king { position: absolute; left: 7%; bottom: 15%; font-size: clamp(7rem, 17vw, 15rem); line-height: 1; color: var(--accent); opacity: .16; pointer-events: none; }
   .big { font: 400 clamp(2.4rem, 7vw, 5.6rem)/1 var(--font-serif); letter-spacing: -.02em; }
   .big :global(em) { color: var(--accent-2); }
   p { color: var(--mute); margin: 22px auto 34px; max-width: 520px; }

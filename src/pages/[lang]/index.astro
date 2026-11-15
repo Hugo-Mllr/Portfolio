@@ -4,6 +4,7 @@ import Hero from '../../components/Hero.astro';
 import Moves from '../../components/Moves.astro';
 import Pieces from '../../components/Pieces.astro';
 import Contact from '../../components/Contact.astro';
+import Marquee from '../../components/Marquee.astro';
 import { langs, type Lang } from '../../i18n/ui';
 
 export function getStaticPaths() {
@@ -13,6 +14,7 @@ const lang = Astro.params.lang as Lang;
 ---
 <Base lang={lang} current="home">
   <Hero lang={lang} />
+  <Marquee items={['Wazuh', 'SIEM', 'Docker Swarm', 'Linux', 'Réseau', 'CTF', 'Home lab', 'Détection', 'Défense en profondeur']} />
   <Moves lang={lang} />
   <Pieces lang={lang} />
   <Contact lang={lang} />

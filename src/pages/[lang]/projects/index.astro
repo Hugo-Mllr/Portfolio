@@ -17,7 +17,7 @@ const projects = await getProjects(lang);
     <ol class="moves" data-stagger>
       {projects.map((p, i) => (
         <li>
-          <a class="move" href={localePath(lang, `projects/${p.slug}/`)}>
+          <a class="move" data-spot href={localePath(lang, `projects/${p.slug}/`)}>
             <div class="no"><b>{i + 1}.</b>{notation(i, lang)}</div>
             <div class="body">
               <h2>{p.entry.data.title}</h2>

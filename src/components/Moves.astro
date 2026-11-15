@@ -8,13 +8,13 @@ const { lang } = Astro.props;
 const c = copy[lang];
 const moves = (await getProjects(lang)).slice(0, 3);
 ---
-<section id="moves" class="sec" aria-labelledby="moves-h">
+<section id="moves" class="sec" aria-labelledby="moves-h" data-rail={t(lang, 'nav.projects')}>
   <div class="wrap">
     <SectionHead id="moves-h" title={c.movesTitle} sub={c.movesSub} />
     <ol class="moves" data-stagger>
       {moves.map((m, i) => (
         <li>
-          <a class="move" href={localePath(lang, `projects/${m.slug}/`)}>
+          <a class="move" data-spot href={localePath(lang, `projects/${m.slug}/`)}>
             <div class="no"><b>{i + 1}.</b>{notation(i, lang)}</div>
             <div class="body">
               <h3>{m.entry.data.title}</h3>
