@@ -5,5 +5,9 @@ export const site = {
   // E-mail publié avec l'accord explicite de Hugo. Scindé en deux parties et assemblé côté navigateur
   // pour éviter les collectes automatiques les plus simples (il reste visible dans le dépôt public).
   email: { user: 'hugo.muller.cyber', domain: 'proton.me' } as { user: string; domain: string } | null,
-  cv: null as string | null, // ex. '/files/cv-hugo-muller.pdf' (fichier à déposer dans public/files/)
+  // CV publiés avec l'accord de Hugo (fichiers dans public/files/cv/). `null` = pas de CV publié.
+  cvs: {
+    alternance: '/files/cv/hugo-muller-cv-alternance.pdf', // FR, alternance dès sept. 2027
+    internship: '/files/cv/hugo-muller-cv-internship.pdf', // EN, stage de 3 mois (été 2027)
+  } as { alternance: string; internship: string } | null,
 };

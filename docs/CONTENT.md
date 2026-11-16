@@ -6,7 +6,7 @@ Textes actuellement dans la maquette. **Tout ce qui est marqué ⚠️ est un pl
 - Nom : **Hugo Muller** (validé).
 - Formation : 3e année d'ingénieur informatique et cybersécurité à **CPE Lyon** (3ICS, depuis sept. 2026) ; BTS SIO option SISR (2024–2026).
 - Recherche (d'après ses CV) : **stage de 3 mois, juin–août 2027** (international) puis **alternance dès septembre 2027**.
-- Liens publiés avec l'accord de Hugo : GitHub, LinkedIn (`/in/hugo-muller-cyber/`) et e-mail de contact (assemblé côté navigateur, voir `src/data/site.ts`). CV PDF : **non publié** (à décider avec Hugo).
+- Liens publiés avec l'accord de Hugo : GitHub, LinkedIn (`/in/hugo-muller-cyber/`) et e-mail de contact (assemblé côté navigateur, voir `src/data/site.ts`). **CV PDF publiés** à sa demande (`public/files/cv/`) : version FR « alternance » et version EN « internship ». Ils contiennent son e-mail, son âge, sa ville et ses employeurs, mais ni téléphone ni adresse. Pour les mettre à jour, remplacer les fichiers (mêmes noms).
 
 ## Accroche
 Présentation sobre (la première version, « Je pense trois coups d'avance », a été jugée trop prétentieuse) : « Bonjour, je suis *Hugo*. » suivie d'un court paragraphe factuel tiré de son CV. Le thème des échecs reste dans les titres de sections et l'échiquier.

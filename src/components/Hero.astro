@@ -18,8 +18,8 @@ const c = copy[lang];
       <p class="lead" data-hero-in>{c.lead}</p>
       <div class="cta" data-hero-in>
         <a class="btn pri" href={hasProjects ? '#moves' : '#pieces'} data-magnetic>{hasProjects ? c.cta1 : c.ctaSkills}</a>
-        {site.cv
-          ? <a class="btn sec" href={site.cv} download data-magnetic>{c.ctaCv}</a>
+        {site.cvs
+          ? <a class="btn sec" href={lang === 'fr' ? site.cvs.alternance : site.cvs.internship} download={lang === 'fr' ? 'Hugo-Muller-CV-Alternance.pdf' : 'Hugo-Muller-CV-Internship.pdf'} data-magnetic>{c.ctaCv}</a>
           : <a class="btn sec" href={localePath(lang, 'writeups/')} data-magnetic>{c.ctaWriteups}</a>}
       </div>
       <p class="status" data-hero-in><span class="dot" aria-hidden="true"></span>{c.status}</p>
