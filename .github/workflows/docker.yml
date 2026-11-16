@@ -1,10 +1,8 @@
 name: Image Docker
 
-# Publie ghcr.io/<owner>/<repo> (amd64 + arm64) sur main, sur les tags v* ou à la demande.
+# OPTIONNEL : publie ghcr.io/<owner>/<repo> (amd64 + arm64), À LA DEMANDE uniquement.
+# La stack Portainer actuelle construit l'image sur le serveur et n'utilise pas ce workflow.
 on:
-  push:
-    branches: [main]
-    tags: ['v*']
   workflow_dispatch:
 
 permissions:

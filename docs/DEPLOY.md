@@ -9,16 +9,22 @@ npm run dev        # http://localhost:4321
 npm run build      # sortie dans dist/
 ```
 
+## Principe : construction sur le serveur
+La stack Portainer est « Managed by Git » : Portainer clone ce dépôt (public) et **construit l'image sur le serveur** (`build:` dans `docker-compose.yml`). Aucun registre, aucun jeton. Compromis : un déploiement prend 1 à 2 minutes et utilise le CPU/la RAM du serveur (prévoir ≥ 2 Go de RAM pour `npm ci` + build).
+
 ## Variables d'environnement de la stack Portainer
 | Variable | Obligatoire | Secret ? | Rôle |
 |---|---|---|---|
 | `TUNNEL_NETWORK` | **Oui** | Non | Nom du réseau Docker où tourne ton `cloudflared` existant. |
-| `IMAGE` | Non | Non | Défaut `ghcr.io/hugo-mllr/portfolio:latest`. |
+| `SITE_URL` | Recommandé | Non | URL publique (ex. `https://ton-domaine.fr`), lue au **build** : liens canoniques, sitemap, Open Graph. |
 | `WEB_PORT` | Non | Non | Port local (lié à `127.0.0.1`), défaut 8080. |
 
-Aucun jeton dans cette stack : elle ne contient **pas** de `cloudflared`. Elle rejoint le réseau de celui qui tourne déjà.
+Aucun jeton dans cette stack : elle ne contient **pas** de `cloudflared` (le tunnel existant a déjà le sien) et n'utilise pas de registre.
 
-`SITE_URL` n'est **pas** une variable de runtime : c'est une variable de **build**, à créer côté GitHub (*Settings → Secrets and variables → Actions → Variables*), puis relancer le workflow *Image Docker*. Elle alimente les liens canoniques, le sitemap et Open Graph.
+## Mettre à jour le site
+Pousser sur `main`, puis dans Portainer : **Pull and redeploy**. `pull_policy: build` force la reconstruction de l'image et empêche toute tentative de téléchargement depuis un registre. Laisser **désactivée** l'option « Re-pull image » si elle est proposée.
+
+Si le site ne reflète pas la dernière version (comportement connu de certaines versions de Portainer qui ne reconstruisent pas) : arrêter la stack, supprimer l'image `portfolio-portfolio-web`, puis redéployer.
 
 ## Cloudflare (tunnel déjà existant)
 1. **Trouver le réseau du tunnel** : Portainer → *Containers* → ton conteneur `cloudflared` → section *Connected networks* → noter le nom → c'est la valeur de `TUNNEL_NETWORK`.
@@ -37,9 +43,7 @@ Si tu veux un `cloudflared` propre à cette stack : créer un nouveau tunnel, co
 - En-têtes appliqués par nginx : CSP stricte (aucun tiers), `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP.
 - Le jeton d'un tunnel donne le droit de le faire tourner : s'il fuite, le **régénérer** (*Rotate a token*) et mettre le nouveau uniquement dans la stack concernée.
 
-## Image prébuild (GitHub Actions → GHCR)
-`.github/workflows/docker.yml` construit l'image (amd64 + arm64) et la publie sur `ghcr.io/hugo-mllr/portfolio` à chaque push sur `main`, sur les tags `v*` ou à la demande.
-- Après la première publication, passer le paquet en **public** (*Packages → portfolio → Package settings*) ou donner à Portainer un jeton de lecture.
-- Mise à jour : *Pull and redeploy* dans Portainer.
+## Image prébuild GHCR (optionnel, non utilisé)
+`.github/workflows/docker.yml` peut publier une image (amd64 + arm64) sur GHCR, **à la demande seulement**. Elle n'est pas utilisée par la stack actuelle. Attention : un paquet GHCR rendu **public** ne peut plus redevenir privé (doc GitHub). Pour la retirer, supprimer le paquet depuis ses réglages.
 
 `.github/workflows/ci.yml` vérifie à chaque PR : contrôle anti-secrets, build, build avec brouillons.

@@ -1,11 +1,17 @@
-# Stack Portainer : le site seul. Il rejoint le réseau Docker d'un tunnel Cloudflare (cloudflared)
-# DÉJÀ en service chez toi : aucun second cloudflared, donc aucun jeton dans cette stack.
+# Stack Portainer (Stacks > Add stack > Repository) : le site, CONSTRUIT SUR LE SERVEUR depuis ce dépôt.
+# Aucun registre d'images, donc aucun jeton. Le site rejoint le réseau Docker d'un tunnel Cloudflare
+# (cloudflared) DÉJÀ en service : aucun second cloudflared.
 # Variables (à saisir dans Portainer, jamais dans le dépôt) : voir .env.example
 services:
-  # Le nom du service devient un alias DNS sur le réseau partagé : il doit être unique
-  # (un service "web" entrerait en collision avec ceux des autres stacks).
+  # Le nom du service devient un alias DNS sur le réseau partagé : il doit être unique.
   portfolio-web:
-    image: ${IMAGE:-ghcr.io/hugo-mllr/portfolio:latest}
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-https://example.com}   # liens canoniques / sitemap / Open Graph
+    # `build` : l'image est toujours reconstruite au déploiement ET jamais "tirée" d'un registre
+    # (sans cela, l'étape pull de Portainer échoue : il n'y a pas d'image à télécharger).
+    pull_policy: build
     # Nom stable et unique, résolu par cloudflared : route Cloudflare -> http://portfolio-web:8080
     container_name: portfolio-web
     restart: unless-stopped
