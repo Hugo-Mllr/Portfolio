@@ -4,6 +4,7 @@ summary: "Mon terrain d'entraînement personnel. Il grandit au fil de mes envies
 status: live
 context: Projet personnel
 tags: [Virtualisation, Réseau, Supervision, Auto-hébergement]
+draft: true   # masqué tant que le compte rendu n'est pas rédigé
 order: 3
 ---
 

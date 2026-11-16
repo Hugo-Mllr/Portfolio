@@ -3,17 +3,16 @@
 Textes actuellement dans la maquette. **Tout ce qui est marqué ⚠️ est un placeholder** à faire valider ou compléter par Hugo. Ne rien inventer : si une info manque, demander.
 
 ## Identité
-- Nom : **Hugo Muller** ⚠️ (déduit de l'adresse mail, à confirmer)
-- Formation : CPE Lyon, cursus ICS (cybersécurité) ; BTS SIO (PPE en 2e année) ⚠️ préciser l'option (SISR ?)
-- Recherche : **stage**, puis **alternance** ⚠️ dates, durée, rythme, zone géographique
-- Liens : GitHub `github.com/hugo-mllr` ⚠️ confirmer, LinkedIn ⚠️, CV PDF ⚠️, contact ⚠️ (ne pas publier d'email sans accord)
+- Nom : **Hugo Muller** (validé).
+- Formation : 3e année d'ingénieur informatique et cybersécurité à **CPE Lyon** (3ICS, depuis sept. 2026) ; BTS SIO option SISR (2024–2026).
+- Recherche (d'après ses CV) : **stage de 3 mois, juin–août 2027** (international) puis **alternance dès septembre 2027**.
+- Liens publiés avec l'accord de Hugo : GitHub, LinkedIn (`/in/hugo-muller-cyber/`) et e-mail de contact (assemblé côté navigateur, voir `src/data/site.ts`). CV PDF : **non publié** (à décider avec Hugo).
 
 ## Accroche
-- FR : « Je pense *trois coups* d'avance. » / EN : « I think *three moves* ahead. »
-- FR : « Étudiant en cursus ICS à CPE Lyon, je défends des systèmes comme on joue une partie : en anticipant l'adversaire, en structurant ma position et en gardant le sang-froid. »
+Présentation sobre (la première version, « Je pense trois coups d'avance », a été jugée trop prétentieuse) : « Bonjour, je suis *Hugo*. » suivie d'un court paragraphe factuel tiré de son CV. Le thème des échecs reste dans les titres de sections et l'échiquier.
 
 ## Projets
-Les descriptions actuelles sont **génériques** ⚠️. À remplacer par les faits réels.
+Les 3 projets sont **masqués** (`draft: true`) tant que leurs comptes rendus ne sont pas rédigés ; la section disparaît de l'accueil et `/projects/` affiche « arrivent bientôt ». Pour publier : remplir le contenu puis retirer `draft: true`. Faits du CV utilisables (à développer dans les comptes rendus) : Wazuh avec agents poussés par GPO (Windows) et Ansible (Linux), détection d'attaques simulées depuis Kali, règle personnalisée, blocage automatique d'IP, alertes Teams ; cluster Docker Swarm de 3 nœuds (Portainer, Nginx Proxy Manager) ; homelab Proxmox à 2 nœuds (7 services LXC).
 
 ### 1. Lab Wazuh — PPE BTS SIO 2
 Actuel : déploiement d'une plateforme SIEM/XDR (agents, règles de détection, alertes, tableau de bord).
@@ -28,7 +27,7 @@ Actuel : virtualisation, segmentation réseau, supervision, auto-hébergement.
 À compléter : matériel réel, hyperviseur, topologie, services, sécurité, roadmap du lab. Prévoir un format « journal » pour que le projet vive dans le temps.
 
 ## Compétences (« pièces »)
-Niveaux actuels **purement indicatifs** ⚠️ : Réseaux, Systèmes Linux, Supervision & SIEM, Conteneurs, Sécurité offensive, Architecture sécurisée. Faire valider chaque niveau. Ne rien afficher que Hugo ne puisse défendre en entretien.
+Listes reprises **telles quelles du CV** de Hugo (Réseau, Systèmes, Sécurité, Virtualisation, DevOps, Programmation) + certifications. Aucun niveau affiché. Ne rien ajouter que Hugo ne puisse défendre en entretien.
 
 ## Pistes de contenu pour convaincre
 - Certifications / formations en cours ⚠️ (ex. CTF, plateformes d'entraînement, certifs visées)

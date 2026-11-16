@@ -4,6 +4,7 @@ summary: "My personal training ground. It grows with my curiosity and learning: 
 status: live
 context: Personal project
 tags: [Virtualization, Networking, Monitoring, Self-hosting]
+draft: true   # masqué tant que le compte rendu n'est pas rédigé
 order: 3
 ---
 
