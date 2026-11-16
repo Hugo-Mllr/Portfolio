@@ -71,12 +71,15 @@ function start() {
 
   // --- Intro : rideau puis hero ---
   const intro = curtain();
+  const hasHero = !!document.querySelector('.hero');
   const hero = gsap.timeline({ paused: !!intro, defaults: { ease: 'power4.out' } });
-  hero
-    .from('.hero .eyebrow', { opacity: 0, x: -20, duration: 0.8 })
-    .from('.hero h1 .line > span', { yPercent: 115, duration: 1.1, stagger: 0.12 }, '-=0.5')
-    .from('.hero [data-hero-in]', { opacity: 0, y: 24, duration: 0.8, stagger: 0.1 }, '-=0.7')
-    .from('.board-wrap', { opacity: 0, scale: 0.94, rotate: -2, duration: 1.2 }, 0.2);
+  if (hasHero) {
+    hero
+      .from('.hero .eyebrow', { opacity: 0, x: -20, duration: 0.8 })
+      .from('.hero h1 .line > span', { yPercent: 115, duration: 1.1, stagger: 0.12 }, '-=0.5')
+      .from('.hero [data-hero-in]', { opacity: 0, y: 24, duration: 0.8, stagger: 0.1 }, '-=0.7')
+      .from('.board-wrap', { opacity: 0, scale: 0.94, rotate: -2, duration: 1.2 }, 0.2);
+  }
   if (intro) intro.add(() => hero.play(), '-=0.6');
 
   // --- Révélations au scroll ---

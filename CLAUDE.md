@@ -17,7 +17,7 @@
    - **Projets** : un dossier par projet, plusieurs fichiers (présentation + chapitres), pièces jointes (PDF, images).
    - **Writeups CTF** : un fichier par writeup, avec événement, catégorie, difficulté, date, tags.
 6. **Hébergement** : Hugo a un nom de domaine. Il déploiera une **stack Docker avec Portainer** reliée à **Cloudflare** (probablement un tunnel `cloudflared`). → Le projet fournit un `Dockerfile` (build Astro puis nginx), un `docker-compose.yml` compatible Portainer et, plus tard, une image publiée sur GHCR. Aucun secret dans le dépôt.
-7. **Workflow Git** : plusieurs petites PR (une par objectif), en brouillon puis « prêtes ». Hugo a explicitement donné l'**autonomie** de fusionner les PR de ce projet (« tu es autonome ») : fusionner après CI verte et état « clean », en vérifiant `expectedHeadSha`. Branche de base actuelle : `claude/nice-ramanujan-7k6lth` (pas encore de `main`). Les PR 1 à 6 (scaffold, accueil, contenu, animations, hero 3D, CI/QA) sont **fusionnées**.
+7. **Workflow Git** : plusieurs petites PR (une par objectif), en brouillon puis « prêtes ». Hugo a explicitement donné l'**autonomie** de fusionner les PR de ce projet (« tu es autonome ») : fusionner après CI verte et état « clean », en vérifiant `expectedHeadSha`. Branche de base : `main` (créée à la demande de Hugo). Les PR 1 à 6 (scaffold, accueil, contenu, animations, hero 3D, CI/QA) sont **fusionnées**.
 
 ## Docs à lire selon la tâche
 | Fichier | Contenu |
@@ -47,5 +47,5 @@ Principe : le modèle le moins cher qui réussit ; on monte seulement si nécess
 - Mobile-first, aucun scroll horizontal. Performance : animations sur `transform`/`opacity`, 3D chargée à la demande avec repli statique.
 - Dépendances à versions épinglées, justifiées.
 - **Context7** pour la doc à jour des bibliothèques (GSAP `/greensock/gsap-skills`, Lenis `/darkroomengineering/lenis`, Three.js, Astro).
-- Aucune donnée personnelle sensible (email, téléphone) dans le dépôt sans accord de Hugo. Aucun flag de CTF actif publié.
+- **Sécurité et vie privée (règle absolue)** : ne jamais committer de secret (clés, jetons, `.env`, certificats), même « de test » ; tout nouveau type de fichier sensible va dans `.gitignore` ; lancer `bash scripts/check-secrets.sh` avant de pousser. Aucune donnée personnelle (email, téléphone) sans accord de Hugo. Aucun flag de CTF actif publié. Aucun tiers côté visiteur (pas de CDN/analytics/police externe) sans mise à jour de la CSP et accord de Hugo. Détails : `docs/SECURITY.md`.
 - Répondre à Hugo **en français**, ton direct et enthousiaste.

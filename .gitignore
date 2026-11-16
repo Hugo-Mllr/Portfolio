@@ -1,8 +1,45 @@
+# --- Dépendances et builds ---
 node_modules/
 dist/
 .astro/
+
+# --- Secrets et identifiants : ne JAMAIS committer ---
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.der
+id_rsa*
+id_ed25519*
+*.token
+*credentials*.json
+cert.pem
+.cloudflared/
+.dev.vars
+.wrangler/
+secrets/
+*.secret
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.npmrc.local
+.netrc
+
+# --- Données locales de conteneurs / outils ---
+portainer_data/
+docker-compose.override.yml
+.docker/
+
+# --- Divers ---
 .DS_Store
+Thumbs.db
 *.log
+.idea/
+.vscode/
+*.swp
