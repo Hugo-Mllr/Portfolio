@@ -1,32 +1,33 @@
-# Stack compatible Portainer (Stacks > Add stack > Repository, ou Web editor).
-# Variables à renseigner dans Portainer (jamais dans le dépôt) : voir .env.example
+# Stack compatible Portainer (Stacks > Add stack > Repository ou Web editor).
+# Les variables se saisissent dans Portainer (jamais dans le dépôt) : voir .env.example
 services:
   web:
-    build:
-      context: .
-      args:
-        SITE_URL: ${SITE_URL:-https://example.com}
-    image: ${IMAGE:-portfolio:latest}
+    # Image publiée par GitHub Actions. Pour builder sur le serveur à la place, voir docs/DEPLOY.md.
+    image: ${IMAGE:-ghcr.io/hugo-mllr/portfolio:latest}
     restart: unless-stopped
     read_only: true
     tmpfs:
       - /tmp
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
+    # Port lié à localhost uniquement : le trafic public passe par le tunnel Cloudflare,
+    # jamais directement par l'IP du serveur.
     ports:
-      - "${WEB_PORT:-8080}:8080"   # à retirer si le trafic passe uniquement par le tunnel
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
     networks: [web]
 
-  # Tunnel Cloudflare (profil optionnel) : docker compose --profile tunnel up -d
   cloudflared:
-    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-latest}   # épingler une version en prod
+    # Version épinglée ; mettre à jour volontairement (CLOUDFLARED_VERSION).
+    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-2026.11.0}
     restart: unless-stopped
     command: tunnel --no-autoupdate run
     environment:
-      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?définir TUNNEL_TOKEN}
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}   # secret : à saisir dans Portainer uniquement
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
     depends_on: [web]
     networks: [web]
-    profiles: [tunnel]
 
 networks:
   web:

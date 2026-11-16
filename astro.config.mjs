@@ -16,6 +16,10 @@ export default defineConfig({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-US' } },
     }),
   ],
+  vite: {
+    // Aucune ressource inlinée en data: URI (polices, etc.) : permet une CSP stricte (font-src 'self').
+    build: { assetsInlineLimit: 0 },
+  },
   markdown: {
     shikiConfig: { theme: 'vitesse-dark', wrap: true },
   },

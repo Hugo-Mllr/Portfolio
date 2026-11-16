@@ -17,6 +17,8 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - name: Contrôle anti-secrets
+        run: bash scripts/check-secrets.sh
       - run: npm ci
       - run: npm run build
       - name: Build avec brouillons (valide aussi les contenus en cours)
