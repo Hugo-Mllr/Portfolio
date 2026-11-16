@@ -1,33 +1,25 @@
-# Stack compatible Portainer (Stacks > Add stack > Repository ou Web editor).
-# Les variables se saisissent dans Portainer (jamais dans le dépôt) : voir .env.example
+# Stack Portainer : le site seul. Il rejoint le réseau Docker d'un tunnel Cloudflare (cloudflared)
+# DÉJÀ en service chez toi : aucun second cloudflared, donc aucun jeton dans cette stack.
+# Variables (à saisir dans Portainer, jamais dans le dépôt) : voir .env.example
 services:
   web:
-    # Image publiée par GitHub Actions. Pour builder sur le serveur à la place, voir docs/DEPLOY.md.
     image: ${IMAGE:-ghcr.io/hugo-mllr/portfolio:latest}
+    # Nom stable et unique, résolu par cloudflared : route Cloudflare -> http://portfolio-web:8080
+    container_name: portfolio-web
     restart: unless-stopped
     read_only: true
     tmpfs:
       - /tmp
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
-    # Port lié à localhost uniquement : le trafic public passe par le tunnel Cloudflare,
-    # jamais directement par l'IP du serveur.
+    # Lié à localhost seulement : jamais exposé directement sur Internet.
+    # (Si ton cloudflared tourne directement sur l'hôte, la route peut viser http://localhost:8080.)
     ports:
       - "127.0.0.1:${WEB_PORT:-8080}:8080"
-    networks: [web]
-
-  cloudflared:
-    # Version épinglée ; mettre à jour volontairement (CLOUDFLARED_VERSION).
-    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-2026.11.0}
-    restart: unless-stopped
-    command: tunnel --no-autoupdate run
-    environment:
-      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}   # secret : à saisir dans Portainer uniquement
-    read_only: true
-    cap_drop: [ALL]
-    security_opt: [no-new-privileges:true]
-    depends_on: [web]
-    networks: [web]
+    networks: [tunnel]
 
 networks:
-  web:
+  tunnel:
+    # Réseau Docker EXISTANT dans lequel tourne ton conteneur cloudflared.
+    external: true
+    name: ${TUNNEL_NETWORK:?définir TUNNEL_NETWORK (nom du réseau de ton cloudflared)}
