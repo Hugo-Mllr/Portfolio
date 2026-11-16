@@ -21,6 +21,13 @@ const c = copy[lang];
       {site.linkedin && <a class="btn sec" href={site.linkedin} rel="noopener" data-magnetic>LinkedIn</a>}
       <a class="btn sec" href={site.github} rel="noopener" data-magnetic>GitHub</a>
     </div>
+    {site.cvs && (
+      <p class="cvs">{c.cvTitle} :
+        <a href={site.cvs.alternance} download="Hugo-Muller-CV-Alternance.pdf" lang="fr">{c.cvAlternance}</a>
+        <span aria-hidden="true">·</span>
+        <a href={site.cvs.internship} download="Hugo-Muller-CV-Internship.pdf" lang="en">{c.cvInternship}</a>
+      </p>
+    )}
   </div>
 </section>
 <style>
@@ -33,6 +40,8 @@ const c = copy[lang];
   .btn { display: inline-flex; padding: 13px 22px; border-radius: var(--radius); font-weight: 600; font-size: .92rem; border: 1px solid var(--accent); transition: background .25s, color .25s; }
   .btn.pri { background: var(--accent); color: var(--on-accent); } .btn.pri:hover { background: var(--accent-2); }
   .btn.sec { color: var(--accent-2); } .btn.sec:hover { background: rgb(var(--accent-rgb) / .1); }
+  p.cvs { margin: 28px 0 0; font: 500 .85rem var(--font-mono); color: var(--mute); display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .cvs a { color: var(--accent-2); border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
   .nojs { font: 500 .85rem var(--font-mono); color: var(--accent-2); }
 </style>
 <script>

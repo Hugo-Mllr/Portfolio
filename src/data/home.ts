@@ -46,6 +46,9 @@ export const copy = {
     mate: 'Échec <em>et mat</em> ?',
     mateText: "Je recherche un stage de 3 mois (juin–août 2027), puis une alternance à partir de septembre 2027. Parlons-en.",
     contactCta: 'Me contacter',
+    cvTitle: 'Mon CV',
+    cvAlternance: 'Alternance (FR)',
+    cvInternship: 'Stage / Internship (EN)',
     noscriptMail: 'hugo.muller.cyber [at] proton.me',
   },
   en: {
@@ -69,6 +72,9 @@ export const copy = {
     mate: 'Check<em>mate</em>?',
     mateText: "I'm looking for a 3-month internship (June–August 2027), then a work-study position from September 2027. Let's talk.",
     contactCta: 'Get in touch',
+    cvTitle: 'My CV',
+    cvAlternance: 'Work-study (FR)',
+    cvInternship: 'Internship (EN)',
     noscriptMail: 'hugo.muller.cyber [at] proton.me',
   },
 } as const;

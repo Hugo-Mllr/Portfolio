@@ -15,5 +15,6 @@
 - Si un analytics est ajouté un jour, choisir un outil sans cookie (ex. Cloudflare Web Analytics) et mettre à jour la CSP.
 
 ## Données personnelles de Hugo
-- Aucun e-mail, téléphone ou adresse dans le dépôt sans accord explicite. Les liens de contact se renseignent dans `src/data/site.ts`.
+- Aucun e-mail, téléphone ou adresse dans le dépôt sans accord explicite. Les liens de contact se renseignent dans `src/data/site.ts`. L'e-mail de contact et les CV PDF sont publiés à la demande expresse de Hugo ; vérifier les métadonnées (auteur, chemins) de tout nouveau PDF avant de le déposer.
+- `/files/` est servi sans CSP (une CSP `object-src 'none'` casse la visionneuse PDF) : n'y déposer que des fichiers statiques de confiance (PDF, images, archives).
 - Writeups CTF : jamais de flag ni de solution complète d'une épreuve encore active ; masquer IP/hostnames privés et identifiants dans les comptes rendus.

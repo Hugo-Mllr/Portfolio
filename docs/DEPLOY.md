@@ -26,6 +26,9 @@ Pousser sur `main`, puis dans Portainer : **Pull and redeploy**. `pull_policy: b
 
 Si le site ne reflète pas la dernière version (comportement connu de certaines versions de Portainer qui ne reconstruisent pas) : arrêter la stack, supprimer l'image `portfolio-portfolio-web`, puis redéployer.
 
+## Redéploiement automatique (GitOps updates)
+Dans Portainer : **Stacks → portfolio → Edit stack settings**. Dans le formulaire qui s'ouvre, sous les infos du dépôt Git, activer **GitOps updates** (nommé « Automatic updates » dans les versions plus anciennes), choisir **Polling** avec un intervalle (ex. 5 minutes), laisser **Force redeployment** désactivé (Portainer ne redéploie alors que si le dépôt a changé), puis **Save settings**. Chaque changement sur `main` déclenche ensuite un nouveau build sur le serveur.
+
 ## Cloudflare (tunnel déjà existant)
 1. **Trouver le réseau du tunnel** : Portainer → *Containers* → ton conteneur `cloudflared` → section *Connected networks* → noter le nom → c'est la valeur de `TUNNEL_NETWORK`.
 2. **Route** (*Networking → Tunnels → ton tunnel → Routes → Ajouter une route → Application publiée*) : ton (sous-)domaine, service **`http://portfolio-web:8080`** (HTTP, pas HTTPS). Le nom `portfolio-web` est le `container_name` du compose : unique, donc sans collision avec d'autres stacks.
