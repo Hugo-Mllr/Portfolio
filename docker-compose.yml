@@ -2,7 +2,9 @@
 # DÉJÀ en service chez toi : aucun second cloudflared, donc aucun jeton dans cette stack.
 # Variables (à saisir dans Portainer, jamais dans le dépôt) : voir .env.example
 services:
-  web:
+  # Le nom du service devient un alias DNS sur le réseau partagé : il doit être unique
+  # (un service "web" entrerait en collision avec ceux des autres stacks).
+  portfolio-web:
     image: ${IMAGE:-ghcr.io/hugo-mllr/portfolio:latest}
     # Nom stable et unique, résolu par cloudflared : route Cloudflare -> http://portfolio-web:8080
     container_name: portfolio-web
