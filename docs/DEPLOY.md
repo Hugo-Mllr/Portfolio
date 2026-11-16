@@ -29,7 +29,7 @@ Aucun jeton dans cette stack : elle ne contient **pas** de `cloudflared`. Elle r
 6. HTTPS : le visiteur est servi en HTTPS par Cloudflare ; activer *Always Use HTTPS* et **HSTS** (*SSL/TLS → Edge Certificates*) car nginx n'est joignable qu'en HTTP à l'intérieur du tunnel.
 
 ### Variante : tunnel dédié à ce site
-Si tu veux un `cloudflared` propre à cette stack : créer un nouveau tunnel, copier son jeton (*Add a replica*), ajouter un service `cloudflared` (image épinglée, `TUNNEL_TOKEN` saisi dans Portainer uniquement) dans le compose, et router vers `http://web:8080`.
+Si tu veux un `cloudflared` propre à cette stack : créer un nouveau tunnel, copier son jeton (*Add a replica*), ajouter un service `cloudflared` (image épinglée, `TUNNEL_TOKEN` saisi dans Portainer uniquement) dans le compose, et router vers `http://portfolio-web:8080`.
 
 ## Sécurité du déploiement
 - Le port 8080 est lié à `127.0.0.1` : le trafic public ne passe **que** par le tunnel (ne pas ouvrir 8080 au pare-feu).
