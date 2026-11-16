@@ -6,14 +6,16 @@ import Pieces from '../../components/Pieces.astro';
 import Contact from '../../components/Contact.astro';
 import Marquee from '../../components/Marquee.astro';
 import { langs, type Lang } from '../../i18n/ui';
+import { getProjects } from '../../lib/content';
 
 export function getStaticPaths() {
   return langs.map((lang) => ({ params: { lang } }));
 }
 const lang = Astro.params.lang as Lang;
+const hasProjects = (await getProjects(lang)).length > 0;
 ---
 <Base lang={lang} current="home">
-  <Hero lang={lang} />
+  <Hero lang={lang} hasProjects={hasProjects} />
   <Marquee items={['Wazuh', 'SIEM', 'Docker Swarm', 'Linux', 'Réseau', 'CTF', 'Home lab', 'Détection', 'Défense en profondeur']} />
   <Moves lang={lang} />
   <Pieces lang={lang} />

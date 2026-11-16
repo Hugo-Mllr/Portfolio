@@ -6,9 +6,9 @@ export const langs = Object.keys(languages) as Lang[];
 export const ui = {
   fr: {
     'site.name': 'Hugo Muller',
-    'site.tagline': 'Étudiant en cybersécurité · CPE Lyon',
+    'site.tagline': 'Étudiant ingénieur en cybersécurité · CPE Lyon',
     'site.description':
-      "Portfolio de Hugo Muller, étudiant en cybersécurité à CPE Lyon : projets, comptes rendus et writeups de CTF.",
+      "Portfolio de Hugo Muller, étudiant ingénieur en cybersécurité à CPE Lyon : projets, comptes rendus et writeups de CTF.",
     'nav.home': 'Accueil',
     'nav.projects': 'Projets',
     'nav.writeups': 'Writeups',
@@ -24,7 +24,7 @@ export const ui = {
     'projects.title': 'Mes <em>projets</em>',
     'projects.sub': 'Comptes rendus',
     'projects.intro': "Chaque projet est documenté comme une partie d'échecs : le contexte, les coups joués, le résultat et ce que j'en retiens.",
-    'projects.empty': 'Aucun projet publié pour le moment.',
+    'projects.empty': 'Les comptes rendus de mes projets arrivent bientôt.',
     'project.back': 'Tous les projets',
     'project.toc': 'Sommaire',
     'project.files': 'Pièces jointes',
@@ -64,9 +64,9 @@ export const ui = {
   },
   en: {
     'site.name': 'Hugo Muller',
-    'site.tagline': 'Cybersecurity student · CPE Lyon',
+    'site.tagline': 'Cybersecurity engineering student · CPE Lyon',
     'site.description':
-      'Portfolio of Hugo Muller, cybersecurity student at CPE Lyon: projects, reports and CTF writeups.',
+      'Portfolio of Hugo Muller, cybersecurity engineering student at CPE Lyon: projects, reports and CTF writeups.',
     'nav.home': 'Home',
     'nav.projects': 'Projects',
     'nav.writeups': 'Writeups',
@@ -82,7 +82,7 @@ export const ui = {
     'projects.title': 'My <em>projects</em>',
     'projects.sub': 'Reports',
     'projects.intro': 'Each project is documented like a chess game: the context, the moves played, the outcome and what I take from it.',
-    'projects.empty': 'No project published yet.',
+    'projects.empty': 'My project reports are coming soon.',
     'project.back': 'All projects',
     'project.toc': 'Contents',
     'project.files': 'Attachments',

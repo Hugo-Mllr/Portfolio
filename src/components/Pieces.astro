@@ -1,6 +1,6 @@
 ---
 import SectionHead from './SectionHead.astro';
-import { copy, levels, pieces } from '../data/home';
+import { certifications, copy, skills } from '../data/home';
 import type { Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -10,17 +10,20 @@ const c = copy[lang];
   <div class="wrap">
     <SectionHead id="pieces-h" title={c.piecesTitle} sub={c.piecesSub} />
     <ul class="pieces" data-stagger>
-      {pieces.map((p) => (
+      {skills.map((s) => (
         <li class="piece" data-spot>
-          <span class="glyph" aria-hidden="true">{p.glyph}</span>
+          <span class="glyph" aria-hidden="true">{s.glyph}</span>
           <div>
-            <small>{levels[p.level][lang]}</small>
-            <h3>{p.title[lang]}</h3>
-            <p>{p.text[lang]}</p>
+            <h3>{s.title[lang]}</h3>
+            <ul class="tags">{s.items[lang].map((i) => <li class="tag">{i}</li>)}</ul>
           </div>
         </li>
       ))}
     </ul>
+    <div class="certs" data-reveal>
+      <h3>{c.certsTitle}</h3>
+      <ul>{certifications.map((x) => <li>{x}</li>)}</ul>
+    </div>
   </div>
 </section>
 <style>
@@ -29,10 +32,14 @@ const c = copy[lang];
   .piece { background: var(--ink-2); border: 1px solid var(--line); padding: 26px; display: flex; gap: 20px; transition: border-color .3s, transform .4s var(--ease); }
   .piece:hover { border-color: var(--accent); transform: translateY(-4px); }
   .glyph { animation: bob 6s ease-in-out infinite; font-size: 3rem; line-height: 1; color: var(--accent-2); flex: none; transition: transform .5s var(--ease); }
-  .piece:hover .glyph { transform: rotate(-8deg) scale(1.12); }
   .piece:nth-child(2n) .glyph { animation-delay: -1.6s; } .piece:nth-child(3n) .glyph { animation-delay: -3.2s; }
   @keyframes bob { 50% { translate: 0 -5px; } }
-  small { display: block; font: 500 .72rem var(--font-mono); color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
-  h3 { font: 700 1.2rem var(--font-serif); }
-  p { color: var(--mute); font-size: .92rem; }
+  .piece:hover .glyph { transform: rotate(-8deg) scale(1.12); }
+  h3 { font: 700 1.2rem var(--font-serif); margin-bottom: 10px; }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font: 500 .74rem var(--font-mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 3px; color: var(--ivory); }
+  .certs { margin-top: 36px; padding: 24px 26px; border: 1px dashed var(--line); border-radius: var(--radius); }
+  .certs h3 { font: 500 .78rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .certs ul { list-style: none; display: grid; gap: 6px; color: var(--mute); font-size: .95rem; }
+  .certs li::before { content: '♟'; color: var(--accent); margin-right: 10px; }
 </style>

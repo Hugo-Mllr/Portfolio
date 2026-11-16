@@ -4,6 +4,7 @@ summary: "Mise en place d'un cluster d'orchestration : services répliqués, ré
 status: done
 context: PPE · BTS SIO 2
 tags: [Docker, Swarm, Haute dispo, Réseau overlay]
+draft: true   # masqué tant que le compte rendu n'est pas rédigé
 order: 2
 ---
 

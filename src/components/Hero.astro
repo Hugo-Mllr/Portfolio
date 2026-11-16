@@ -3,8 +3,8 @@ import Board from './Board.astro';
 import { copy } from '../data/home';
 import { site } from '../data/site';
 import { localePath, t, type Lang } from '../i18n/ui';
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; hasProjects?: boolean }
+const { lang, hasProjects = true } = Astro.props;
 const c = copy[lang];
 ---
 <header class="hero" data-rail={t(lang, 'nav.home')}>
@@ -17,7 +17,7 @@ const c = copy[lang];
       </h1>
       <p class="lead" data-hero-in>{c.lead}</p>
       <div class="cta" data-hero-in>
-        <a class="btn pri" href="#moves" data-magnetic>{c.cta1}</a>
+        <a class="btn pri" href={hasProjects ? '#moves' : '#pieces'} data-magnetic>{hasProjects ? c.cta1 : c.ctaSkills}</a>
         {site.cv
           ? <a class="btn sec" href={site.cv} download data-magnetic>{c.ctaCv}</a>
           : <a class="btn sec" href={localePath(lang, 'writeups/')} data-magnetic>{c.ctaWriteups}</a>}

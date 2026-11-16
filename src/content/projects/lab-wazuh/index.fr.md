@@ -4,6 +4,7 @@ summary: "Déploiement d'une plateforme SIEM/XDR : agents, règles de détection
 status: done
 context: PPE · BTS SIO 2
 tags: [Wazuh, SIEM / XDR, Linux, Détection]
+draft: true   # masqué tant que le compte rendu n'est pas rédigé
 order: 1
 files: []
 ---
