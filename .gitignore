@@ -36,6 +36,11 @@ portainer_data/
 docker-compose.override.yml
 .docker/
 
+# --- Espace de travail PRIVÉ (jamais versionné) ---
+# Brouillons de projets/writeups non validés, suivi des publications, sources brutes.
+# Le dépôt est public : même un brouillon `draft: true` y serait visible. Voir docs/CONTENT.md.
+.private/
+
 # --- Divers ---
 .DS_Store
 Thumbs.db

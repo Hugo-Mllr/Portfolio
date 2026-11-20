@@ -95,3 +95,18 @@ Demander à l'agent `writeup-publisher` de mettre en forme des notes brutes ou u
 
 ### Contenu d'exemple actuel
 Les 3 projets contiennent des squelettes avec des **[À COMPLÉTER]**, et `exemple-demo.md` est un writeup **factice** en brouillon à supprimer.
+
+## Espace de travail privé (`.private/`, non versionné)
+Le dépôt est **public** : un fichier en `draft: true` reste lisible sur GitHub. Tout ce qui n'est **pas validé** par Hugo vit donc dans `.private/` (ignoré par git) :
+```
+.private/
+├── PUBLICATION-TRACKER.md   # suivi : quoi, statut (publié / prêt / à compléter / écarté), pourquoi, règles vérifiées
+├── drafts/
+│   ├── projects/<slug>/…    # brouillons de comptes rendus
+│   └── writeups/…           # brouillons de writeups
+```
+Flux : brouillon dans `.private/drafts/` → relecture par Hugo → accord explicite → copie dans `src/content/` → PR → fusion → mise à jour du tracker (statut « publié »).
+
+**Attention** : cet espace n'existe que dans le conteneur de la session (éphémère). À chaque modification, une copie du tracker est envoyée à Hugo ; au début d'une nouvelle session, lui demander de renvoyer la dernière version.
+
+Règles à respecter avant toute publication : aucun secret (webhooks, jetons, mots de passe), aucune solution/flag d'un défi actif, aucune plateforme dont le règlement l'interdit (vérifié et noté dans le tracker), aucun travail d'un tiers sans accord.

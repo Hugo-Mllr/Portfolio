@@ -19,6 +19,9 @@
 6. **Hébergement** : Hugo a un nom de domaine. Il déploiera une **stack Docker avec Portainer** reliée à **Cloudflare** via un tunnel `cloudflared` **déjà existant** du homelab : la stack du portfolio contient donc **uniquement le site**, rejoint le réseau Docker de ce cloudflared (`TUNNEL_NETWORK`) et s'appelle `portfolio-web` (route : `http://portfolio-web:8080`). Pas de second cloudflared, pas de jeton dans cette stack. → Le projet fournit un `Dockerfile` (build Astro puis nginx) et un `docker-compose.yml` compatible Portainer qui **construit l'image sur le serveur** (`build:` + `pull_policy: build`) : pas de registre GHCR ni de jeton (Hugo a choisi cette option). Le workflow GHCR est conservé en manuel/optionnel. Le dépôt est **public**. Aucun secret dans le dépôt.
 7. **Workflow Git** : plusieurs petites PR (une par objectif), en brouillon puis « prêtes ». Hugo a explicitement donné l'**autonomie** de fusionner les PR de ce projet (« tu es autonome ») : fusionner après CI verte et état « clean », en vérifiant `expectedHeadSha`. Branche de base : `main` (créée à la demande de Hugo). Les PR 1 à 6 (scaffold, accueil, contenu, animations, hero 3D, CI/QA) sont **fusionnées**.
 
+## Contenu à publier (projets, writeups) : espace privé
+Les rendus de Hugo (Obsidian, PDF) sont traités dans `.private/` (**non versionné**, dépôt public). Suivi dans `.private/PUBLICATION-TRACKER.md`. **Ne jamais committer** un brouillon non validé, ni de secret (webhooks, jetons, mots de passe). L'espace est éphémère : demander à Hugo la dernière copie du tracker au début d'une session. Détails : `docs/CONTENT.md`.
+
 ## Docs à lire selon la tâche
 | Fichier | Contenu |
 |---|---|
